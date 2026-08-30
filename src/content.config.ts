@@ -36,6 +36,10 @@ const prizes = defineCollection({
     noteEn: z.string(),
     noteZh: z.string(),
 
+    // AI-generated playing tips for a hashi-watashi attempt, grounded in the measured COG
+    tipEn: z.string(),
+    tipZh: z.string(),
+
     // Manufacturer thumbnail (linked directly, not re-uploaded)
     imageUrl: z.string().url(),
     imageCredit: z.string(),

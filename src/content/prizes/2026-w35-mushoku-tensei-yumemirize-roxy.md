@@ -21,6 +21,17 @@ cog:
 noteEn: "276g, on the lighter side. Individual differences depending on how it's packed in the box. Blister-packed and barely moves."
 noteZh: "276g，略轻。因装箱方式不同存在个体差异。吸塑盒包装，基本不晃动。"
 
+tipEn: >
+  A light 276g box with the weight lower than the others — about 2cm down
+  from the top — and centered front-to-back. Because it's light and balanced,
+  sliding it across the bridge takes a steady level push rather than a tilt:
+  catch it around mid-height and keep the claw flat. Don't expect gravity to
+  finish the job — this one has to be walked across the bridge.
+tipZh: >
+  276g的轻量箱体，重心比其余几款更靠下（约距顶部2cm），前后居中。因轻而平衡，
+  过桥需要平稳的水平推动而非翻倒：在箱体中部高度抓取，保持爪子水平。不要指望
+  重力代劳——这款需要沿桥面推过去。
+
 imageUrl: "https://segaplaza.jp/images-v2/prize/D123244_4a670f/large/D123244_01.webp"
 imageCredit: "Photo via Sega (segaplaza.jp)"
 diagramUrl: "https://pbs.twimg.com/media/HQ0a3aOaUAAawQT.jpg"

@@ -23,6 +23,18 @@ cog:
 noteEn: "461g, slightly heavy. Individual differences depending on how it's packed in the box. The figure barely moves inside the box."
 noteZh: "461g，略重。因装箱方式不同存在个体差异。手办在箱内基本不晃动。"
 
+tipEn: >
+  Very top-heavy — the weight is just 5mm down from the top — with a slight
+  lean right and toward the back. Start by catching the top-right corner of
+  the box and pushing it across the bridge rather than lifting: the high
+  center of gravity makes the box tip cleanly once the top edge clears the
+  gap. It barely moves in the box, so the first touch should behave
+  predictably.
+tipZh: >
+  重心极靠上（距顶部仅5mm），并略偏右、偏后。起手抓箱体右上角，沿桥面推过去
+  而非抬起：由于重心高，顶缘一过缺口箱体即会干脆翻落。箱内几乎不动，首次接触
+  的走向应相当可预测。
+
 imageUrl: "https://segaplaza.jp/images-v2/prize/D123318_56c52f/large/D123318_01.webp"
 imageCredit: "Photo via Sega (segaplaza.jp)"
 diagramUrl: "https://pbs.twimg.com/media/HQ0hagIbkAA5mUV.jpg"

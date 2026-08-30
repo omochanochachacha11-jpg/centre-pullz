@@ -82,6 +82,13 @@ const specs: { label: string; zh: string; value: string | undefined }[] = [
       <p class="detail__note-zh zh">{d.noteZh}</p>
     </section>
 
+    <section class="detail__tips panel">
+      <span class="eyebrow">Hashi-watashi tips · 桥渡式攻略提示</span>
+      <p class="detail__tips-en">{d.tipEn}</p>
+      <p class="detail__tips-zh zh">{d.tipZh}</p>
+      <p class="detail__tips-ai mono">AI suggestion · 仅供参考</p>
+    </section>
+
     <a class="btn btn--ghost" href={d.sourceUrl} target="_blank" rel="noopener">
       View original post on X ↗
     </a>
@@ -194,7 +201,7 @@ const specs: { label: string; zh: string; value: string | undefined }[] = [
     font-size: 14px;
   }
   .detail__note {
-    margin: 0 0 24px;
+    margin: 0 0 20px;
     padding: 20px;
   }
   .detail__note-en {
@@ -204,6 +211,28 @@ const specs: { label: string; zh: string; value: string | undefined }[] = [
   .detail__note-zh {
     font-size: 15px;
     margin: 10px 0 0;
+  }
+  .detail__tips {
+    margin: 0 0 24px;
+    padding: 20px;
+    border-left: 3px solid var(--accent);
+  }
+  .detail__tips-en {
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 12px 0 0;
+  }
+  .detail__tips-zh {
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 10px 0 0;
+  }
+  .detail__tips-ai {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin: 14px 0 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
   @media (max-width: 720px) {
     .detail__head {
