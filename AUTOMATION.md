@@ -1,84 +1,67 @@
-# Weekly automation (Hermes Agent)
+# Automation (Hermes Agent)
 
-This doc is the checklist for the recurring job that keeps the site current.
-Runs every 3 days. Each run should end with one new commit to this repo
-containing one new `.md` file per new prize entry, pushed to GitHub —
-Cloudflare Pages picks up the push and redeploys automatically.
+Recurring job that keeps the site current. Runs every 3 days. The site is a
+bilingual (EN/ZH) database of Merry☆An's crane-prize center-of-gravity
+measurements — no other source.
 
-## 1. Scrape smacre.jp
+## 1. Harvest Merry☆An's measurement posts
 
-Three kinds of posts to pull, matching `sourceType` in the schema:
+Source: X account **@6eS8Jm4YNJpPA2D** (Merry☆An). All pipeline is free, no
+paid X API.
 
-- **`prediction`** — the weekly "重心予測" post (e.g. "重心予測（2026年8月第5週）").
-  This is the main one; check for a new post every run.
-- **`technique`** — posts filed under a capture-technique category
-  (橋渡し, 末広がり, 剣山, and others). Pull any new posts since the last run.
-- **`case_study`** — older 攻略ケース posts. These can be backfilled more
-  slowly since they're not time-sensitive; a few per week is fine.
+1. **Collect tweet IDs** — browser tool (logged-in Chrome): open the profile
+   Posts tab and the search
+   `from:6eS8Jm4YNJpPA2D #重心情報` (Latest tab); scroll repeatedly
+   (scrollIntoView on the last `[data-testid="cellInnerDiv"]` + window.scrollTo
+   + wheel events) to load as much history as X allows. Collect every
+   `a[href*="/status/"]` ID. X pagination is limited — collect what's
+   reachable; subsequent runs continue the backfill. If the browser is
+   unavailable, fall back to curl on the profile page (embeds ~5 recent IDs).
+2. **Fetch full data** — `curl https://cdn.syndication.twimg.com/tweet-result?id={ID}&token=x`
+   (no auth). Gives `created_at` (UTC — convert to JST +9h for `publishedAt`),
+   `text`, `mediaDetails[].media_url_https` (the annotated COG photo).
+3. **Filter** — keep only posts containing `重心情報`. Skip クレ活/雑談.
+   **Dedupe by sourceUrl** against `src/content/prizes/*.md` — never re-add an
+   existing tweet URL.
 
-For each post, grab: title, publish date, figure/box size and weight if
-given, the technique category, and the raw Japanese description of where the
-weight sits. Keep the original post URL — it's required (`sourceUrl`) and
-shown on every entry page as an attribution link.
+## 2. Parse each measurement post
 
-## 2. Translate
+- Prize name (first line after `＃重心情報`)
+- `【Figure size】` e.g. `21cm` or `16×12cm`
+- `【Box weight】` e.g. `405g` (qualifiers like やや重め → note, not the value)
+- `【Box size】縦X×横Y×奥行Zcm` → `X × Y × Zcm (H×W×D)`
+- COG lines `🟨裏/上/右/左/中/表…` — distances from back/top, side offsets,
+  ranges (㍉=mm). e.g. `裏1cm重心`, `上2.5㍉〜7.5㍉重心(5㍉幅動)`
+- Notes: `箱はいれ方で個体差あり` (individual differences by packing),
+  `箱中はほぼ動かない/ブリスターで…動く` (internal movement)
 
-Translate the title and the weight-distribution description into English
-and Simplified Chinese. Use the DeepSeek tokens already set up for the
-Chiikawa site. Keep translations close to the source rather than
-embellishing — these are read as practical instructions, not marketing copy.
+## 3. Manufacturer thumbnail
 
-## 3. Generate the targeting summary
+Identify the maker from the brand (never guess — verify by search):
+Taito (AMP+, T-most, 全力造形, Vivit — taito.co.jp og:image via curl),
+Sega (XStellar, Yumemirize, Luminasta, GLITTER&GLAMOURS, Grandista —
+segaplaza.jp is a JS app, use the browser for og:image), Banpresto/Bandai
+Spirits (bsp-prize.jp og:image via curl), Furyu (furyuprize.com), Bushiroad
+(prize.bushiroad-creative.com). `imageUrl` = direct official image,
+`imageCredit` = "Photo via <Maker> (<domain>)". Verify 200 image/*. If the
+maker can't be verified, fall back to the tweet's own photo.
 
-This is the one field that's AI-written rather than translated: a short
-paragraph (2–4 sentences) explaining, in plain terms, where to aim the claw
-and which direction to push for a hashi-watashi (or other technique)
-attempt, based on the translated weight-distribution text. Write one version
-in English (`summaryEn`) and one in Simplified Chinese (`summaryZh`). If
-multiple posts report the same figure with consistent findings, say so and
-mark confidence `"high"`; if it's a single report or plush/soft-prize case
-with no fixed center of gravity, mark it `"low"` and say that explicitly
-rather than inventing false precision.
+`diagramUrl` = the tweet's annotated photo (`mediaDetails[].media_url_https`),
+`diagramCredit` = "Diagram via Merry☆An (x.com)".
 
-## 4. Estimate the center-of-gravity coordinates
+## 4. Translate, write tips, emit
 
-`centerOfGravity.x` / `.y` are percentages (0–100) locating the weight
-inside the box, top-left origin. There's no exact source for this number —
-estimate it from the described position (e.g. "1.5–2cm in from the front,
-2.5cm down from the top" on a 15×14cm box maps to roughly x≈15, y≈18). Set
-`zoneRadius` larger when the source describes more play/variation between
-individual boxes, smaller when it's tightly consistent. Set `pushDirection`
-only when the source clearly implies a push direction; leave it unset
-otherwise.
+- Translate prize name → `titleEn`/`titleZh` (keep `titleJa` original)
+- `cog[]` — one bilingual `{en, zh}` line per COG measurement
+- `noteEn`/`noteZh` — translate the remarks faithfully, no embellishment
+- `tipEn`/`tipZh` — AI-generated hashi-watashi (橋渡し) playing tips grounded
+  in the measured COG: where to aim first, push vs tilt, honest confidence
+  caveats. 2–4 sentences each.
+- One `.md` per post at `src/content/prizes/YYYY-Www-slugified-title.md`
+  matching `src/content.config.ts`. `publishedAt` in JST.
 
-## 5. Attach the photo
+## 5. Build and release
 
-If the source post has a photo of the prize, set `imageUrl` to that image's
-direct URL and `imageCredit` to a short attribution string (e.g. "Photo via
-smacre.jp"). Leave both fields out entirely if there's no photo on the
-source post — the site handles a missing image fine, don't substitute a
-stock or unrelated image. Don't rehost/re-upload the image yourself unless
-told to; linking directly to the source URL is the default.
-
-## 6. Write the file
-
-One markdown file per entry in `src/content/prizes/`, filename pattern
-`YYYY-Www-slugified-title.md`, matching the shape of the three example
-entries already in that folder. Fields are validated against
-`src/content.config.ts` — a build will fail loudly if a required field is
-missing or a value doesn't match the schema, which is deliberate: better to
-catch a bad scrape at build time than publish a wrong target zone.
-
-## 7. Commit and push
-
-Commit message convention: `add: <week label> — <count> new entries`. Push
-to `main`; Netlify handles the rest.
-
-## Open items to sort out before the first real run
-
-- Confirm smacre.jp doesn't rate-limit or block repeated weekly requests —
-  it's a normal WordPress site so this is unlikely, but worth a light touch
-  (a few seconds between requests) rather than hammering it.
-- Decide how far back to backfill `case_study` posts, and at what pace.
-- Double-check translations occasionally against the original — DeepSeek is
-  good but not perfect on gaming slang and figure-name transliteration.
+`npm install` if needed, `npm run build` (schema errors fail loudly — fix
+them), commit `add: <week label> — <count> new entries`, push to main.
+Netlify redeploys automatically.
