@@ -10,50 +10,35 @@ const prizes = defineCollection({
     titleZh: z.string(),
     series: z.string().optional(),
 
-    // Where this came from
-    sourceType: z.enum(["prediction", "technique", "case_study", "measurement"]),
-    sourceUrl: z.string().url(),
-    sourceName: z.enum(["smacre.jp", "x.com"]),
+    // Who makes the prize
+    manufacturer: z.string(), // e.g. "Taito", "Sega", "Banpresto (Bandai Spirits)"
 
-    // When
-    week: z.string(), // e.g. "2026-W35"
-    weekLabelJa: z.string(), // e.g. "2026年8月第5週"
+    // Source — Merry☆An's measurement post on X
+    sourceUrl: z.string().url(),
     publishedAt: z.date(),
 
-    // Capture technique tags, e.g. hashi-watashi, suehirogari, kenzan
-    techniques: z.array(
-      z.object({
-        slug: z.string(),
-        labelJa: z.string(),
-        labelEn: z.string(),
-        labelZh: z.string(),
-      })
-    ),
+    // Prize specs, exactly as stated in the post (numbers + units)
+    figureSize: z.string().optional(), // e.g. "21cm"
+    boxWeight: z.string().optional(), // e.g. "405g"
+    boxSize: z.string().optional(), // e.g. "23 × 14 × 12.5cm (H×W×D)"
 
-    // Center-of-gravity target, as a % position inside the prize's bounding box
-    // x/y are 0-100, measured from top-left. zone radius is a rough confidence blob size.
-    centerOfGravity: z.object({
-      x: z.number().min(0).max(100),
-      y: z.number().min(0).max(100),
-      zoneRadius: z.number().min(2).max(40).default(10),
-      pushDirection: z.enum(["up", "down", "left", "right"]).optional(),
-      confidence: z.enum(["low", "medium", "high"]).default("medium"),
-    }),
+    // Measured center of gravity, bilingual per line
+    cog: z
+      .array(
+        z.object({
+          en: z.string(),
+          zh: z.string(),
+        })
+      )
+      .optional(),
 
-    // Raw weight/size facts as given by the source (kept in original units)
-    figureSize: z.string().optional(), // e.g. "26cm"
-    boxWeight: z.string().optional(), // e.g. "424g"
-    boxSize: z.string().optional(), // e.g. "25×15×14cm"
+    // The post's remarks (個体差 / 動く etc.), translated — not AI-written
+    noteEn: z.string(),
+    noteZh: z.string(),
 
-    // AI-generated targeting summary, one per language
-    summaryEn: z.string(),
-    summaryZh: z.string(),
-
-    // Prize photo, pulled from the source post if one's available
-    imageUrl: z.string().url().optional(),
-    imageCredit: z.string().optional(), // e.g. "Photo via smacre.jp"
-
-    featured: z.boolean().default(false),
+    // Manufacturer thumbnail (linked directly, not re-uploaded)
+    imageUrl: z.string().url(),
+    imageCredit: z.string(),
   }),
 });
 

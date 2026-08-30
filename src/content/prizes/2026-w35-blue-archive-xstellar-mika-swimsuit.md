@@ -1,49 +1,28 @@
 ---
 titleJa: "ブルーアーカイブ XStellar -ミカ（水着）-"
 titleEn: "Blue Archive XStellar — Mika (Swimsuit)"
-titleZh: "《蔚蓝档案》XStellar 美佳（泳装）"
+titleZh: "蔚蓝档案 XStellar — 弥香（泳装）"
 series: "Blue Archive"
+manufacturer: "Sega"
 
-sourceType: "measurement"
 sourceUrl: "https://x.com/6eS8Jm4YNJpPA2D/status/2093366152026325402"
-sourceName: "x.com"
-
-week: "2026-W35"
-weekLabelJa: "2026年8月第5週"
-publishedAt: 2026-08-29
-
-techniques:
-  - slug: "hashi-watashi"
-    labelJa: "橋渡し"
-    labelEn: "Bridge crossing"
-    labelZh: "架桥式"
-
-centerOfGravity:
-  x: 53
-  y: 2
-  zoneRadius: 12
-  confidence: "low"
+publishedAt: 2026-08-28
 
 figureSize: "22cm"
-boxWeight: "461g (やや重め)"
-boxSize: "縦24 × 横15 × 奥行14cm"
+boxWeight: "461g"
+boxSize: "24 × 15 × 14cm (H×W×D)"
 
-summaryEn: >
-  Measured weight sits 2cm into the box from the back wall, about 5mm down
-  from the top, shifting slightly center-right (about 2.5mm to the right of
-  center). The figure nests almost still inside the box — little slop — but
-  how it's inserted causes some individual differences. For a bridge attempt,
-  think of the mass sitting toward the upper rear edge; aim the claw there
-  rather than the box center. Single measured report, so treat the zone as a
-  strong pointer rather than a certainty.
-summaryZh: >
-  实测重心位于箱内距后壁2cm处，距顶部约5mm，略偏中心右侧（约2.5mm）。
-  箱内基本固定，晃动很小；但因摆放方式不同仍存在一定个体差异。架桥时可将
-  重量视为偏向上方后缘，将爪子对准该处而非箱体中心。此为本账户单次实测，
-  标记区域为有力参考而非绝对。
+cog:
+  - en: "2cm in from the back wall"
+    zh: "距后壁2cm"
+  - en: "5mm down from the top"
+    zh: "距顶部5mm"
+  - en: "center–right 2.5mm (≈2.5mm play)"
+    zh: "中偏右2.5mm（约2.5mm浮动）"
 
-imageUrl: "https://pbs.twimg.com/media/HQ0hagIbkAA5mUV.jpg"
-imageCredit: "Photo via Merry☆An (x.com)"
+noteEn: "461g, slightly heavy. Individual differences depending on how it's packed in the box. The figure barely moves inside the box."
+noteZh: "461g，略重。因装箱方式不同存在个体差异。手办在箱内基本不晃动。"
+
+imageUrl: "https://segaplaza.jp/images-v2/prize/D123318_56c52f/large/D123318_01.webp"
+imageCredit: "Photo via Sega (segaplaza.jp)"
 ---
-
-Independently measured post from Merry☆An's 重心計測 series — the figure's measured center of gravity plus exact box weight and size.

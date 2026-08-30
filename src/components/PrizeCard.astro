@@ -1,53 +1,53 @@
 ---
-import CogDiagram from "./CogDiagram.astro";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  entry: any; // CollectionEntry<"prizes">
-  index?: number;
+  entry: CollectionEntry<"prizes">;
 }
-const { entry, index } = Astro.props;
+
+const { entry } = Astro.props;
 const d = entry.data;
 
-const sourceTypeLabel: Record<string, string> = {
-  prediction: "Weekly prediction",
-  technique: "Technique note",
-  case_study: "Case study",
-  measurement: "Measured",
-};
+const date = d.publishedAt.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+const specs: { label: string; zh: string; value: string | undefined }[] = [
+  { label: "Figure size", zh: "尺寸", value: d.figureSize },
+  { label: "Box weight", zh: "箱重", value: d.boxWeight },
+  { label: "Box size", zh: "箱体", value: d.boxSize },
+].filter((s) => s.value);
 ---
 
 <a href={`/prizes/${entry.id}`} class="card panel">
-  {index !== undefined && <span class="card__index mono">{String(index + 1).padStart(2, "0")}</span>}
-  <div class="card__visuals">
-    {d.imageUrl && (
-      <div class="card__photo">
-        <img src={d.imageUrl} alt={d.titleEn} loading="lazy" />
+  <div class="card__photo">
+    <img src={d.imageUrl} alt={d.titleEn} loading="lazy" />
+  </div>
+
+  <div class="card__body">
+    <span class="eyebrow">{d.manufacturer} · {date}</span>
+    <h3 class="card__title">{d.titleEn}</h3>
+    <p class="card__title-zh zh">{d.titleZh}</p>
+    <p class="card__title-ja mono">{d.titleJa}</p>
+
+    {specs.length > 0 && (
+      <div class="card__specs mono">
+        {specs.map((s) => (
+          <span class="spec"><b>{s.label}</b> {s.value}</span>
+        ))}
       </div>
     )}
-    <div class="card__diagram">
-      <CogDiagram
-        x={d.centerOfGravity.x}
-        y={d.centerOfGravity.y}
-        zoneRadius={d.centerOfGravity.zoneRadius}
-        pushDirection={d.centerOfGravity.pushDirection}
-        confidence={d.centerOfGravity.confidence}
-        size={96}
-      />
-    </div>
-  </div>
-  <div class="card__body">
-    <span class="eyebrow">{sourceTypeLabel[d.sourceType]} · {d.weekLabelJa}</span>
-    <h3 class="card__title">{d.titleEn}</h3>
-    <p class="card__title-zh">{d.titleZh}</p>
-    <p class="card__title-ja mono">{d.titleJa}</p>
-    <div class="card__tags">
-      {d.techniques.map((t: any) => (
-        <span class="tag">{t.labelEn}</span>
-      ))}
-      <span class={`tag ${d.centerOfGravity.confidence === "high" ? "tag--accent" : ""}`}>
-        {d.centerOfGravity.confidence} confidence
-      </span>
-    </div>
+
+    {d.cog && d.cog.length > 0 && (
+      <div class="card__cog">
+        {d.cog.map((c) => (
+          <span class="tag">{c.en}</span>
+        ))}
+      </div>
+    )}
   </div>
 </a>
 
@@ -58,28 +58,15 @@ const sourceTypeLabel: Record<string, string> = {
     padding: 18px;
     text-decoration: none;
     color: var(--text);
-    position: relative;
     transition: border-color 0.15s ease;
   }
   .card:hover {
     border-color: var(--accent);
   }
-  .card__index {
-    position: absolute;
-    top: 14px;
-    right: 16px;
-    color: var(--text-muted);
-    font-size: 12px;
-  }
-  .card__visuals {
-    flex: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
   .card__photo {
-    width: 96px;
-    height: 96px;
+    flex: none;
+    width: 140px;
+    height: 140px;
     border-radius: var(--radius);
     overflow: hidden;
     border: 1px solid var(--border);
@@ -91,12 +78,6 @@ const sourceTypeLabel: Record<string, string> = {
     object-fit: cover;
     display: block;
   }
-  .card__diagram {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 6px;
-  }
   .card__body {
     display: flex;
     flex-direction: column;
@@ -104,25 +85,45 @@ const sourceTypeLabel: Record<string, string> = {
     min-width: 0;
   }
   .card__title {
-    font-family: var(--font-display);
     font-size: 19px;
-    color: #fff;
-    font-weight: 700;
+    margin: 2px 0 0;
   }
   .card__title-zh {
     font-size: 15px;
-    color: var(--text);
-    margin: 0;
+    margin: 2px 0 0;
   }
   .card__title-ja {
     font-size: 11px;
     color: var(--text-muted);
-    margin: 0 0 4px;
+    margin: 0 0 6px;
   }
-  .card__tags {
+  .card__specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    font-size: 12px;
+    color: var(--text);
+    margin: 4px 0 0;
+  }
+  .card__specs .spec b {
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-right: 4px;
+  }
+  .card__cog {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-top: 4px;
+    margin-top: 8px;
+  }
+  @media (max-width: 560px) {
+    .card {
+      flex-direction: column;
+    }
+    .card__photo {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+    }
   }
 </style>

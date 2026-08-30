@@ -5,7 +5,7 @@ interface Props {
   title: string;
   description?: string;
 }
-const { title, description = "Weekly crane-game weight-distribution reports, translated." } = Astro.props;
+const { title, description = "Crane-game prize weight-distribution measurements, translated." } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,11 +22,12 @@ const { title, description = "Weekly crane-game weight-distribution reports, tra
         <a href="/" class="brand">
           <span class="brand__mark mono">⌖</span>
           <span class="display">CENTER PULL</span>
+          <span class="brand__tag mono">重心データベース</span>
         </a>
         <nav class="site-nav mono">
-          <a href="/"><span class="en">This Week</span><span class="zh-inline">本周</span></a>
-          <a href="/database"><span class="en">Database</span><span class="zh-inline">数据库</span></a>
-          <a href="https://smacre.jp/" target="_blank" rel="noopener">Source: smacre.jp ↗</a>
+          <a href="https://x.com/6eS8Jm4YNJpPA2D" target="_blank" rel="noopener">
+            <span class="en">Measured by Merry☆An</span><span class="zh-inline">实测数据</span>
+          </a>
         </nav>
       </div>
     </header>
@@ -36,13 +37,14 @@ const { title, description = "Weekly crane-game weight-distribution reports, tra
     <footer class="site-footer">
       <div class="wrap mono">
         <p>
-          Weight-distribution reports are translated and summarized from
-          <a href="https://smacre.jp/" target="_blank" rel="noopener">smacre.jp</a>. Original Japanese text, photo
-          credit, and source links are kept on every entry. Updated every 3 days.
+          Center-of-gravity measurements compiled from
+          <a href="https://x.com/6eS8Jm4YNJpPA2D" target="_blank" rel="noopener">Merry☆An (@6eS8Jm4YNJpPA2D)</a>
+          on X. Prize photos are the manufacturers' official product images, linked directly — not re-uploaded.
         </p>
         <p class="footer-zh">
-          重心数据翻译整理自 <a href="https://smacre.jp/" target="_blank" rel="noopener">smacre.jp</a>，
-          每条记录均保留日文原文、图片来源及原文链接。每 3 天更新一次。
+          重心实测数据整理自 X 用户
+          <a href="https://x.com/6eS8Jm4YNJpPA2D" target="_blank" rel="noopener">Merry☆An（@6eS8Jm4YNJpPA2D）</a>。
+          奖品图片为厂商官方商品图，直接外链，未经二次上传。
         </p>
       </div>
     </footer>
@@ -62,10 +64,11 @@ const { title, description = "Weekly crane-game weight-distribution reports, tra
     align-items: center;
     justify-content: space-between;
     height: 64px;
+    gap: 16px;
   }
   .brand {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     gap: 8px;
     text-decoration: none;
     color: #fff;
@@ -75,6 +78,11 @@ const { title, description = "Weekly crane-game weight-distribution reports, tra
   .brand__mark {
     color: var(--accent);
     font-size: 20px;
+  }
+  .brand__tag {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
   }
   .site-nav {
     display: flex;
@@ -88,6 +96,7 @@ const { title, description = "Weekly crane-game weight-distribution reports, tra
     flex-direction: column;
     gap: 1px;
     line-height: 1.2;
+    text-align: right;
   }
   .site-nav a:hover {
     color: var(--accent);
@@ -109,5 +118,10 @@ const { title, description = "Weekly crane-game weight-distribution reports, tra
   .footer-zh {
     color: var(--text);
     margin-top: 6px;
+  }
+  @media (max-width: 640px) {
+    .brand__tag {
+      display: none;
+    }
   }
 </style>

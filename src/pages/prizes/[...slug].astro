@@ -1,7 +1,6 @@
 ---
-import { getCollection, render, type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import CogDiagram from "../../components/CogDiagram.astro";
 
 export async function getStaticPaths() {
   const all = await getCollection("prizes");
@@ -10,74 +9,79 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props as { entry: CollectionEntry<"prizes"> };
 const d = entry.data;
-const { Content } = await render(entry);
+
+const date = d.publishedAt.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+const specs: { label: string; zh: string; value: string | undefined }[] = [
+  { label: "Figure size", zh: "尺寸", value: d.figureSize },
+  { label: "Box weight", zh: "箱重", value: d.boxWeight },
+  { label: "Box size", zh: "箱体", value: d.boxSize },
+].filter((s) => s.value);
 ---
 
-<Layout title={`${d.titleEn} — Center Pull`} description={d.summaryEn}>
+<Layout title={`${d.titleEn} — Center Pull`} description={d.noteEn}>
   <article class="wrap detail">
-    <a href="/database" class="back mono">← Database</a>
+    <a href="/" class="back mono">← All measurements</a>
 
     <div class="detail__head">
-      <div>
-        <span class="eyebrow">{d.weekLabelJa} · {d.sourceType.replace("_", " ")}</span>
+      <div class="detail__photo panel">
+        <img src={d.imageUrl} alt={d.titleEn} />
+        <p class="detail__photo-credit mono">{d.imageCredit}</p>
+      </div>
+      <div class="detail__info">
+        <span class="eyebrow">{d.manufacturer} · {date}</span>
         <h1>{d.titleEn}</h1>
         <p class="detail__title-zh zh">{d.titleZh}</p>
-        <p class="detail__alt mono">{d.titleJa}</p>
-        <div class="detail__tags">
-          {d.techniques.map((t) => (
-            <span class="tag">{t.labelEn} · {t.labelJa}</span>
-          ))}
-        </div>
+        <p class="detail__title-ja mono">{d.titleJa}</p>
+        {d.series && <p class="detail__series mono">Series · {d.series}</p>}
       </div>
-      <div class="detail__visuals">
-        {d.imageUrl && (
-          <div class="detail__photo panel">
-            <img src={d.imageUrl} alt={d.titleEn} loading="lazy" />
-            {d.imageCredit && <p class="detail__photo-credit mono">{d.imageCredit}</p>}
+    </div>
+
+    {specs.length > 0 && (
+      <div class="detail__specs">
+        {specs.map((s) => (
+          <div class="detail__spec panel">
+            <span class="detail__spec-label mono">{s.label} · {s.zh}</span>
+            <span class="detail__spec-value display">{s.value}</span>
           </div>
-        )}
-        <div class="detail__diagram panel">
-          <CogDiagram
-            x={d.centerOfGravity.x}
-            y={d.centerOfGravity.y}
-            zoneRadius={d.centerOfGravity.zoneRadius}
-            pushDirection={d.centerOfGravity.pushDirection}
-            confidence={d.centerOfGravity.confidence}
-            size={220}
-          />
-          <p class="mono detail__diagram-caption">
-            {d.centerOfGravity.confidence} confidence
-            {d.centerOfGravity.pushDirection && ` · push ${d.centerOfGravity.pushDirection}`}
-          </p>
-        </div>
+        ))}
       </div>
-    </div>
+    )}
 
-    <div class="detail__facts mono">
-      {d.figureSize && <div><span>Figure size</span>{d.figureSize}</div>}
-      {d.boxWeight && <div><span>Box weight</span>{d.boxWeight}</div>}
-      {d.boxSize && <div><span>Box size</span>{d.boxSize}</div>}
-    </div>
+    {d.cog && d.cog.length > 0 && (
+      <section class="detail__cog panel">
+        <span class="eyebrow">Center of gravity · 重心位置</span>
+        <ul class="detail__cog-list">
+          {d.cog.map((c) => (
+            <li>
+              <span class="detail__cog-en">{c.en}</span>
+              <span class="detail__cog-zh zh">{c.zh}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
 
-    <div class="detail__summary panel">
-      <span class="eyebrow">Targeting note</span>
-      <p>{d.summaryEn}</p>
-      <p class="detail__summary-zh zh">{d.summaryZh}</p>
-    </div>
-
-    <div class="detail__body">
-      <Content />
-    </div>
+    <section class="detail__note panel">
+      <span class="eyebrow">Note · 备注</span>
+      <p class="detail__note-en">{d.noteEn}</p>
+      <p class="detail__note-zh zh">{d.noteZh}</p>
+    </section>
 
     <a class="btn btn--ghost" href={d.sourceUrl} target="_blank" rel="noopener">
-      View original report on smacre.jp ↗
+      View original post on X ↗
     </a>
   </article>
 </Layout>
 
 <style>
   .detail {
-    padding: 40px 0 80px;
+    padding: 32px 0 80px;
   }
   .back {
     color: var(--text-muted);
@@ -86,41 +90,18 @@ const { Content } = await render(entry);
   }
   .detail__head {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 320px 1fr;
     gap: 32px;
     margin: 20px 0 28px;
     align-items: start;
-  }
-  .detail__head h1 {
-    font-size: clamp(28px, 4vw, 40px);
-    margin: 10px 0 6px;
-  }
-  .detail__alt {
-    color: var(--text-muted);
-    font-size: 13px;
-  }
-  .detail__title-zh {
-    font-size: 18px;
-    margin: 6px 0 4px;
-  }
-  .detail__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 14px;
-  }
-  .detail__visuals {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
   }
   .detail__photo {
     padding: 10px;
     text-align: center;
   }
   .detail__photo img {
-    width: 220px;
-    height: 220px;
+    width: 100%;
+    aspect-ratio: 1;
     object-fit: cover;
     border-radius: var(--radius);
     display: block;
@@ -128,52 +109,88 @@ const { Content } = await render(entry);
   .detail__photo-credit {
     font-size: 10px;
     color: var(--text-muted);
-    margin: 8px 0 0;
-  }
-  .detail__diagram {
-    padding: 18px;
-    text-align: center;
-  }
-  .detail__diagram-caption {
-    font-size: 11px;
-    color: var(--text-muted);
     margin: 10px 0 0;
   }
-  .detail__facts {
-    display: flex;
-    gap: 28px;
-    padding: 16px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+  .detail__info h1 {
+    font-size: clamp(26px, 3.6vw, 38px);
+    margin: 10px 0 6px;
+  }
+  .detail__title-zh {
+    font-size: 18px;
+    margin: 6px 0 4px;
+  }
+  .detail__title-ja {
+    color: var(--text-muted);
     font-size: 13px;
-    flex-wrap: wrap;
+    margin: 0;
   }
-  .detail__facts span {
-    display: block;
+  .detail__series {
     color: var(--text-muted);
+    font-size: 12px;
+    margin: 14px 0 0;
+  }
+  .detail__specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 0 0 24px;
+  }
+  .detail__spec {
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .detail__spec-label {
     font-size: 11px;
-    margin-bottom: 2px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
   }
-  .detail__summary {
-    margin: 28px 0;
+  .detail__spec-value {
+    font-size: 22px;
+    color: #fff;
+  }
+  .detail__cog {
+    margin: 0 0 20px;
     padding: 20px;
-    border-left: 3px solid var(--accent);
   }
-  .detail__summary p {
-    margin: 10px 0 0;
+  .detail__cog-list {
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .detail__cog-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .detail__cog-en {
     font-size: 16px;
   }
-  .detail__summary-zh {
+  .detail__cog-zh {
+    font-size: 14px;
+  }
+  .detail__note {
+    margin: 0 0 24px;
+    padding: 20px;
+  }
+  .detail__note-en {
+    font-size: 16px;
+    margin: 12px 0 0;
+  }
+  .detail__note-zh {
     font-size: 15px;
-    margin-top: 10px;
+    margin: 10px 0 0;
   }
-  .detail__body {
-    color: var(--text-muted);
-    line-height: 1.7;
-  }
-  @media (max-width: 640px) {
+  @media (max-width: 720px) {
     .detail__head {
       grid-template-columns: 1fr;
+    }
+    .detail__photo {
+      max-width: 320px;
     }
   }
 </style>
