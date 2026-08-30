@@ -11,9 +11,9 @@ const prizes = defineCollection({
     series: z.string().optional(),
 
     // Where this came from
-    sourceType: z.enum(["prediction", "technique", "case_study"]),
+    sourceType: z.enum(["prediction", "technique", "case_study", "measurement"]),
     sourceUrl: z.string().url(),
-    sourceName: z.literal("smacre.jp"),
+    sourceName: z.enum(["smacre.jp", "x.com"]),
 
     // When
     week: z.string(), // e.g. "2026-W35"
