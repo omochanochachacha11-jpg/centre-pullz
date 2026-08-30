@@ -1,0 +1,94 @@
+---
+import CogDiagram from "./CogDiagram.astro";
+
+interface Props {
+  entry: any; // CollectionEntry<"prizes">
+  index?: number;
+}
+const { entry, index } = Astro.props;
+const d = entry.data;
+
+const sourceTypeLabel: Record<string, string> = {
+  prediction: "Weekly prediction",
+  technique: "Technique note",
+  case_study: "Case study",
+};
+---
+
+<a href={`/prizes/${entry.id}`} class="card panel">
+  {index !== undefined && <span class="card__index mono">{String(index + 1).padStart(2, "0")}</span>}
+  <div class="card__diagram">
+    <CogDiagram
+      x={d.centerOfGravity.x}
+      y={d.centerOfGravity.y}
+      zoneRadius={d.centerOfGravity.zoneRadius}
+      pushDirection={d.centerOfGravity.pushDirection}
+      confidence={d.centerOfGravity.confidence}
+      size={96}
+    />
+  </div>
+  <div class="card__body">
+    <span class="eyebrow">{sourceTypeLabel[d.sourceType]} · {d.weekLabelJa}</span>
+    <h3 class="card__title">{d.titleEn}</h3>
+    <p class="card__title-alt mono">{d.titleZh} · {d.titleJa}</p>
+    <div class="card__tags">
+      {d.techniques.map((t: any) => (
+        <span class="tag">{t.labelEn}</span>
+      ))}
+      <span class={`tag ${d.centerOfGravity.confidence === "high" ? "tag--accent" : ""}`}>
+        {d.centerOfGravity.confidence} confidence
+      </span>
+    </div>
+  </div>
+</a>
+
+<style>
+  .card {
+    display: flex;
+    gap: 20px;
+    padding: 18px;
+    text-decoration: none;
+    color: var(--text);
+    position: relative;
+    transition: border-color 0.15s ease;
+  }
+  .card:hover {
+    border-color: var(--accent);
+  }
+  .card__index {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+  .card__diagram {
+    flex: none;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 6px;
+  }
+  .card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+  .card__title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    color: #fff;
+    font-weight: 700;
+  }
+  .card__title-alt {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+</style>

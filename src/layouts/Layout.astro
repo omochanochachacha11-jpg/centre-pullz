@@ -1,0 +1,97 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "Weekly crane-game weight-distribution reports, translated." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a href="/" class="brand">
+          <span class="brand__mark mono">⌖</span>
+          <span class="display">CENTER PULL</span>
+        </a>
+        <nav class="site-nav mono">
+          <a href="/">This Week</a>
+          <a href="/database">Database</a>
+          <a href="https://smacre.jp/" target="_blank" rel="noopener">Source: smacre.jp ↗</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap mono">
+        <p>
+          Weight-distribution reports are translated and summarized from
+          <a href="https://smacre.jp/" target="_blank" rel="noopener">smacre.jp</a>. Original Japanese text and
+          source links are kept on every entry. Updated weekly.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 10;
+  }
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .brand__mark {
+    color: var(--accent);
+    font-size: 20px;
+  }
+  .site-nav {
+    display: flex;
+    gap: 24px;
+    font-size: 13px;
+  }
+  .site-nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+  }
+  .site-nav a:hover {
+    color: var(--accent);
+  }
+  .site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 64px;
+    padding: 24px 0 48px;
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+  .site-footer a {
+    color: var(--accent);
+  }
+</style>

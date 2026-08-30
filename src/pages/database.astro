@@ -1,0 +1,87 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PrizeCard from "../components/PrizeCard.astro";
+
+const all = await getCollection("prizes");
+const sorted = all.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const techniqueSet = new Map<string, string>();
+for (const e of all) {
+  for (const t of e.data.techniques) techniqueSet.set(t.slug, t.labelEn);
+}
+const techniques = [...techniqueSet.entries()];
+---
+
+<Layout title="Database — Center Pull">
+  <section class="wrap header">
+    <span class="eyebrow">{sorted.length} entries logged</span>
+    <h1>Full database</h1>
+  </section>
+
+  <section class="wrap filters mono" id="filters">
+    <button class="chip is-active" data-filter="all">All</button>
+    {techniques.map(([slug, label]) => (
+      <button class="chip" data-filter={slug}>{label}</button>
+    ))}
+  </section>
+
+  <section class="wrap grid" id="grid">
+    {sorted.map((entry) => (
+      <div class="grid__item" data-techniques={entry.data.techniques.map((t: any) => t.slug).join(",")}>
+        <PrizeCard entry={entry} />
+      </div>
+    ))}
+  </section>
+</Layout>
+
+<script>
+  const filters = document.getElementById("filters")!;
+  const grid = document.getElementById("grid")!;
+  filters.addEventListener("click", (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>("[data-filter]");
+    if (!btn) return;
+    filters.querySelectorAll(".chip").forEach((c) => c.classList.remove("is-active"));
+    btn.classList.add("is-active");
+    const filter = btn.dataset.filter;
+    grid.querySelectorAll<HTMLElement>("[data-techniques]").forEach((item) => {
+      const list = item.dataset.techniques?.split(",") ?? [];
+      item.style.display = filter === "all" || list.includes(filter!) ? "" : "none";
+    });
+  });
+</script>
+
+<style>
+  .header {
+    padding: 48px 0 24px;
+  }
+  .header h1 {
+    font-size: 34px;
+    margin-top: 10px;
+  }
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-bottom: 24px;
+    font-size: 12px;
+  }
+  .chip {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    border-radius: 999px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: var(--font-mono);
+  }
+  .chip.is-active {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .grid {
+    display: grid;
+    gap: 14px;
+    padding-bottom: 64px;
+  }
+</style>

@@ -1,0 +1,110 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PrizeCard from "../components/PrizeCard.astro";
+import CogDiagram from "../components/CogDiagram.astro";
+
+const all = await getCollection("prizes");
+const sorted = all.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const currentWeek = sorted[0]?.data.week;
+const thisWeek = sorted.filter((e) => e.data.week === currentWeek);
+const rest = sorted.filter((e) => e.data.week !== currentWeek).slice(0, 6);
+---
+
+<Layout title="Center Pull — this week's crane-game weight distribution reports">
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow">Weekly manifest · {thisWeek[0]?.data.weekLabelJa ?? "—"}</span>
+        <h1>Know where to grab before you drop a coin.</h1>
+        <p class="hero__lede">
+          Every week we translate smacre.jp's center-of-gravity reports into English and Chinese — where the
+          weight sits in the box, and which way to push it for a bridge (橋渡し) win.
+        </p>
+      </div>
+      <div class="hero__diagram panel">
+        <CogDiagram x={72} y={38} zoneRadius={12} pushDirection="right" confidence="high" size={180} />
+        <p class="mono hero__diagram-caption">grab zone · push right</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap feed">
+    <h2 class="feed__heading">This week's manifest</h2>
+    {thisWeek.length === 0 ? (
+      <p class="empty panel">Nothing logged yet. Once Hermes Agent runs its first weekly pull, entries will appear here.</p>
+    ) : (
+      <div class="feed__list">
+        {thisWeek.map((entry, i) => <PrizeCard entry={entry} index={i} />)}
+      </div>
+    )}
+  </section>
+
+  {rest.length > 0 && (
+    <section class="wrap feed">
+      <h2 class="feed__heading">Recent weeks</h2>
+      <div class="feed__list">
+        {rest.map((entry) => <PrizeCard entry={entry} />)}
+      </div>
+      <a href="/database" class="btn btn--ghost see-all">Browse the full database →</a>
+    </section>
+  )}
+</Layout>
+
+<style>
+  .hero {
+    border-bottom: 1px solid var(--border);
+    padding: 56px 0;
+  }
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero__copy h1 {
+    font-size: clamp(32px, 4.5vw, 48px);
+    margin: 14px 0 16px;
+    max-width: 14ch;
+  }
+  .hero__lede {
+    max-width: 46ch;
+    color: var(--text-muted);
+    font-size: 17px;
+  }
+  .hero__diagram {
+    padding: 16px;
+    text-align: center;
+  }
+  .hero__diagram-caption {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin: 10px 0 0;
+  }
+  .feed {
+    padding: 48px 0;
+  }
+  .feed__heading {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .feed__list {
+    display: grid;
+    gap: 14px;
+  }
+  .empty {
+    padding: 24px;
+    color: var(--text-muted);
+  }
+  .see-all {
+    margin-top: 20px;
+  }
+  @media (max-width: 720px) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+    }
+    .hero__diagram {
+      justify-self: start;
+    }
+  }
+</style>

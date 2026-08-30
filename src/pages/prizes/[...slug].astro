@@ -1,0 +1,145 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import CogDiagram from "../../components/CogDiagram.astro";
+
+export async function getStaticPaths() {
+  const all = await getCollection("prizes");
+  return all.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props as { entry: CollectionEntry<"prizes"> };
+const d = entry.data;
+const { Content } = await render(entry);
+---
+
+<Layout title={`${d.titleEn} — Center Pull`} description={d.summaryEn}>
+  <article class="wrap detail">
+    <a href="/database" class="back mono">← Database</a>
+
+    <div class="detail__head">
+      <div>
+        <span class="eyebrow">{d.weekLabelJa} · {d.sourceType.replace("_", " ")}</span>
+        <h1>{d.titleEn}</h1>
+        <p class="detail__alt mono">{d.titleZh} · {d.titleJa}</p>
+        <div class="detail__tags">
+          {d.techniques.map((t) => (
+            <span class="tag">{t.labelEn} · {t.labelJa}</span>
+          ))}
+        </div>
+      </div>
+      <div class="detail__diagram panel">
+        <CogDiagram
+          x={d.centerOfGravity.x}
+          y={d.centerOfGravity.y}
+          zoneRadius={d.centerOfGravity.zoneRadius}
+          pushDirection={d.centerOfGravity.pushDirection}
+          confidence={d.centerOfGravity.confidence}
+          size={220}
+        />
+        <p class="mono detail__diagram-caption">
+          {d.centerOfGravity.confidence} confidence
+          {d.centerOfGravity.pushDirection && ` · push ${d.centerOfGravity.pushDirection}`}
+        </p>
+      </div>
+    </div>
+
+    <div class="detail__facts mono">
+      {d.figureSize && <div><span>Figure size</span>{d.figureSize}</div>}
+      {d.boxWeight && <div><span>Box weight</span>{d.boxWeight}</div>}
+      {d.boxSize && <div><span>Box size</span>{d.boxSize}</div>}
+    </div>
+
+    <div class="detail__summary panel">
+      <span class="eyebrow">Targeting note</span>
+      <p>{d.summaryEn}</p>
+      <p class="detail__summary-zh">{d.summaryZh}</p>
+    </div>
+
+    <div class="detail__body">
+      <Content />
+    </div>
+
+    <a class="btn btn--ghost" href={d.sourceUrl} target="_blank" rel="noopener">
+      View original report on smacre.jp ↗
+    </a>
+  </article>
+</Layout>
+
+<style>
+  .detail {
+    padding: 40px 0 80px;
+  }
+  .back {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 12px;
+  }
+  .detail__head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    margin: 20px 0 28px;
+    align-items: start;
+  }
+  .detail__head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 10px 0 6px;
+  }
+  .detail__alt {
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  .detail__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+  .detail__diagram {
+    padding: 18px;
+    text-align: center;
+  }
+  .detail__diagram-caption {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin: 10px 0 0;
+  }
+  .detail__facts {
+    display: flex;
+    gap: 28px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+  .detail__facts span {
+    display: block;
+    color: var(--text-muted);
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+  .detail__summary {
+    margin: 28px 0;
+    padding: 20px;
+    border-left: 3px solid var(--accent);
+  }
+  .detail__summary p {
+    margin: 10px 0 0;
+    font-size: 16px;
+  }
+  .detail__summary-zh {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  .detail__body {
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  @media (max-width: 640px) {
+    .detail__head {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
