@@ -64,4 +64,4 @@ maker can't be verified, fall back to the tweet's own photo.
 
 `npm install` if needed, `npm run build` (schema errors fail loudly — fix
 them), commit `add: <week label> — <count> new entries`, push to main.
-Netlify redeploys automatically.
+Cloudflare Workers redeploys automatically.

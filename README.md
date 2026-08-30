@@ -14,7 +14,8 @@ remarks (individual differences, how much the figure moves in the box).
 - [Astro](https://astro.build) — static site
 - Content collections (`src/content.config.ts`) — one markdown file per
   prize entry, schema-validated at build time
-- Deployed via GitHub → Netlify
+- Live at <https://centre-pullz.omochanochachacha11.workers.dev> (Cloudflare
+  Workers; deploys automatically on push to `main`)
 
 ## Structure
 

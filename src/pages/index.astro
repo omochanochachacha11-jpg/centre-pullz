@@ -7,9 +7,23 @@ const all = await getCollection("prizes");
 const sorted = all.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 
 const manufacturers = [...new Set(all.map((e) => e.data.manufacturer))];
+
+const itemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Center Pull — prize weight-distribution database",
+  numberOfItems: sorted.length,
+  itemListElement: sorted.map((e, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: e.data.titleEn,
+    url: new URL(`/prizes/${e.id}`, Astro.site).toString(),
+  })),
+};
 ---
 
 <Layout title="Center Pull — prize weight-distribution measurements">
+  <script type="application/ld+json" set:html={JSON.stringify(itemListJsonLd)} />
   <section class="wrap header">
     <span class="eyebrow">{sorted.length} measured prizes · {manufacturers.length} makers</span>
     <h1>Weight distribution database</h1>

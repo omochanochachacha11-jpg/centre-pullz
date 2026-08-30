@@ -4,8 +4,28 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description?: string;
+  image?: string; // og/twitter image, absolute path or URL
 }
-const { title, description = "Crane-game prize weight-distribution measurements, translated." } = Astro.props;
+const {
+  title,
+  description = "Crane-game prize weight-distribution measurements, translated.",
+  image = "/og.png",
+} = Astro.props;
+
+const site = Astro.site ?? new URL("https://centre-pullz.omochanochachacha11.workers.dev/");
+const canonical = new URL(Astro.url.pathname, site);
+const ogImage = new URL(image, site);
+const isDefaultImage = image === "/og.png";
+
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Center Pull",
+  url: new URL("/", site).toString(),
+  description:
+    "Crane-game prize center-of-gravity measurements from Merry☆An, translated into English and Simplified Chinese.",
+  inLanguage: ["en", "zh-CN"],
+};
 ---
 
 <!doctype html>
@@ -15,6 +35,31 @@ const { title, description = "Crane-game prize weight-distribution measurements,
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0f2942" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Center Pull" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    {isDefaultImage && <meta property="og:image:width" content="1200" />}
+    {isDefaultImage && <meta property="og:image:height" content="630" />}
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(siteJsonLd)} />
   </head>
   <body>
     <header class="site-header">

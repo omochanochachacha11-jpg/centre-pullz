@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://centre-pullz.omochanochachacha11.workers.dev/sitemap-index.xml

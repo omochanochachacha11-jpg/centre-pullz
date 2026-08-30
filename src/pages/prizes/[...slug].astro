@@ -22,10 +22,45 @@ const specs: { label: string; zh: string; value: string | undefined }[] = [
   { label: "Box weight", zh: "箱重", value: d.boxWeight },
   { label: "Box size", zh: "箱体", value: d.boxSize },
 ].filter((s) => s.value);
+
+const canonical = new URL(`/prizes/${entry.id}`, Astro.site);
+
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: d.titleEn,
+  image: [
+    new URL(d.imageUrl, Astro.site).toString(),
+    ...(d.diagramUrl ? [new URL(d.diagramUrl, Astro.site).toString()] : []),
+  ],
+  description: d.noteEn,
+  brand: { "@type": "Brand", name: d.manufacturer },
+  ...(d.series ? { category: d.series } : {}),
+  additionalProperty: [
+    ...(d.figureSize ? [{ "@type": "PropertyValue", name: "Figure size", value: d.figureSize }] : []),
+    ...(d.boxWeight ? [{ "@type": "PropertyValue", name: "Box weight", value: d.boxWeight }] : []),
+    ...(d.boxSize ? [{ "@type": "PropertyValue", name: "Box size", value: d.boxSize }] : []),
+    ...(d.cog && d.cog.length
+      ? [{ "@type": "PropertyValue", name: "Center of gravity", value: d.cog.map((c) => c.en).join("; ") }]
+      : []),
+  ],
+  url: canonical.toString(),
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: new URL("/", Astro.site).toString() },
+    { "@type": "ListItem", position: 2, name: d.titleEn, item: canonical.toString() },
+  ],
+};
 ---
 
-<Layout title={`${d.titleEn} — Center Pull`} description={d.noteEn}>
+<Layout title={`${d.titleEn} — Center Pull`} description={d.noteEn} image={d.imageUrl}>
   <article class="wrap detail">
+    <script type="application/ld+json" set:html={JSON.stringify(productJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
     <a href="/" class="back mono">← All measurements</a>
 
     <div class="detail__head">
