@@ -23,4 +23,6 @@ noteZh: "453g，偏重。因装箱方式不同存在个体差异。手办在箱�
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.08/2823441_b.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"
+diagramUrl: "https://pbs.twimg.com/media/HQuj7p3aUAAS5Dt.jpg"
+diagramCredit: "Diagram via Merry☆An (x.com)"
 ---

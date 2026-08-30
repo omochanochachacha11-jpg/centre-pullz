@@ -23,4 +23,6 @@ noteZh: "663g，偏重。因装箱方式不同存在个体差异。吸塑盒包�
 
 imageUrl: "https://www.taito.co.jp/Content/images/zone/2/item/201407/5309654f-452f-44ba-ad1e-05a117e9bd05_p_01_ja.jpg"
 imageCredit: "Photo via Taito (taito.co.jp)"
+diagramUrl: "https://pbs.twimg.com/media/HQ32K0ibAAAyXIw.jpg"
+diagramCredit: "Diagram via Merry☆An (x.com)"
 ---

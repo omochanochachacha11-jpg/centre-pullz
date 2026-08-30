@@ -23,4 +23,6 @@ noteZh: "276g，略轻。因装箱方式不同存在个体差异。吸塑盒包�
 
 imageUrl: "https://segaplaza.jp/images-v2/prize/D123244_4a670f/large/D123244_01.webp"
 imageCredit: "Photo via Sega (segaplaza.jp)"
+diagramUrl: "https://pbs.twimg.com/media/HQ0a3aOaUAAawQT.jpg"
+diagramCredit: "Diagram via Merry☆An (x.com)"
 ---

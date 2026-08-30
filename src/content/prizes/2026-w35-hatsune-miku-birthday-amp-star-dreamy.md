@@ -25,4 +25,6 @@ noteZh: "405g，略重。因装箱方式不同存在个体差异。手办在箱�
 
 imageUrl: "https://www.taito.co.jp/Content/images/zone/2/item/201407/e268aa63-a1db-4db1-b898-ae12731ec7f8_p_01_ja.jpg"
 imageCredit: "Photo via Taito (taito.co.jp)"
+diagramUrl: "https://pbs.twimg.com/media/HQ4C50hbIAAyLSy.jpg"
+diagramCredit: "Diagram via Merry☆An (x.com)"
 ---

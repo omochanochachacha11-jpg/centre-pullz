@@ -39,6 +39,10 @@ const prizes = defineCollection({
     // Manufacturer thumbnail (linked directly, not re-uploaded)
     imageUrl: z.string().url(),
     imageCredit: z.string(),
+
+    // Merry☆An's annotated photo of the measured COG (lines + text on the box)
+    diagramUrl: z.string().url().optional(),
+    diagramCredit: z.string().optional(),
   }),
 });
 

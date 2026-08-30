@@ -29,9 +29,18 @@ const specs: { label: string; zh: string; value: string | undefined }[] = [
     <a href="/" class="back mono">← All measurements</a>
 
     <div class="detail__head">
-      <div class="detail__photo panel">
-        <img src={d.imageUrl} alt={d.titleEn} />
-        <p class="detail__photo-credit mono">{d.imageCredit}</p>
+      <div class="detail__visuals">
+        {d.diagramUrl && (
+          <figure class="detail__diagram panel">
+            <figcaption class="eyebrow">Measured COG · 实测重心</figcaption>
+            <img src={d.diagramUrl} alt={`Measured center of gravity — ${d.titleEn}`} loading="lazy" />
+            <p class="detail__credit mono">{d.diagramCredit}</p>
+          </figure>
+        )}
+        <figure class="detail__photo panel">
+          <img src={d.imageUrl} alt={d.titleEn} loading="lazy" />
+          <p class="detail__credit mono">{d.imageCredit}</p>
+        </figure>
       </div>
       <div class="detail__info">
         <span class="eyebrow">{d.manufacturer} · {date}</span>
@@ -90,23 +99,41 @@ const specs: { label: string; zh: string; value: string | undefined }[] = [
   }
   .detail__head {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 340px 1fr;
     gap: 32px;
     margin: 20px 0 28px;
     align-items: start;
   }
+  .detail__visuals {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .detail__diagram,
   .detail__photo {
+    margin: 0;
     padding: 10px;
     text-align: center;
   }
+  .detail__diagram figcaption {
+    text-align: left;
+    margin: 2px 2px 10px;
+  }
+  .detail__diagram img,
   .detail__photo img {
     width: 100%;
+    display: block;
+    border-radius: var(--radius);
+  }
+  .detail__diagram img {
     aspect-ratio: 1;
     object-fit: cover;
-    border-radius: var(--radius);
-    display: block;
   }
-  .detail__photo-credit {
+  .detail__photo img {
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  .detail__credit {
     font-size: 10px;
     color: var(--text-muted);
     margin: 10px 0 0;
@@ -189,8 +216,8 @@ const specs: { label: string; zh: string; value: string | undefined }[] = [
     .detail__head {
       grid-template-columns: 1fr;
     }
-    .detail__photo {
-      max-width: 320px;
+    .detail__visuals {
+      max-width: 380px;
     }
   }
 </style>

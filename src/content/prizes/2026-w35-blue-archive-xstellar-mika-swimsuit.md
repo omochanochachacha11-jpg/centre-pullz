@@ -25,4 +25,6 @@ noteZh: "461g，略重。因装箱方式不同存在个体差异。手办在箱�
 
 imageUrl: "https://segaplaza.jp/images-v2/prize/D123318_56c52f/large/D123318_01.webp"
 imageCredit: "Photo via Sega (segaplaza.jp)"
+diagramUrl: "https://pbs.twimg.com/media/HQ0hagIbkAA5mUV.jpg"
+diagramCredit: "Diagram via Merry☆An (x.com)"
 ---
