@@ -21,26 +21,35 @@ const { Content } = await render(entry);
       <div>
         <span class="eyebrow">{d.weekLabelJa} · {d.sourceType.replace("_", " ")}</span>
         <h1>{d.titleEn}</h1>
-        <p class="detail__alt mono">{d.titleZh} · {d.titleJa}</p>
+        <p class="detail__title-zh zh">{d.titleZh}</p>
+        <p class="detail__alt mono">{d.titleJa}</p>
         <div class="detail__tags">
           {d.techniques.map((t) => (
             <span class="tag">{t.labelEn} · {t.labelJa}</span>
           ))}
         </div>
       </div>
-      <div class="detail__diagram panel">
-        <CogDiagram
-          x={d.centerOfGravity.x}
-          y={d.centerOfGravity.y}
-          zoneRadius={d.centerOfGravity.zoneRadius}
-          pushDirection={d.centerOfGravity.pushDirection}
-          confidence={d.centerOfGravity.confidence}
-          size={220}
-        />
-        <p class="mono detail__diagram-caption">
-          {d.centerOfGravity.confidence} confidence
-          {d.centerOfGravity.pushDirection && ` · push ${d.centerOfGravity.pushDirection}`}
-        </p>
+      <div class="detail__visuals">
+        {d.imageUrl && (
+          <div class="detail__photo panel">
+            <img src={d.imageUrl} alt={d.titleEn} loading="lazy" />
+            {d.imageCredit && <p class="detail__photo-credit mono">{d.imageCredit}</p>}
+          </div>
+        )}
+        <div class="detail__diagram panel">
+          <CogDiagram
+            x={d.centerOfGravity.x}
+            y={d.centerOfGravity.y}
+            zoneRadius={d.centerOfGravity.zoneRadius}
+            pushDirection={d.centerOfGravity.pushDirection}
+            confidence={d.centerOfGravity.confidence}
+            size={220}
+          />
+          <p class="mono detail__diagram-caption">
+            {d.centerOfGravity.confidence} confidence
+            {d.centerOfGravity.pushDirection && ` · push ${d.centerOfGravity.pushDirection}`}
+          </p>
+        </div>
       </div>
     </div>
 
@@ -53,7 +62,7 @@ const { Content } = await render(entry);
     <div class="detail__summary panel">
       <span class="eyebrow">Targeting note</span>
       <p>{d.summaryEn}</p>
-      <p class="detail__summary-zh">{d.summaryZh}</p>
+      <p class="detail__summary-zh zh">{d.summaryZh}</p>
     </div>
 
     <div class="detail__body">
@@ -90,11 +99,36 @@ const { Content } = await render(entry);
     color: var(--text-muted);
     font-size: 13px;
   }
+  .detail__title-zh {
+    font-size: 18px;
+    margin: 6px 0 4px;
+  }
   .detail__tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
     margin-top: 14px;
+  }
+  .detail__visuals {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .detail__photo {
+    padding: 10px;
+    text-align: center;
+  }
+  .detail__photo img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    display: block;
+  }
+  .detail__photo-credit {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin: 8px 0 0;
   }
   .detail__diagram {
     padding: 18px;
@@ -130,8 +164,8 @@ const { Content } = await render(entry);
     font-size: 16px;
   }
   .detail__summary-zh {
-    color: var(--text-muted);
-    font-size: 14px;
+    font-size: 15px;
+    margin-top: 10px;
   }
   .detail__body {
     color: var(--text-muted);

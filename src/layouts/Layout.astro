@@ -24,8 +24,8 @@ const { title, description = "Weekly crane-game weight-distribution reports, tra
           <span class="display">CENTER PULL</span>
         </a>
         <nav class="site-nav mono">
-          <a href="/">This Week</a>
-          <a href="/database">Database</a>
+          <a href="/"><span class="en">This Week</span><span class="zh-inline">本周</span></a>
+          <a href="/database"><span class="en">Database</span><span class="zh-inline">数据库</span></a>
           <a href="https://smacre.jp/" target="_blank" rel="noopener">Source: smacre.jp ↗</a>
         </nav>
       </div>
@@ -37,8 +37,12 @@ const { title, description = "Weekly crane-game weight-distribution reports, tra
       <div class="wrap mono">
         <p>
           Weight-distribution reports are translated and summarized from
-          <a href="https://smacre.jp/" target="_blank" rel="noopener">smacre.jp</a>. Original Japanese text and
-          source links are kept on every entry. Updated weekly.
+          <a href="https://smacre.jp/" target="_blank" rel="noopener">smacre.jp</a>. Original Japanese text, photo
+          credit, and source links are kept on every entry. Updated every 3 days.
+        </p>
+        <p class="footer-zh">
+          重心数据翻译整理自 <a href="https://smacre.jp/" target="_blank" rel="noopener">smacre.jp</a>，
+          每条记录均保留日文原文、图片来源及原文链接。每 3 天更新一次。
         </p>
       </div>
     </footer>
@@ -80,9 +84,17 @@ const { title, description = "Weekly crane-game weight-distribution reports, tra
   .site-nav a {
     text-decoration: none;
     color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    line-height: 1.2;
   }
   .site-nav a:hover {
     color: var(--accent);
+  }
+  .site-nav .zh-inline {
+    font-size: 10px;
+    color: var(--text-muted);
   }
   .site-footer {
     border-top: 1px solid var(--border);
@@ -93,5 +105,9 @@ const { title, description = "Weekly crane-game weight-distribution reports, tra
   }
   .site-footer a {
     color: var(--accent);
+  }
+  .footer-zh {
+    color: var(--text);
+    margin-top: 6px;
   }
 </style>

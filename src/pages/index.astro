@@ -17,6 +17,7 @@ const rest = sorted.filter((e) => e.data.week !== currentWeek).slice(0, 6);
       <div class="hero__copy">
         <span class="eyebrow">Weekly manifest · {thisWeek[0]?.data.weekLabelJa ?? "—"}</span>
         <h1>Know where to grab before you drop a coin.</h1>
+        <p class="hero__zh zh">在投币之前，先知道该往哪里抓。</p>
         <p class="hero__lede">
           Every week we translate smacre.jp's center-of-gravity reports into English and Chinese — where the
           weight sits in the box, and which way to push it for a bridge (橋渡し) win.
@@ -30,7 +31,7 @@ const rest = sorted.filter((e) => e.data.week !== currentWeek).slice(0, 6);
   </section>
 
   <section class="wrap feed">
-    <h2 class="feed__heading">This week's manifest</h2>
+    <h2 class="feed__heading">This week's manifest <span class="feed__heading-zh">本周清单</span></h2>
     {thisWeek.length === 0 ? (
       <p class="empty panel">Nothing logged yet. Once Hermes Agent runs its first weekly pull, entries will appear here.</p>
     ) : (
@@ -42,7 +43,7 @@ const rest = sorted.filter((e) => e.data.week !== currentWeek).slice(0, 6);
 
   {rest.length > 0 && (
     <section class="wrap feed">
-      <h2 class="feed__heading">Recent weeks</h2>
+      <h2 class="feed__heading">Recent weeks <span class="feed__heading-zh">近期记录</span></h2>
       <div class="feed__list">
         {rest.map((entry) => <PrizeCard entry={entry} />)}
       </div>
@@ -64,8 +65,12 @@ const rest = sorted.filter((e) => e.data.week !== currentWeek).slice(0, 6);
   }
   .hero__copy h1 {
     font-size: clamp(32px, 4.5vw, 48px);
-    margin: 14px 0 16px;
+    margin: 14px 0 8px;
     max-width: 14ch;
+  }
+  .hero__zh {
+    font-size: clamp(18px, 2.4vw, 22px);
+    margin: 0 0 16px;
   }
   .hero__lede {
     max-width: 46ch;
@@ -87,6 +92,14 @@ const rest = sorted.filter((e) => e.data.week !== currentWeek).slice(0, 6);
   .feed__heading {
     font-size: 22px;
     margin-bottom: 20px;
+  }
+  .feed__heading-zh {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-weight: 500;
+    margin-left: 10px;
+    vertical-align: middle;
   }
   .feed__list {
     display: grid;

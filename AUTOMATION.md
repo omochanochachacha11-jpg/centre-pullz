@@ -1,9 +1,9 @@
 # Weekly automation (Hermes Agent)
 
-This doc is the checklist for the weekly job that keeps the site current.
-Each run should end with one new commit to this repo containing one new
-`.md` file per new prize entry, pushed to GitHub — Netlify picks up the push
-and redeploys automatically, same as the Chiikawa site.
+This doc is the checklist for the recurring job that keeps the site current.
+Runs every 3 days. Each run should end with one new commit to this repo
+containing one new `.md` file per new prize entry, pushed to GitHub —
+Cloudflare Pages picks up the push and redeploys automatically.
 
 ## 1. Scrape smacre.jp
 
@@ -51,7 +51,16 @@ individual boxes, smaller when it's tightly consistent. Set `pushDirection`
 only when the source clearly implies a push direction; leave it unset
 otherwise.
 
-## 5. Write the file
+## 5. Attach the photo
+
+If the source post has a photo of the prize, set `imageUrl` to that image's
+direct URL and `imageCredit` to a short attribution string (e.g. "Photo via
+smacre.jp"). Leave both fields out entirely if there's no photo on the
+source post — the site handles a missing image fine, don't substitute a
+stock or unrelated image. Don't rehost/re-upload the image yourself unless
+told to; linking directly to the source URL is the default.
+
+## 6. Write the file
 
 One markdown file per entry in `src/content/prizes/`, filename pattern
 `YYYY-Www-slugified-title.md`, matching the shape of the three example
@@ -60,7 +69,7 @@ entries already in that folder. Fields are validated against
 missing or a value doesn't match the schema, which is deliberate: better to
 catch a bad scrape at build time than publish a wrong target zone.
 
-## 6. Commit and push
+## 7. Commit and push
 
 Commit message convention: `add: <week label> — <count> new entries`. Push
 to `main`; Netlify handles the rest.

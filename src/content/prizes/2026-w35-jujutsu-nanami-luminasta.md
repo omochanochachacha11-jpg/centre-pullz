@@ -43,6 +43,9 @@ summaryZh: >
   该款为此前已发售手办的刷涂再版，多篇报告结果一致：重心偏低且略靠左，
   箱内位置会因装箱方式不同而有所偏移。架桥式打法可信度较高——瞄准中心
   偏下位置并向下推；若机台允许，扇形展开式打法也同样有效。
+
+imageUrl: "https://placehold.co/400x400/16395a/f2b705?text=Nanami"
+imageCredit: "Photo via smacre.jp"
 ---
 
 Multiple independent reports agree closely on this one, which is why

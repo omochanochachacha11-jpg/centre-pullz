@@ -41,6 +41,9 @@ summaryZh: >
   各方向约有5毫米浮动——具体位置因每个箱子内手办的摆放情况而略有不同。
   尝试架桥式打法时，建议将爪子略偏右居中，并朝该方向推动，而非居中抓取。
 
+imageUrl: "https://placehold.co/400x400/16395a/f2b705?text=Char+Aznable"
+imageCredit: "Photo via smacre.jp"
+
 featured: true
 ---
 

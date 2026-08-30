@@ -17,20 +17,28 @@ const sourceTypeLabel: Record<string, string> = {
 
 <a href={`/prizes/${entry.id}`} class="card panel">
   {index !== undefined && <span class="card__index mono">{String(index + 1).padStart(2, "0")}</span>}
-  <div class="card__diagram">
-    <CogDiagram
-      x={d.centerOfGravity.x}
-      y={d.centerOfGravity.y}
-      zoneRadius={d.centerOfGravity.zoneRadius}
-      pushDirection={d.centerOfGravity.pushDirection}
-      confidence={d.centerOfGravity.confidence}
-      size={96}
-    />
+  <div class="card__visuals">
+    {d.imageUrl && (
+      <div class="card__photo">
+        <img src={d.imageUrl} alt={d.titleEn} loading="lazy" />
+      </div>
+    )}
+    <div class="card__diagram">
+      <CogDiagram
+        x={d.centerOfGravity.x}
+        y={d.centerOfGravity.y}
+        zoneRadius={d.centerOfGravity.zoneRadius}
+        pushDirection={d.centerOfGravity.pushDirection}
+        confidence={d.centerOfGravity.confidence}
+        size={96}
+      />
+    </div>
   </div>
   <div class="card__body">
     <span class="eyebrow">{sourceTypeLabel[d.sourceType]} · {d.weekLabelJa}</span>
     <h3 class="card__title">{d.titleEn}</h3>
-    <p class="card__title-alt mono">{d.titleZh} · {d.titleJa}</p>
+    <p class="card__title-zh">{d.titleZh}</p>
+    <p class="card__title-ja mono">{d.titleJa}</p>
     <div class="card__tags">
       {d.techniques.map((t: any) => (
         <span class="tag">{t.labelEn}</span>
@@ -62,8 +70,27 @@ const sourceTypeLabel: Record<string, string> = {
     color: var(--text-muted);
     font-size: 12px;
   }
-  .card__diagram {
+  .card__visuals {
     flex: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .card__photo {
+    width: 96px;
+    height: 96px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .card__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .card__diagram {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -72,7 +99,7 @@ const sourceTypeLabel: Record<string, string> = {
   .card__body {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
     min-width: 0;
   }
   .card__title {
@@ -81,9 +108,15 @@ const sourceTypeLabel: Record<string, string> = {
     color: #fff;
     font-weight: 700;
   }
-  .card__title-alt {
-    font-size: 12px;
+  .card__title-zh {
+    font-size: 15px;
+    color: var(--text);
+    margin: 0;
+  }
+  .card__title-ja {
+    font-size: 11px;
     color: var(--text-muted);
+    margin: 0 0 4px;
   }
   .card__tags {
     display: flex;

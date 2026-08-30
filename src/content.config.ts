@@ -49,6 +49,10 @@ const prizes = defineCollection({
     summaryEn: z.string(),
     summaryZh: z.string(),
 
+    // Prize photo, pulled from the source post if one's available
+    imageUrl: z.string().url().optional(),
+    imageCredit: z.string().optional(), // e.g. "Photo via smacre.jp"
+
     featured: z.boolean().default(false),
   }),
 });

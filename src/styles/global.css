@@ -109,6 +109,16 @@ a {
   color: var(--accent);
 }
 
+/* Chinese text is a first-class reading path, not a caption — full
+   opacity and near-equal size to its English counterpart, set apart by
+   a thin rule rather than by fading it out. */
+.zh {
+  color: var(--text);
+  font-family: var(--font-body);
+  border-left: 2px solid var(--accent);
+  padding-left: 10px;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
