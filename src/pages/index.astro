@@ -5,65 +5,219 @@ import PrizeCard from "../components/PrizeCard.astro";
 
 const all = await getCollection("prizes");
 const sorted = all.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const recent = sorted.slice(0, 6);
 
-const manufacturers = [...new Set(all.map((e) => e.data.manufacturer))];
+const makerCounts = new Map<string, number>();
+for (const e of all) makerCounts.set(e.data.manufacturer, (makerCounts.get(e.data.manufacturer) ?? 0) + 1);
+const makers = [...makerCounts.entries()].sort((a, b) => b[1] - a[1]);
+
+const latest = sorted[0]?.data.publishedAt;
+const updated = latest
+  ? latest.toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })
+  : "";
 
 const itemListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Center Pull — prize weight-distribution database",
+  name: "Centre Pullz — crane-game prize centre-of-gravity database",
   numberOfItems: sorted.length,
-  itemListElement: sorted.map((e, i) => ({
+  itemListElement: recent.map((e, i) => ({
     "@type": "ListItem",
     position: i + 1,
     name: e.data.titleEn,
     url: new URL(`/prizes/${e.id}`, Astro.site).toString(),
   })),
 };
+
+const description = `Free bilingual database of ${sorted.length} crane-game prize centre-of-gravity measurements — box weight, box size and where the balance point sits, so you know where to push before you spend a coin.`;
 ---
 
-<Layout title="Center Pull — prize weight-distribution measurements">
+<Layout title="Centre Pullz — crane-game prize weight & centre-of-gravity database" description={description}>
   <script type="application/ld+json" set:html={JSON.stringify(itemListJsonLd)} />
-  <section class="wrap header">
-    <span class="eyebrow">{sorted.length} measured prizes · {manufacturers.length} makers</span>
-    <h1>Weight distribution database</h1>
-    <p class="lede">
-      Center-of-gravity measurements for crane-game prizes, compiled from
-      <a href="https://x.com/6eS8Jm4YNJpPA2D" target="_blank" rel="noopener">Merry☆An</a>
-      and translated into English and Simplified Chinese.
+
+  <section class="hero wrap">
+    <span class="eyebrow">{sorted.length} measured prizes · {makers.length} manufacturers</span>
+    <h1>Know where the weight is<br /> before you spend a coin.</h1>
+    <p class="hero__lede">
+      Crane-game prizes don't tip where you'd guess. Centre Pullz records the
+      measured centre of gravity of each prize box — how heavy it is, how far the
+      weight sits from each wall, and how much the figure slides around inside —
+      then explains, in plain language, where to actually push.
     </p>
-    <p class="lede lede-zh zh">抓娃娃奖品重心实测数据库，整理并翻译自 Merry☆An。</p>
+    <p class="hero__lede zh">
+      抓娃娃的奖品重心往往不在你以为的位置。本站收录每款奖品的实测重心：箱重、
+      重心距各面的距离、手办在箱内的活动范围，并用通俗的语言说明该往哪里推。
+    </p>
+
+    <form class="hero__search" action="/database/" method="get" role="search">
+      <label class="visually-hidden" for="hero-q">Search prizes</label>
+      <input
+        id="hero-q"
+        name="q"
+        class="field"
+        type="search"
+        placeholder="Search a prize, series or maker — Frieren, Grandista, 初音ミク…"
+        autocomplete="off"
+      />
+      <button class="btn" type="submit">Search</button>
+    </form>
+
+    <p class="hero__meta mono">
+      Last measurement added {updated} · free to use · no account needed
+    </p>
   </section>
 
-  <section class="wrap list">
-    {sorted.map((entry) => <PrizeCard entry={entry} />)}
+  <section class="wrap band">
+    <div class="band__item panel">
+      <h2>What the numbers mean</h2>
+      <p>
+        New to this? The guide explains what "back 1cm" or "5mm play" actually
+        tells you, and how to turn a measurement into a plan at the machine.
+      </p>
+      <a class="btn btn--ghost" href="/guide/">Read the guide →</a>
+    </div>
+    <div class="band__item panel">
+      <h2>Browse everything</h2>
+      <p>
+        Filter {sorted.length} entries by manufacturer, sort by box weight, or
+        search in English, Chinese or Japanese.
+      </p>
+      <a class="btn btn--ghost" href="/database/">Open the database →</a>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section__head">
+      <h2>Latest measurements</h2>
+      <a class="section__more mono" href="/database/">All {sorted.length} entries →</a>
+    </div>
+    <div class="list">
+      {recent.map((entry) => <PrizeCard entry={entry} />)}
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section__head">
+      <h2>By manufacturer</h2>
+    </div>
+    <ul class="makers">
+      {makers.map(([m, n]) => (
+        <li>
+          <a class="makers__chip mono" href={`/database/?maker=${encodeURIComponent(m)}`}>
+            {m} <span>{n}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
   </section>
 </Layout>
 
 <style>
-  .header {
-    padding: 56px 0 28px;
+  .hero {
+    padding: 64px 0 40px;
+    max-width: 1080px;
   }
-  .header h1 {
-    font-size: clamp(30px, 4vw, 42px);
-    margin: 12px 0 10px;
+  .hero h1 {
+    font-size: clamp(32px, 5.2vw, 54px);
+    margin: 14px 0 18px;
+    line-height: 1.08;
   }
-  .lede {
-    max-width: 60ch;
+  .hero__lede {
+    max-width: 62ch;
     color: var(--text-muted);
-    font-size: 16px;
+    font-size: 17px;
+    margin: 0 0 12px;
+  }
+  .hero__lede.zh {
+    color: var(--text);
+    font-size: 15px;
+  }
+  .hero__search {
+    display: flex;
+    gap: 10px;
+    margin: 26px 0 12px;
+    max-width: 620px;
+  }
+  .hero__search .btn {
+    flex: none;
+    cursor: pointer;
+  }
+  .hero__meta {
+    font-size: 12px;
+    color: var(--text-muted);
     margin: 0;
   }
-  .lede a {
-    color: var(--accent);
+  .band {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    padding-bottom: 8px;
   }
-  .lede-zh {
-    margin-top: 10px;
-    font-size: 15px;
+  .band__item {
+    padding: 22px;
+  }
+  .band__item h2 {
+    font-size: 18px;
+    margin: 0 0 8px;
+  }
+  .band__item p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0 0 16px;
+  }
+  .section {
+    padding-top: 48px;
+  }
+  .section__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .section__head h2 {
+    font-size: 22px;
+  }
+  .section__more {
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
   }
   .list {
     display: grid;
     gap: 14px;
-    padding-bottom: 64px;
+  }
+  .makers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .makers__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .makers__chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .makers__chip span {
+    color: var(--text-muted);
+    font-size: 11px;
+  }
+  @media (max-width: 560px) {
+    .hero__search {
+      flex-direction: column;
+    }
   }
 </style>

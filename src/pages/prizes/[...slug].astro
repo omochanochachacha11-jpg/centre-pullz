@@ -10,6 +10,20 @@ export async function getStaticPaths() {
 const { entry } = Astro.props as { entry: CollectionEntry<"prizes"> };
 const d = entry.data;
 
+// Same series first, then same manufacturer — gives every page a few internal
+// links instead of leaving it a dead end.
+const all = await getCollection("prizes");
+const related = all
+  .filter((e) => e.id !== entry.id)
+  .map((e) => ({
+    entry: e,
+    score: (d.series && e.data.series === d.series ? 2 : 0) + (e.data.manufacturer === d.manufacturer ? 1 : 0),
+  }))
+  .filter((r) => r.score > 0)
+  .sort((a, b) => b.score - a.score || b.entry.data.publishedAt.valueOf() - a.entry.data.publishedAt.valueOf())
+  .slice(0, 4)
+  .map((r) => r.entry);
+
 const date = d.publishedAt.toLocaleDateString("en-US", {
   year: "numeric",
   month: "long",
@@ -52,16 +66,34 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: new URL("/", Astro.site).toString() },
-    { "@type": "ListItem", position: 2, name: d.titleEn, item: canonical.toString() },
+    { "@type": "ListItem", position: 2, name: "Database", item: new URL("/database/", Astro.site).toString() },
+    { "@type": "ListItem", position: 3, name: d.titleEn, item: canonical.toString() },
   ],
 };
+
+const summary = [
+  d.boxWeight && `${d.boxWeight} box`,
+  d.boxSize && `${d.boxSize}`,
+  d.cog?.[0] && `centre of gravity ${d.cog[0].en}`,
+]
+  .filter(Boolean)
+  .join(" · ");
+const metaDescription = `${d.titleEn} (${d.manufacturer}) — ${summary || d.noteEn}. Measured centre of gravity and play tips.`;
 ---
 
-<Layout title={`${d.titleEn} — Center Pull`} description={d.noteEn} image={d.imageUrl}>
+<Layout
+  title={`${d.titleEn} — box weight & centre of gravity · Centre Pullz`}
+  description={metaDescription}
+  image={d.imageUrl}
+  ogType="article"
+  publishedTime={d.publishedAt}
+>
   <article class="wrap detail">
     <script type="application/ld+json" set:html={JSON.stringify(productJsonLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
-    <a href="/" class="back mono">← All measurements</a>
+    <nav class="back mono" aria-label="Breadcrumb">
+      <a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/database/">Database</a>
+    </nav>
 
     <div class="detail__head">
       <div class="detail__visuals">
@@ -118,15 +150,44 @@ const breadcrumbJsonLd = {
     </section>
 
     <section class="detail__tips panel">
-      <span class="eyebrow">Hashi-watashi tips · 桥渡式攻略提示</span>
+      <span class="eyebrow">How to play it · 攻略建议</span>
       <p class="detail__tips-en">{d.tipEn}</p>
       <p class="detail__tips-zh zh">{d.tipZh}</p>
-      <p class="detail__tips-ai mono">AI suggestion · 仅供参考</p>
+      <p class="detail__tips-ai mono">
+        AI-written from the measurements above — a starting point, not expert advice.
+        Machine settings matter too. <a href="/guide/">How to read this</a> · 仅供参考
+      </p>
     </section>
 
-    <a class="btn btn--ghost" href={d.sourceUrl} target="_blank" rel="noopener">
-      View original post on X ↗
-    </a>
+    <div class="detail__actions">
+      <a class="btn btn--ghost" href={d.sourceUrl} target="_blank" rel="noopener">
+        View original post on X ↗
+      </a>
+      <a class="btn btn--ghost" href={`/database/?maker=${encodeURIComponent(d.manufacturer)}`}>
+        More {d.manufacturer} prizes →
+      </a>
+    </div>
+
+    {related.length > 0 && (
+      <section class="detail__related">
+        <h2 class="detail__related-head">Related measurements</h2>
+        <ul class="detail__related-list">
+          {related.map((r) => (
+            <li>
+              <a href={`/prizes/${r.id}`}>
+                <img src={r.data.imageUrl} alt="" loading="lazy" decoding="async" width="56" height="56" />
+                <span>
+                  <span class="detail__related-title">{r.data.titleEn}</span>
+                  <span class="detail__related-meta mono">
+                    {r.data.manufacturer}{r.data.boxWeight ? ` · ${r.data.boxWeight}` : ""}
+                  </span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
   </article>
 </Layout>
 
@@ -136,8 +197,74 @@ const breadcrumbJsonLd = {
   }
   .back {
     color: var(--text-muted);
-    text-decoration: none;
     font-size: 12px;
+    display: flex;
+    gap: 8px;
+  }
+  .back a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .back a:hover {
+    color: var(--accent);
+  }
+  .detail__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .detail__related {
+    margin-top: 56px;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+  .detail__related-head {
+    font-size: 18px;
+    margin: 0 0 14px;
+  }
+  .detail__related-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+  }
+  .detail__related-list a {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-panel);
+  }
+  .detail__related-list a:hover {
+    border-color: var(--accent);
+  }
+  .detail__related-list img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    flex: none;
+    background: var(--bg);
+  }
+  .detail__related-title {
+    display: block;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  .detail__related-meta {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .detail__tips-ai a {
+    color: var(--accent);
   }
   .detail__head {
     display: grid;

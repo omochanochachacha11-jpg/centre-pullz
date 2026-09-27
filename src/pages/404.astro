@@ -2,12 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="404 — Not found · Center Pull">
+<Layout title="404 — Not found · Centre Pullz" description="That page doesn't exist. Search the Centre Pullz prize measurement database instead.">
   <section class="wrap nf">
     <span class="eyebrow">404</span>
     <h1>Nothing weighs anything here.</h1>
     <p class="nf__zh zh">这里没有收录任何奖品数据。</p>
-    <a class="btn btn--ghost" href="/">← Back to the database</a>
+    <div class="nf__actions">
+      <a class="btn" href="/database/">Search the database</a>
+      <a class="btn btn--ghost" href="/">← Home</a>
+    </div>
   </section>
 </Layout>
 
@@ -22,5 +25,10 @@ import Layout from "../layouts/Layout.astro";
   }
   .nf__zh {
     margin: 0 0 28px;
+  }
+  .nf__actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
   }
 </style>

@@ -1,67 +1,143 @@
-# Automation (Hermes Agent)
+# Automation
 
-Recurring job that keeps the site current. Runs every 3 days. The site is a
-bilingual (EN/ZH) database of Merry☆An's crane-prize center-of-gravity
+Recurring job that keeps Centre Pullz current. Runs weekly. The site is a
+bilingual (EN/ZH) database of Merry☆An's crane-prize centre-of-gravity
 measurements — no other source.
 
-## 1. Harvest Merry☆An's measurement posts
+Everything below is free: no paid X API, no auth.
 
-Source: X account **@6eS8Jm4YNJpPA2D** (Merry☆An). All pipeline is free, no
-paid X API.
+## 1. Collect tweet IDs
 
-1. **Collect tweet IDs** — browser tool (logged-in Chrome): open the profile
-   Posts tab and the search
-   `from:6eS8Jm4YNJpPA2D #重心情報` (Latest tab); scroll repeatedly
-   (scrollIntoView on the last `[data-testid="cellInnerDiv"]` + window.scrollTo
-   + wheel events) to load as much history as X allows. Collect every
-   `a[href*="/status/"]` ID. X pagination is limited — collect what's
-   reachable; subsequent runs continue the backfill. If the browser is
-   unavailable, fall back to curl on the profile page (embeds ~5 recent IDs).
-2. **Fetch full data** — `curl https://cdn.syndication.twimg.com/tweet-result?id={ID}&token=x`
-   (no auth). Gives `created_at` (UTC — convert to JST +9h for `publishedAt`),
-   `text`, `mediaDetails[].media_url_https` (the annotated COG photo).
-3. **Filter** — keep only posts containing `重心情報`. Skip クレ活/雑談.
-   **Dedupe by sourceUrl** against `src/content/prizes/*.md` — never re-add an
-   existing tweet URL.
+**Use the Wayback Machine CDX index, not X.** X's own pagination is limited,
+requires a logged-in browser, and walls anonymous access. The Internet Archive
+has the account indexed and returns the whole history in one request:
 
-## 2. Parse each measurement post
+```
+http://web.archive.org/cdx/search/cdx?url=twitter.com/6eS8Jm4YNJpPA2D/status/*&output=text&fl=timestamp,original&collapse=urlkey
+```
 
-- Prize name (first line after `＃重心情報`)
+Note `twitter.com`, not `x.com` — the archive is indexed under the old domain
+(the `x.com` prefix returns almost nothing). As of 2026-09-27 this returned
+**9,748 tweet IDs** spanning 2019-12 → present, with the snapshot timestamp for
+each, which step 2 needs.
+
+Tweet IDs are Snowflake IDs, so you can date-filter before fetching anything:
+`((id >> 22) + 1288834974657)` is the post time in epoch ms.
+
+For the last day or two — too recent to be archived — `curl https://x.com/6eS8Jm4YNJpPA2D`
+still embeds the ~5 most recent IDs.
+
+## 2. Fetch each post
+
+`curl "https://cdn.syndication.twimg.com/tweet-result?id={ID}&token=x"` (no
+auth) gives `created_at` (UTC — add 9h for JST `publishedAt`), `text`, and
+`mediaDetails[].media_url_https` (the annotated COG photo).
+
+**This endpoint truncates long posts.** The response carries a `note_tweet`
+field, but it holds only an id — never the text. Computing the "real"
+syndication token doesn't help either; the response is identical.
+
+To get the full body, fetch the archived snapshot using the timestamp from
+step 1:
+
+```
+http://web.archive.org/web/{TIMESTAMP}/https://twitter.com/6eS8Jm4YNJpPA2D/status/{ID}
+```
+
+The archived page is a JSON API response containing `note_tweet.text` — the
+complete post. Extract it with `"note_tweet":\{.*?"text":"((?:[^"\\]|\\.)*)"`
+and JSON-unescape the capture.
+
+Wayback rate-limits under load; back off and retry rather than hammering it.
+
+**Completeness check:** `https://publish.twitter.com/oembed?url=<tweet url>`
+renders the post and marks truncation with a trailing `…`. A body with no `…`
+is complete. Use this to verify anything you couldn't pull from the archive.
+
+If a post is still truncated and has no snapshot yet (i.e. posted in the last
+day or two), **skip it** — the next run will pick it up. Dedupe is by
+`sourceUrl`, so a thin entry written now is never corrected later.
+
+## 3. Filter
+
+Keep only posts whose text **starts with** `＃重心情報`. That is the structured
+measurement format the schema expects.
+
+Do not match on `重心情報` appearing anywhere, which also catches:
+
+- `【獲得個体の重心情報】` — an older prose review format with no structured
+  fields. Not usable as-is.
+- Companion photo posts and replies that quote a measurement post.
+
+Also skip `＃重心情報` posts that carry no measurements at all — recolour/
+re-release announcements pointing at a previously measured prize. Without COG
+data the play tips would be ungrounded.
+
+**Dedupe by `sourceUrl`** against `src/content/prizes/*.md` before doing any
+work — never re-add an existing tweet URL.
+
+## 4. Parse
+
+- Prize name (the lines after `＃重心情報`)
 - `【Figure size】` e.g. `21cm` or `16×12cm`
-- `【Box weight】` e.g. `405g` (qualifiers like やや重め → note, not the value)
-- `【Box size】縦X×横Y×奥行Zcm` → `X × Y × Zcm (H×W×D)`
-- COG lines `🟨裏/上/右/左/中/表…` — distances from back/top, side offsets,
-  ranges (㍉=mm). e.g. `裏1cm重心`, `上2.5㍉〜7.5㍉重心(5㍉幅動)`
+- `【Box weight】` e.g. `405g` (qualifiers like 箱やや重め → note, not the value)
+- `【Box size】縦H×横W×奥行Dcm` → `H × W × Dcm (H×W×D)`
+- COG lines `🟨裏/上/右/左/中/表…` (㍉ = mm, ㎝ = cm). Ranges like
+  `上2.5㍉〜7.5㍉重心(5㍉幅動)` keep both ends and the play figure.
 - Notes: `箱はいれ方で個体差あり` (individual differences by packing),
-  `箱中はほぼ動かない/ブリスターで…動く` (internal movement)
+  `箱中はほぼ動かない` / `ブリスターで…動く` (internal movement)
 
-## 3. Manufacturer thumbnail
+## 5. Manufacturer and official image
 
-Identify the maker from the brand (never guess — verify by search):
-Taito (AMP+, T-most, 全力造形, Vivit — taito.co.jp og:image via curl),
-Sega (XStellar, Yumemirize, Luminasta, GLITTER&GLAMOURS, Grandista —
-segaplaza.jp is a JS app, use the browser for og:image), Banpresto/Bandai
-Spirits (bsp-prize.jp og:image via curl), Furyu (furyuprize.com), Bushiroad
-(prize.bushiroad-creative.com). `imageUrl` = direct official image,
-`imageCredit` = "Photo via <Maker> (<domain>)". Verify 200 image/*. If the
-maker can't be verified, fall back to the tweet's own photo.
+Identify the maker from the brand, then confirm on that maker's **own**
+catalogue site. Verified working routes:
 
-`diagramUrl` = the tweet's annotated photo (`mediaDetails[].media_url_https`),
-`diagramCredit` = "Diagram via Merry☆An (x.com)".
+| Maker | Search | Image |
+|---|---|---|
+| Banpresto | `https://bsp-prize.jp/search/?kw=<kw>` (server-rendered; the param is **`kw`** — `keyword` is silently ignored) | `og:image` on `/item/<id>/`, via curl |
+| Furyu | `https://furyuprize.com/search?keyword=<kw>` (server-rendered) | results embed `<img src=".../prz/pi-main-<id>.webp" alt="<name>">` directly |
+| Sega | `https://segaplaza.jp/search/?q=<kw>&type=prize` (needs a browser — JS-rendered) | `og:image` on `/prize/<CODE>/`, readable by curl (path is `images-v3`) |
+| Taito | product pages under `taito.co.jp` | `og:image` via curl |
 
-## 4. Translate, write tips, emit
+**Trap:** `taito.co.jp/prize/<id>` pages list prizes *available in Taito
+arcades*, including other makers' products. They do not establish the
+manufacturer. にゃーるずこれくしょん appears there but is Banpresto.
 
-- Translate prize name → `titleEn`/`titleZh` (keep `titleJa` original)
-- `cog[]` — one bilingual `{en, zh}` line per COG measurement
-- `noteEn`/`noteZh` — translate the remarks faithfully, no embellishment
-- `tipEn`/`tipZh` — AI-generated hashi-watashi (橋渡し) playing tips grounded
-  in the measured COG: where to aim first, push vs tilt, honest confidence
-  caveats. 2–4 sentences each.
+Brand → maker, confirmed so far:
+
+- **Furyu** — ぬーどるストッパー, BiCute, Exc∞d, Trio-Try-iT, サマードレス, ムチュート
+- **Banpresto** — Grandista, MAXIMATIC, MATCH MAKERS, History Box, Mometria,
+  GLITTER&GLAMOURS, ESPRESTO, 英雄勇像, おすわりフィギュア, にゃーるずこれくしょん
+- **Sega** — Luminasta, XStellar, Yumemirize, FIGURIZMα
+- **Taito** — Aqua Float Girls, Desktop Cute, Coreful, AMP+, T-most
+
+Set `imageUrl` to the official product image and `imageCredit` to
+`Photo via <Maker> (<domain>)`. Verify it returns HTTP 200 with an `image/*`
+content type. If the maker can't be verified, fall back to the tweet's own
+photo credited to Merry☆An.
+
+`diagramUrl` = the tweet's annotated photo (`mediaDetails[0].media_url_https`),
+`diagramCredit` = `Diagram via Merry☆An (x.com)`.
+
+## 6. Translate, write tips, emit
+
+- Translate the prize name → `titleEn` / `titleZh` (keep `titleJa` original).
+  Match existing conventions — check a sibling entry from the same line first.
+- `cog[]` — one bilingual `{en, zh}` line per measured axis
+- `noteEn` / `noteZh` — translate the remarks faithfully, no embellishment
+- `tipEn` / `tipZh` — play tips grounded in the measured COG: where to aim,
+  push vs tilt, honest caveats. **Write for someone new to crane games** —
+  plain language, explain *why*, no jargon like "profile" or "pinned axis".
+  2–4 sentences each.
 - One `.md` per post at `src/content/prizes/YYYY-Www-slugified-title.md`
-  matching `src/content.config.ts`. `publishedAt` in JST.
+  matching `src/content.config.ts`. `publishedAt` in JST; the filename week is
+  the ISO week of that date.
 
-## 5. Build and release
+## 7. Build and release
 
-`npm install` if needed, `npm run build` (schema errors fail loudly — fix
-them), commit `add: <week label> — <count> new entries`, push to main.
-Cloudflare Workers redeploys automatically.
+`npm install` if `node_modules` is missing, then `npm run build` (schema errors
+fail loudly — fix them). Commit `add: <week label> — <count> new entries` and
+push to `main`. Cloudflare redeploys automatically.
+
+Report: count of new entries, their titles, the commit hash, and roughly how
+many measurement posts remain un-harvested.

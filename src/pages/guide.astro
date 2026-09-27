@@ -1,0 +1,198 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const faq = [
+  {
+    q: "What does “back 1cm” actually mean?",
+    a: "It means the heaviest point of the boxed prize sits about 1cm in from the back wall of the box. The measurement is taken from the outside face of the box, so you can eyeball it against the box's own depth.",
+  },
+  {
+    q: "What does “≈5mm play” mean?",
+    a: "The figure can slide inside its box, so the balance point isn't one fixed spot — it's a small range. 5mm of play means the measured point moved about 5mm between checks. Bigger play means the box behaves less predictably from attempt to attempt.",
+  },
+  {
+    q: "Why does box weight matter so much?",
+    a: "A light box slides or bounces when you push it, and can shoot past the gap. A heavy box barely moves per attempt but stays put once positioned. Heavy boxes cost more attempts; light boxes cost more precision.",
+  },
+  {
+    q: "Is a high or low centre of gravity better?",
+    a: "High is usually easier. If the weight sits near the top of the box, a small nudge up there rotates the whole box over its base. A low centre of gravity resists tipping — those boxes have to be pushed across rather than flipped.",
+  },
+  {
+    q: "Are these measurements exact for the prize in front of me?",
+    a: "No. Every entry notes “individual differences depending on how it's packed” because the figure's position inside the box varies unit to unit. Treat the numbers as a strong starting read, not a guarantee.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout
+  title="Beginner's guide — how to read a centre-of-gravity measurement · Centre Pullz"
+  description="A plain-language guide to crane-game prize physics: what box weight, centre of gravity and “play” mean, how hashi-watashi (bridge) settings work, and how to turn a measurement into a plan at the machine."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <article class="wrap prose">
+    <span class="eyebrow">Guide · 攻略入门</span>
+    <h1>How to read a measurement</h1>
+    <p class="lede">
+      Every entry on this site is a set of numbers describing where the weight
+      sits inside a sealed prize box. This page explains what those numbers mean
+      and how to use them — no physics background needed.
+    </p>
+
+    <h2>The one idea behind all of it</h2>
+    <p>
+      A prize box falls when its centre of gravity — the single point you could
+      balance the whole box on — passes beyond the edge it's resting on. Not when
+      the box <em>looks</em> like it's hanging off. The box can overhang by a third
+      and stay put if the weight is still sitting safely behind the edge, and it can
+      drop while barely overhanging if the weight is right at the lip.
+    </p>
+    <p>
+      So the useful question is never “how far have I pushed it?” It's “where is
+      the weight now, relative to the edge?” That's the question these
+      measurements answer before you spend anything.
+    </p>
+
+    <h2>The three readings</h2>
+    <p>
+      Each entry lists up to three numbers, one per axis. They're measured from the
+      outside of the box, so you can judge them by eye against the box itself.
+    </p>
+
+    <h3>Depth — front and back</h3>
+    <p>
+      “Back 1cm” means the weight is about 1cm in from the back wall. This tells
+      you which face to push. A back-heavy box wants to tip away from you; a
+      front-heavy box wants to come toward you.
+    </p>
+
+    <h3>Height — top and bottom</h3>
+    <p>
+      “5mm down from the top” means the weight rides high. High is good news: a
+      small push near the top rotates the box over its own base, and it falls
+      cleanly. “2cm up from the bottom” is the opposite — the weight is low, the
+      box is stable, and you'll be pushing it along rather than flipping it.
+    </p>
+
+    <h3>Side lean — left and right</h3>
+    <p>
+      “Left 1cm side lean” means the weight is offset 1cm to the left of centre.
+      Small numbers barely matter. Large ones mean the box will rotate as it
+      falls, so aim off-centre to match, and leave room on that side.
+    </p>
+
+    <h2>What “play” tells you</h2>
+    <p>
+      Most figures aren't glued in place — they slide inside the box. When an
+      entry says <strong>≈5mm play</strong>, the measured point shifted about 5mm
+      between checks. When it says <strong>≈6cm play</strong>, the figure is
+      sliding the length of the box and the balance point is genuinely unknown on
+      any given attempt.
+    </p>
+    <p>
+      This is the single most useful thing to check before committing money:
+    </p>
+    <ul>
+      <li>
+        <strong>Small play (under ~5mm), or blister-packed</strong> — the numbers
+        hold. Find the stroke that works and repeat it exactly.
+      </li>
+      <li>
+        <strong>Large play (1cm or more)</strong> — treat the first attempt as a
+        probe. Watch where it actually tips, then adjust. Don't assume the last
+        attempt's behaviour carries over.
+      </li>
+    </ul>
+
+    <h2>Box weight, in practice</h2>
+    <ul>
+      <li><strong>Under ~250g</strong> — very light. Moves easily, but skids and bounces. Use short, gentle nudges.</li>
+      <li><strong>~250–500g</strong> — the comfortable middle. Responds to a firm, steady push without flying off.</li>
+      <li><strong>500–800g</strong> — heavy. Budget more attempts; it won't move far each time.</li>
+      <li><strong>Over 1kg</strong> — very heavy. Expect millimetres per attempt. Worth it only if the weight sits high, which is what makes a heavy box tippable at all.</li>
+    </ul>
+
+    <h2>Hashi-watashi (橋渡し) — the bridge setting</h2>
+    <p>
+      Most entries here are written with <em>hashi-watashi</em> in mind: the
+      setting where the prize box rests across two parallel bars with a gap
+      between them, and you win by working it until it falls through. It's the
+      most common figure-prize setting in Japanese arcades.
+    </p>
+    <p>There are broadly two ways a box goes down, and the measurement tells you which to aim for:</p>
+    <ol>
+      <li>
+        <strong>Rotation (tipping)</strong> — you catch a top corner and rotate the
+        box over one bar. Works best when the weight sits high.
+      </li>
+      <li>
+        <strong>Translation (walking)</strong> — you push the box sideways a few
+        millimetres at a time until its balance point clears a bar. This is the
+        fallback for low, heavy boxes, and it's slower and more expensive.
+      </li>
+    </ol>
+    <p>
+      A quick rule: <strong>high weight, tip it. Low weight, walk it.</strong>
+    </p>
+
+    <h2>About the play tips on each entry</h2>
+    <p>
+      Every prize page ends with a suggested approach. Those are generated by an AI
+      model reading that entry's measurements — they're a reasoned starting point,
+      not expert instruction, and they can't see the machine in front of you.
+      Operators set claw strength, bar spacing and prize position differently, and
+      those matter as much as the box does. The measurements are the reliable part;
+      the tips are commentary on them.
+    </p>
+
+    <h2>Play within your means</h2>
+    <p>
+      Crane games are designed so that the expected cost of a prize is higher than
+      buying it outright. Knowing where the weight sits improves your odds on a
+      given attempt; it does not make the machine profitable. Decide what you're
+      willing to spend before you start, and treat that as the whole budget. If
+      you're chasing losses, the physics isn't the problem.
+    </p>
+
+    <h2>Common questions</h2>
+    {faq.map((f) => (
+      <div class="faq">
+        <h3>{f.q}</h3>
+        <p>{f.a}</p>
+      </div>
+    ))}
+
+    <p class="next">
+      <a class="btn" href="/database/">Search the database →</a>
+    </p>
+  </article>
+</Layout>
+
+<style>
+  .faq {
+    border-left: 2px solid var(--border);
+    padding-left: 16px;
+    margin-bottom: 4px;
+  }
+  .faq h3 {
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 16px;
+    margin: 18px 0 4px;
+  }
+  .next {
+    margin-top: 40px;
+  }
+</style>

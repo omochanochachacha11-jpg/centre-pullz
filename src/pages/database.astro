@@ -1,0 +1,222 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PrizeRow from "../components/PrizeRow.astro";
+
+// ponytail: every row is server-rendered so crawlers (and JS-less clients) get the
+// whole database, and filtering is pure client-side DOM toggling. Fine to a few
+// hundred entries; past ~500 rows, paginate or move the index to a fetched JSON file.
+const all = await getCollection("prizes");
+const sorted = all.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const makers = [...new Set(all.map((e) => e.data.manufacturer))].sort();
+const series = [...new Set(all.map((e) => e.data.series).filter(Boolean))];
+
+const description = `Search ${sorted.length} crane-game prize centre-of-gravity measurements by name, series, or manufacturer. Box weight, box size and measured balance point for every entry.`;
+---
+
+<Layout title={`Database — search ${sorted.length} prize measurements · Centre Pullz`} description={description}>
+  <section class="wrap db-head">
+    <span class="eyebrow">Database · 数据库</span>
+    <h1>Search the measurements</h1>
+    <p class="lede">
+      Every prize Merry☆An has measured, searchable by prize name, series or
+      manufacturer — in English, Chinese or the original Japanese.
+    </p>
+  </section>
+
+  <section class="wrap db-controls" aria-label="Search and filter">
+    <div class="db-controls__search">
+      <label class="visually-hidden" for="q">Search prizes</label>
+      <input
+        id="q"
+        class="field"
+        type="search"
+        placeholder="Search — e.g. Frieren, Grandista, 初音ミク, 芙莉莲…"
+        autocomplete="off"
+      />
+    </div>
+    <div class="db-controls__selects">
+      <label class="visually-hidden" for="maker">Filter by manufacturer</label>
+      <select id="maker" class="field field--select">
+        <option value="">All manufacturers</option>
+        {makers.map((m) => <option value={m}>{m}</option>)}
+      </select>
+      <label class="visually-hidden" for="sort">Sort order</label>
+      <select id="sort" class="field field--select">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="heaviest">Heaviest box</option>
+        <option value="lightest">Lightest box</option>
+        <option value="az">Name A–Z</option>
+      </select>
+    </div>
+    <p class="db-count mono" id="count" role="status" aria-live="polite">
+      {sorted.length} of {sorted.length} entries
+    </p>
+  </section>
+
+  <section class="wrap">
+    <ul class="db-list" id="list">
+      {sorted.map((entry) => <PrizeRow entry={entry} />)}
+    </ul>
+    <p class="db-empty" id="empty" hidden>
+      No prizes match that search. Try a shorter term, a series name, or
+      <button type="button" class="linkish" id="reset">clear the filters</button>.
+    </p>
+  </section>
+
+  <section class="wrap db-facts">
+    <p class="mono">
+      {sorted.length} entries · {makers.length} manufacturers · {series.length} series
+    </p>
+  </section>
+</Layout>
+
+<script>
+  const q = document.getElementById("q") as HTMLInputElement;
+  const maker = document.getElementById("maker") as HTMLSelectElement;
+  const sort = document.getElementById("sort") as HTMLSelectElement;
+  const list = document.getElementById("list") as HTMLUListElement;
+  const count = document.getElementById("count") as HTMLParagraphElement;
+  const empty = document.getElementById("empty") as HTMLParagraphElement;
+  const reset = document.getElementById("reset") as HTMLButtonElement;
+
+  const rows = Array.from(list.querySelectorAll<HTMLLIElement>("[data-row]"));
+  const total = rows.length;
+
+  const grams = (el: HTMLLIElement) => {
+    const g = Number.parseFloat(el.dataset.grams || "");
+    return Number.isFinite(g) ? g : -1;
+  };
+  const date = (el: HTMLLIElement) => Date.parse(el.dataset.date || "") || 0;
+  const name = (el: HTMLLIElement) => el.querySelector(".row__title")?.textContent?.trim() || "";
+
+  const comparators: Record<string, (a: HTMLLIElement, b: HTMLLIElement) => number> = {
+    newest: (a, b) => date(b) - date(a),
+    oldest: (a, b) => date(a) - date(b),
+    heaviest: (a, b) => grams(b) - grams(a),
+    lightest: (a, b) => {
+      // Entries with no stated weight have no place in a lightest-first list.
+      const ga = grams(a), gb = grams(b);
+      if (ga < 0) return 1;
+      if (gb < 0) return -1;
+      return ga - gb;
+    },
+    az: (a, b) => name(a).localeCompare(name(b)),
+  };
+
+  function apply() {
+    const term = q.value.trim().toLowerCase();
+    const m = maker.value;
+    let shown = 0;
+
+    for (const row of rows) {
+      const hit =
+        (!term || (row.dataset.search || "").includes(term)) &&
+        (!m || row.dataset.maker === m);
+      row.hidden = !hit;
+      if (hit) shown++;
+    }
+
+    const ordered = [...rows].sort(comparators[sort.value] ?? comparators.newest);
+    for (const row of ordered) list.appendChild(row);
+
+    count.textContent = `${shown} of ${total} entries`;
+    empty.hidden = shown > 0;
+
+    const params = new URLSearchParams();
+    if (term) params.set("q", q.value.trim());
+    if (m) params.set("maker", m);
+    const qs = params.toString();
+    history.replaceState(null, "", qs ? `?${qs}` : location.pathname);
+  }
+
+  const params = new URLSearchParams(location.search);
+  q.value = params.get("q") || "";
+  const presetMaker = params.get("maker");
+  if (presetMaker && [...maker.options].some((o) => o.value === presetMaker)) {
+    maker.value = presetMaker;
+  }
+
+  q.addEventListener("input", apply);
+  maker.addEventListener("change", apply);
+  sort.addEventListener("change", apply);
+  reset.addEventListener("click", () => {
+    q.value = "";
+    maker.value = "";
+    apply();
+    q.focus();
+  });
+
+  apply();
+</script>
+
+<style>
+  .db-head {
+    padding: 48px 0 20px;
+  }
+  .db-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 12px 0 10px;
+  }
+  .lede {
+    max-width: 60ch;
+    color: var(--text-muted);
+    font-size: 16px;
+    margin: 0;
+  }
+  .db-controls {
+    display: grid;
+    gap: 12px;
+    padding-bottom: 20px;
+  }
+  .db-controls__search {
+    display: block;
+  }
+  .db-controls__selects {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .field--select {
+    width: auto;
+    min-width: 190px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+  .db-count {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 2px 0 0;
+    letter-spacing: 0.04em;
+  }
+  .db-list {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+  }
+  .db-empty {
+    padding: 48px 0;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  .linkish {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: var(--accent);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .db-facts {
+    padding: 28px 0 64px;
+    color: var(--text-muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 28px;
+  }
+</style>

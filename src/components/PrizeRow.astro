@@ -1,0 +1,137 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"prizes">;
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+
+const date = d.publishedAt.toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+// Sort key only — entries with no stated box weight sort last.
+const grams = d.boxWeight ? Number.parseFloat(d.boxWeight.replace(/[^\d.]/g, "")) : NaN;
+
+const haystack = [d.titleEn, d.titleZh, d.titleJa, d.series, d.manufacturer]
+  .filter(Boolean)
+  .join(" ")
+  .toLowerCase();
+---
+
+<li
+  class="row"
+  data-row
+  data-search={haystack}
+  data-maker={d.manufacturer}
+  data-date={d.publishedAt.toISOString()}
+  data-grams={Number.isFinite(grams) ? grams : ""}
+>
+  <a href={`/prizes/${entry.id}`} class="row__link">
+    <img class="row__thumb" src={d.imageUrl} alt="" loading="lazy" decoding="async" width="72" height="72" />
+    <span class="row__main">
+      <span class="row__title">{d.titleEn}</span>
+      <span class="row__title-zh">{d.titleZh}</span>
+      <span class="row__meta mono">
+        {d.manufacturer}{d.series ? ` · ${d.series}` : ""} · {date}
+      </span>
+    </span>
+    <span class="row__specs mono">
+      {d.boxWeight && <span class="row__spec"><b>Weight</b>{d.boxWeight}</span>}
+      {d.figureSize && <span class="row__spec"><b>Figure</b>{d.figureSize}</span>}
+      {d.boxSize && <span class="row__spec row__spec--wide"><b>Box</b>{d.boxSize}</span>}
+    </span>
+  </a>
+</li>
+
+<style>
+  .row {
+    list-style: none;
+  }
+  .row__link {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+    gap: 16px;
+    align-items: center;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text);
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.15s ease;
+  }
+  .row__link:hover {
+    border-color: var(--accent);
+  }
+  .row__thumb {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .row__main {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+  .row__title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+  .row__title-zh {
+    font-size: 14px;
+    color: var(--text);
+  }
+  .row__meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .row__specs {
+    display: flex;
+    gap: 18px;
+    font-size: 12px;
+    text-align: right;
+  }
+  .row__spec {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    white-space: nowrap;
+  }
+  .row__spec b {
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  @media (max-width: 760px) {
+    .row__link {
+      grid-template-columns: 56px minmax(0, 1fr);
+    }
+    .row__thumb {
+      width: 56px;
+      height: 56px;
+    }
+    .row__specs {
+      grid-column: 1 / -1;
+      text-align: left;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .row__spec--wide {
+      display: none;
+    }
+  }
+</style>

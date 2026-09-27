@@ -1,0 +1,104 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { site } from "../site";
+
+const all = await getCollection("prizes");
+const makers = new Set(all.map((e) => e.data.manufacturer));
+---
+
+<Layout
+  title="About Centre Pullz — what this database is and where the data comes from"
+  description="Centre Pullz collects crane-game prize centre-of-gravity measurements published by Merry☆An on X, translates them into English and Simplified Chinese, and adds plain-language play notes."
+>
+  <article class="wrap prose">
+    <span class="eyebrow">About · 关于</span>
+    <h1>About Centre Pullz</h1>
+    <p class="lede">
+      Centre Pullz is a free, bilingual reference for crane-game (UFO catcher)
+      prize physics: {all.length} prize boxes from {makers.size} manufacturers,
+      each with its measured weight and centre of gravity.
+    </p>
+
+    <h2>Where the measurements come from</h2>
+    <p>
+      Every measurement on this site was taken and published by
+      <a href={site.sourceUrl} target="_blank" rel="noopener">Merry☆An ({site.sourceHandle})</a>,
+      who weighs and measures prize boxes and posts the results on X under the
+      tag <span class="mono">#重心情報</span>. Centre Pullz is not affiliated with
+      Merry☆An — it collects those posts, structures them, and translates them.
+    </p>
+    <p>
+      Each entry links back to the original post. If you find this data useful,
+      the credit belongs there.
+    </p>
+
+    <h2>What this site adds</h2>
+    <ul>
+      <li>
+        <strong>Translation.</strong> The source posts are in Japanese. Every
+        entry is translated into English and Simplified Chinese, keeping the
+        original Japanese title intact.
+      </li>
+      <li>
+        <strong>Structure.</strong> Measurements are normalised into consistent
+        fields — figure size, box weight, box dimensions, and one line per
+        measured axis — so entries can be compared and searched.
+      </li>
+      <li>
+        <strong>Play notes.</strong> Each entry ends with a suggested approach
+        written by an AI model from that entry's measurements. These are clearly
+        labelled and are commentary, not expert instruction. See the
+        <a href="/guide/">guide</a> for how much weight to give them.
+      </li>
+    </ul>
+
+    <h2>Images</h2>
+    <p>
+      Prize photographs are the manufacturers' own official product images
+      (Banpresto, Furyu, Sega, Taito and others), linked directly from the
+      manufacturers' websites rather than copied onto this server. The annotated
+      measurement diagrams are Merry☆An's own photographs, credited on each entry.
+      If you hold rights to an image used here and want it removed, see
+      <a href="/terms/">Terms</a>.
+    </p>
+
+    <h2>How it's built</h2>
+    <p>
+      A static site — no accounts, no user-generated content, no database server.
+      Each prize is a plain text file validated at build time, which is why the
+      fields stay consistent. New measurements are collected and added on a
+      recurring schedule.
+    </p>
+
+    <h2>Corrections and contact</h2>
+    <p>
+      Measurements are transcribed from public posts and can contain transcription
+      errors, and the source posts themselves note that prizes vary unit to unit.
+      If something looks wrong, corrections are welcome.
+    </p>
+    {site.contactEmail ? (
+      <p>
+        Email: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+      </p>
+    ) : (
+      <p class="mono note">
+        A contact address for this site has not been published yet.
+      </p>
+    )}
+
+    <p class="next">
+      <a class="btn" href="/database/">Search the database →</a>
+    </p>
+  </article>
+</Layout>
+
+<style>
+  .note {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .next {
+    margin-top: 40px;
+  }
+</style>

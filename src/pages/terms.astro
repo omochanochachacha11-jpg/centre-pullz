@@ -1,0 +1,125 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../site";
+---
+
+<Layout
+  title="Terms of Use · Centre Pullz"
+  description="Terms for using Centre Pullz: what the measurements are, what they are not, attribution and image rights, and the limits of the play advice published here."
+>
+  <article class="wrap prose">
+    <span class="eyebrow">Legal</span>
+    <h1>Terms of Use</h1>
+    <p class="updated">Last updated {site.legalUpdated}</p>
+    <p class="lede">
+      By using Centre Pullz you accept the terms below. They're short and written
+      to be read.
+    </p>
+
+    <h2>What this site is</h2>
+    <p>
+      A free, informational reference about the weight distribution of crane-game
+      prize boxes. It is provided "as is", without warranty of any kind, for
+      general information only.
+    </p>
+
+    <h2>Accuracy — please read this one</h2>
+    <p>
+      The measurements are transcribed from public posts by a third party and
+      describe <em>the specific box that person measured</em>. The source posts
+      themselves state that prizes vary between individual units depending on how
+      the figure was packed. Transcription and translation errors are also
+      possible.
+    </p>
+    <p>
+      Nothing here is a guarantee about the prize in front of you. Machine
+      settings — claw strength, bar spacing, prize placement, payout
+      configuration — are controlled by the arcade operator and are not reflected
+      in this data.
+    </p>
+
+    <h2>The play tips are AI-generated</h2>
+    <p>
+      Each entry ends with a suggested approach produced by an AI model reading
+      that entry's measurements. They are labelled as such on every page. They are
+      opinion and inference, not expert advice, and may be wrong. Use your own
+      judgement.
+    </p>
+
+    <h2>Spending</h2>
+    <p>
+      Crane games cost money and are configured so that, on average, players spend
+      more than the prize is worth. This site may improve your understanding of a
+      machine; it does not make playing profitable and does not predict outcomes.
+      You are solely responsible for what you choose to spend. Set a limit before
+      you play. If gambling or arcade spending is causing you harm, please seek
+      local support services.
+    </p>
+
+    <h2>Attribution and source data</h2>
+    <p>
+      All measurements originate with
+      <a href={site.sourceUrl} target="_blank" rel="noopener">Merry☆An ({site.sourceHandle})</a>
+      and every entry links to the original post. This site is not affiliated
+      with, endorsed by, or operated in partnership with Merry☆An.
+    </p>
+
+    <h2>Trademarks and images</h2>
+    <p>
+      Prize names, series names, character names and manufacturer names are the
+      trademarks of their respective owners. Centre Pullz is not affiliated with,
+      endorsed by, or sponsored by Banpresto, Bandai Spirits, Furyu, Sega, Taito,
+      or any other rights holder, arcade operator or publisher named on this site.
+      Names are used descriptively to identify the prize being measured.
+    </p>
+    <p>
+      Product photographs are displayed directly from the manufacturers' own
+      servers and remain their property; they are not copied or re-hosted here.
+      Measurement diagrams are the photographer's own work and are credited.
+    </p>
+
+    <h2>Takedown requests</h2>
+    <p>
+      If you hold rights to material shown here and want it removed, contact us
+      with the page URL and the material in question and it will be taken down
+      while the request is reviewed.
+    </p>
+
+    <h2>Using our content</h2>
+    <p>
+      You're welcome to read, link to, and reference this site. Please don't
+      scrape it wholesale to republish as your own database — link to the entry
+      instead, and credit the original measurements to Merry☆An.
+    </p>
+
+    <h2>Limitation of liability</h2>
+    <p>
+      To the fullest extent permitted by law, Centre Pullz and its operator are
+      not liable for any loss — including money spent on arcade machines — arising
+      from use of, or reliance on, this site. Some jurisdictions do not allow
+      certain exclusions, so parts of this section may not apply to you.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      These terms may be updated; the "last updated" date above will change when
+      they are. Continuing to use the site means accepting the current version.
+    </p>
+
+    <h2>Contact</h2>
+    {site.contactEmail ? (
+      <p>
+        Questions or takedown requests: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+      </p>
+    ) : (
+      <p class="mono note">A contact address for this site has not been published yet.</p>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .note {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+</style>

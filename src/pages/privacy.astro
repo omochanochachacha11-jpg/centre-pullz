@@ -1,0 +1,144 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../site";
+---
+
+<Layout
+  title="Privacy Policy · Centre Pullz"
+  description="What Centre Pullz does and does not collect: no accounts, no tracking cookies of our own, and a plain list of the third parties your browser contacts when you load a page."
+>
+  <article class="wrap prose">
+    <span class="eyebrow">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated {site.legalUpdated}</p>
+    <p class="lede">
+      Centre Pullz is a static reference site. There are no accounts, no logins,
+      no comment boxes and no forms that send anything to us. This page describes
+      exactly what happens when you visit.
+    </p>
+
+    <h2>What we collect directly</h2>
+    <p>
+      Nothing. We do not run our own analytics, we do not set our own cookies, and
+      we have no server-side database that stores anything about you. We could not
+      identify a visitor if we wanted to.
+    </p>
+    <p>
+      The search box on the database page runs entirely inside your browser. What
+      you type is never transmitted to us — it only filters a list that was already
+      downloaded with the page. Your search terms may appear in the page URL so
+      that results can be bookmarked or shared; that URL stays in your browser
+      unless you choose to share it.
+    </p>
+
+    <h2>What our host processes</h2>
+    <p>
+      The site is served by Cloudflare. Like any web host, Cloudflare processes
+      technical request data — including your IP address — to deliver pages and
+      protect against abuse. This is handled under Cloudflare's own privacy terms,
+      and we do not receive per-visitor reports from it.
+    </p>
+
+    <h2>Third parties your browser contacts</h2>
+    <p>
+      Some page content is loaded directly from other companies' servers. When
+      that happens, those servers necessarily see your IP address, your browser
+      user-agent, and the page you came from. We have no control over, and no
+      access to, what they do with it:
+    </p>
+    <ul>
+      <li>
+        <strong>Google Fonts</strong> (<span class="mono">fonts.googleapis.com</span>,
+        <span class="mono">fonts.gstatic.com</span>) — serves the typefaces used across
+        the site.
+      </li>
+      <li>
+        <strong>Prize manufacturers</strong> (including
+        <span class="mono">bsp-prize.jp</span>, <span class="mono">furyuprize.com</span>,
+        <span class="mono">segaplaza.jp</span>, <span class="mono">taito.co.jp</span>) —
+        product photographs are shown directly from the manufacturers' own sites
+        rather than copied onto ours.
+      </li>
+      <li>
+        <strong>X / Twitter</strong> (<span class="mono">pbs.twimg.com</span>) — the
+        annotated measurement photographs are shown from their original posts.
+      </li>
+    </ul>
+    <p>
+      If you would rather not contact these servers, a content blocker or
+      script/image blocker will stop them; the measurement data itself is plain
+      text in the page and will still be readable.
+    </p>
+
+    {site.hasAds ? (
+      <>
+        <h2>Advertising</h2>
+        <p>
+          This site shows advertising supplied by Google. Google and its partners
+          may use cookies or similar identifiers to serve and measure ads,
+          including ads based on your prior visits to this or other websites.
+        </p>
+        <p>
+          You can opt out of personalised advertising from Google at
+          <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">
+            Google Ads Settings</a>, and opt out of personalisation from many other
+          vendors at
+          <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">
+            aboutads.info/choices</a>. Where required by law, you will be asked for
+          consent before any non-essential cookie is set, and you can change that
+          choice at any time.
+        </p>
+      </>
+    ) : (
+      <>
+        <h2>Advertising</h2>
+        <p>
+          This site currently carries no advertising and no advertising cookies.
+          If that changes, this policy will be updated before any ad code is added,
+          and — where the law requires it — you will be asked for consent before
+          any non-essential cookie is set.
+        </p>
+      </>
+    )}
+
+    <h2>Children</h2>
+    <p>
+      This site is a general-audience reference and is not directed at children
+      under 13. We do not knowingly collect personal information from anyone,
+      including children.
+    </p>
+
+    <h2>Your rights</h2>
+    <p>
+      Privacy laws including the GDPR (EU/UK), the CCPA/CPRA (California) and
+      Japan's APPI give you rights to access, correct, delete or restrict the use
+      of personal data held about you. Because we hold no personal data about
+      visitors, there is nothing for us to return or erase. Requests about data
+      held by the third parties listed above need to go to those companies
+      directly.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      If this policy changes, the "last updated" date above changes with it.
+      Material changes — in particular, introducing advertising or analytics —
+      will be reflected here before the change goes live.
+    </p>
+
+    <h2>Contact</h2>
+    {site.contactEmail ? (
+      <p>
+        Questions about this policy: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+      </p>
+    ) : (
+      <p class="mono note">A contact address for this site has not been published yet.</p>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .note {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+</style>
