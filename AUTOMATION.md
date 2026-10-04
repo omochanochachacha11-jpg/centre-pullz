@@ -41,12 +41,22 @@ To get the full body, fetch the archived snapshot using the timestamp from
 step 1:
 
 ```
-http://web.archive.org/web/{TIMESTAMP}/https://twitter.com/6eS8Jm4YNJpPA2D/status/{ID}
+http://web.archive.org/web/{TIMESTAMP}id_/https://twitter.com/6eS8Jm4YNJpPA2D/status/{ID}
 ```
 
-The archived page is a JSON API response containing `note_tweet.text` — the
-complete post. Extract it with `"note_tweet":\{.*?"text":"((?:[^"\\]|\\.)*)"`
-and JSON-unescape the capture.
+**The `id_` suffix on the timestamp is required.** Without it the archive
+wraps the snapshot in its own HTML toolbar page and you get no JSON at all —
+silently, with a 200.
+
+The archived page is a JSON API response (X API v2 shape) containing the
+complete post. Extract it with
+`"note_tweet":\{.*?"text":"((?:[^"\\]|\\.)*)"` and JSON-unescape the capture;
+`note_tweet` is often `{"entities":{}}` and the tweet's own full-length
+`text` field follows it immediately, so the same regex works either way.
+
+The response has no charset header, so HTTP clients that guess Latin-1 (e.g.
+PowerShell's `Invoke-WebRequest.Content`) will mojibake it. Read the raw bytes
+and decode as UTF-8.
 
 Wayback rate-limits under load; back off and retry rather than hammering it.
 
@@ -97,17 +107,21 @@ catalogue site. Verified working routes:
 | Banpresto | `https://bsp-prize.jp/search/?kw=<kw>` (server-rendered; the param is **`kw`** — `keyword` is silently ignored) | `og:image` on `/item/<id>/`, via curl |
 | Furyu | `https://furyuprize.com/search?keyword=<kw>` (server-rendered) | results embed `<img src=".../prz/pi-main-<id>.webp" alt="<name>">` directly |
 | Sega | `https://segaplaza.jp/search/?q=<kw>&type=prize` (needs a browser — JS-rendered) | `og:image` on `/prize/<CODE>/`, readable by curl (path is `images-v3`) |
-| Taito | product pages under `taito.co.jp` | `og:image` via curl |
+| Taito | `https://www.taito.co.jp/api/Prize/?date=&isDesc=true&keyword=&limit=100&offset=<n>&sortName=TaitoPrizeRank` — JSON, curl-friendly; page with `offset` (≈257 items total). `keyword` is accepted but **always returns `[]`**, so pull the whole list and filter locally | `ImagePath` + `ImageName01` → `https://www.taito.co.jp/Content/images/zone/prize/<ImageName01>` |
 
 **Trap:** `taito.co.jp/prize/<id>` pages list prizes *available in Taito
 arcades*, including other makers' products. They do not establish the
-manufacturer. にゃーるずこれくしょん appears there but is Banpresto.
+manufacturer. にゃーるずこれくしょん appears there but is Banpresto. The
+`/api/Prize/` records above carry a `MakerName` field, which *does* settle it
+(`（株）タイトー` for Taito's own).
 
 Brand → maker, confirmed so far:
 
 - **Furyu** — ぬーどるストッパー, BiCute, Exc∞d, Trio-Try-iT, サマードレス, ムチュート
-- **Banpresto** — Grandista, MAXIMATIC, MATCH MAKERS, History Box, Mometria,
-  GLITTER&GLAMOURS, ESPRESTO, 英雄勇像, おすわりフィギュア, にゃーるずこれくしょん
+- **Banpresto** — Grandista, MAXIMATIC, MAXIMATICPLUS, MATCH MAKERS,
+  History Box, Mometria, GLITTER&GLAMOURS, ESPRESTO, SOFVIMATES,
+  Eternal Romance, フィギュア-sweets flavor-, 英雄勇像, おすわりフィギュア,
+  にゃーるずこれくしょん
 - **Sega** — Luminasta, XStellar, Yumemirize, FIGURIZMα
 - **Taito** — Aqua Float Girls, Desktop Cute, Coreful, AMP+, T-most
 
