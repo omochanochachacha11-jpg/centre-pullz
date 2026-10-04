@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import { site } from "../site";
+import { site, hasContact } from "../site";
 
 const all = await getCollection("prizes");
 const makers = new Set(all.map((e) => e.data.manufacturer));
@@ -77,13 +77,13 @@ const makers = new Set(all.map((e) => e.data.manufacturer));
       errors, and the source posts themselves note that prizes vary unit to unit.
       If something looks wrong, corrections are welcome.
     </p>
-    {site.contactEmail ? (
+    {hasContact ? (
       <p>
-        Email: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+        <a href="/contact/">Send a correction or question →</a>
       </p>
     ) : (
       <p class="mono note">
-        A contact address for this site has not been published yet.
+        A contact method for this site has not been published yet.
       </p>
     )}
 

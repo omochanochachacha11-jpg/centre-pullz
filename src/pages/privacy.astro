@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { site } from "../site";
+import { site, hasContact } from "../site";
 ---
 
 <Layout
@@ -12,16 +12,16 @@ import { site } from "../site";
     <h1>Privacy Policy</h1>
     <p class="updated">Last updated {site.legalUpdated}</p>
     <p class="lede">
-      Centre Pullz is a static reference site. There are no accounts, no logins,
-      no comment boxes and no forms that send anything to us. This page describes
-      exactly what happens when you visit.
+      Centre Pullz is a static reference site. There are no accounts, no logins
+      and no comment boxes.{site.contactFormUrl ? " The only thing that sends us anything is the contact form, and only if you choose to use it." : ""} This
+      page describes exactly what happens when you visit.
     </p>
 
-    <h2>What we collect directly</h2>
+    <h2>What we collect when you just read the site</h2>
     <p>
       Nothing. We do not run our own analytics, we do not set our own cookies, and
-      we have no server-side database that stores anything about you. We could not
-      identify a visitor if we wanted to.
+      we have no server-side database that stores anything about you. Browsing
+      Centre Pullz leaves us with no record of you at all.
     </p>
     <p>
       The search box on the database page runs entirely inside your browser. What
@@ -30,6 +30,32 @@ import { site } from "../site";
       that results can be bookmarked or shared; that URL stays in your browser
       unless you choose to share it.
     </p>
+
+    {site.contactFormUrl && (
+      <>
+        <h2>If you use the contact form</h2>
+        <p>
+          The contact form on our <a href="/contact/">contact page</a> is a Google
+          Form, embedded from Google's servers. It is the one place on this site
+          where you can send us something, and nothing is sent unless you fill it
+          in and submit it.
+        </p>
+        <p>
+          Whatever you type into it — and your email address, if the form asks for
+          it and you provide it — is stored in Google's systems and visible to us
+          there. Google also processes the submission as a data processor under
+          its own terms, and may record technical details such as your IP address
+          as part of handling it. We use what you send only to answer you or to
+          act on a correction or takedown request. We do not add it to a mailing
+          list, and we do not pass it to anyone else.
+        </p>
+        <p>
+          Please don't put sensitive personal information in the form — it is a
+          general enquiry box, not a secure channel. If you'd like a submission
+          deleted, ask and we'll remove it from the responses.
+        </p>
+      </>
+    )}
 
     <h2>What our host processes</h2>
     <p>
@@ -47,6 +73,12 @@ import { site } from "../site";
       access to, what they do with it:
     </p>
     <ul>
+      {site.contactFormUrl && (
+        <li>
+          <strong>Google Forms</strong> (<span class="mono">docs.google.com</span>) —
+          only on the contact page, where the form is embedded.
+        </li>
+      )}
       <li>
         <strong>Google Fonts</strong> (<span class="mono">fonts.googleapis.com</span>,
         <span class="mono">fonts.gstatic.com</span>) — serves the typefaces used across
@@ -112,10 +144,12 @@ import { site } from "../site";
     <p>
       Privacy laws including the GDPR (EU/UK), the CCPA/CPRA (California) and
       Japan's APPI give you rights to access, correct, delete or restrict the use
-      of personal data held about you. Because we hold no personal data about
-      visitors, there is nothing for us to return or erase. Requests about data
-      held by the third parties listed above need to go to those companies
-      directly.
+      of personal data held about you.
+      {site.contactFormUrl
+        ? " For ordinary visitors we hold nothing, so there is nothing to return or erase. If you have sent us something through the contact form, that submission is the only personal data we hold about you — ask and we will show you a copy or delete it."
+        : " Because we hold no personal data about visitors, there is nothing for us to return or erase."}
+      {" "}Requests about data held by the third parties listed above need to go
+      to those companies directly.
     </p>
 
     <h2>Changes</h2>
@@ -126,12 +160,12 @@ import { site } from "../site";
     </p>
 
     <h2>Contact</h2>
-    {site.contactEmail ? (
+    {hasContact ? (
       <p>
-        Questions about this policy: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+        Questions about this policy: <a href="/contact/">get in touch</a>.
       </p>
     ) : (
-      <p class="mono note">A contact address for this site has not been published yet.</p>
+      <p class="mono note">A contact method for this site has not been published yet.</p>
     )}
   </article>
 </Layout>

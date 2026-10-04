@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site, formEmbedUrl } from "../site";
+
+const embed = site.contactFormUrl ? formEmbedUrl(site.contactFormUrl) : null;
+---
+
+<Layout
+  title="Contact · Centre Pullz"
+  description="Get in touch about Centre Pullz — corrections to a measurement, takedown requests, or questions about the data."
+>
+  <article class="wrap prose contact">
+    <span class="eyebrow">Contact</span>
+    <h1>Get in touch</h1>
+    <p class="lede">
+      Corrections to a measurement, takedown requests, or questions about where
+      the data comes from — all welcome.
+    </p>
+
+    <p>
+      Before writing in about a number looking wrong: every entry is transcribed
+      from a public post describing one specific box, and prizes genuinely vary
+      between units depending on how the figure was packed. The
+      <a href="/guide/">guide</a> explains how much to trust a given reading. If
+      it still looks like a transcription error, please do tell us — include the
+      entry's URL.
+    </p>
+
+    {embed ? (
+      <>
+        <div class="contact__form">
+          <iframe
+            src={embed}
+            title="Centre Pullz contact form"
+            loading="lazy"
+            width="100%"
+            height="1100"
+          >Loading…</iframe>
+        </div>
+        <p class="contact__fallback">
+          Form not loading? A content blocker may be stopping it — you can
+          <a href={site.contactFormUrl} target="_blank" rel="noopener">open it directly</a>
+          instead.
+        </p>
+        <p class="contact__note mono">
+          The form is hosted by Google Forms, so submissions are processed by
+          Google. See the <a href="/privacy/">Privacy Policy</a>.
+        </p>
+      </>
+    ) : site.contactEmail ? (
+      <>
+        <h2>Email</h2>
+        <p>
+          <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+        </p>
+        <p class="contact__note mono">
+          A contact form is being set up to replace this address.
+        </p>
+      </>
+    ) : (
+      <p class="contact__note mono">
+        A contact method for this site has not been published yet.
+      </p>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .contact__form {
+    margin: 32px 0 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #fff;
+  }
+  .contact__form iframe {
+    display: block;
+    border: 0;
+    width: 100%;
+  }
+  .contact__fallback {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .contact__note {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+</style>

@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { site } from "../site";
+import { site, hasContact } from "../site";
 ---
 
 <Layout
@@ -107,12 +107,12 @@ import { site } from "../site";
     </p>
 
     <h2>Contact</h2>
-    {site.contactEmail ? (
+    {hasContact ? (
       <p>
-        Questions or takedown requests: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+        Questions or takedown requests: <a href="/contact/">get in touch</a>.
       </p>
     ) : (
-      <p class="mono note">A contact address for this site has not been published yet.</p>
+      <p class="mono note">A contact method for this site has not been published yet.</p>
     )}
   </article>
 </Layout>
