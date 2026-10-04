@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { site as siteInfo } from "../site";
 
 interface Props {
   title: string;
@@ -124,6 +125,12 @@ const path = Astro.url.pathname;
             measurements — so you know where the weight sits before you spend a coin.
           </p>
           <p class="footer-zh zh">抓娃娃奖品重心实测数据库，中英双语，免费查询。</p>
+          {siteInfo.contactEmail && (
+            <p class="site-footer__contact">
+              Corrections, takedown requests or questions —{" "}
+              <a href={`mailto:${siteInfo.contactEmail}`}>{siteInfo.contactEmail}</a>
+            </p>
+          )}
         </div>
         <nav class="site-footer__links mono" aria-label="Footer">
           <a href="/database/">Database</a>
@@ -131,6 +138,7 @@ const path = Astro.url.pathname;
           <a href="/about/">About</a>
           <a href="/privacy/">Privacy</a>
           <a href="/terms/">Terms</a>
+          {siteInfo.contactEmail && <a href={`mailto:${siteInfo.contactEmail}`}>Contact</a>}
         </nav>
       </div>
       <div class="wrap site-footer__fine mono">
@@ -245,6 +253,9 @@ const path = Astro.url.pathname;
   }
   .footer-zh {
     color: var(--text);
+  }
+  .site-footer__grid > div > p.site-footer__contact {
+    margin-top: 12px;
   }
   .site-footer__links {
     display: flex;
