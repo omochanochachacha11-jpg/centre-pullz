@@ -30,9 +30,17 @@ export const hasContact = Boolean(site.contactFormUrl || site.contactEmail);
 /**
  * Google Forms only renders inside an iframe when asked to; the plain viewform
  * URL returns the full chrome-wrapped page.
+ *
+ * hl=en pins Google's own UI strings (Submit, Required question, Clear form) to
+ * English. Without it the form inherits the locale of the account that created
+ * it — Japanese here — which the site's readers would not expect. The questions
+ * themselves are whatever they were written as.
  */
 export function formEmbedUrl(url: string): string {
-  return url.includes("embedded=true")
-    ? url
-    : url + (url.includes("?") ? "&" : "?") + "embedded=true";
+  const params = new URLSearchParams();
+  if (!url.includes("embedded=true")) params.set("embedded", "true");
+  if (!/[?&]hl=/.test(url)) params.set("hl", "en");
+  const extra = params.toString();
+  if (!extra) return url;
+  return url + (url.includes("?") ? "&" : "?") + extra;
 }
