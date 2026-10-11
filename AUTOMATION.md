@@ -67,9 +67,22 @@ Don't accept a snapshot on size or status alone. Even with `id_`, a flaky
 archive can hand back the Wayback toolbar HTML with a 200, so check the body
 actually contains `note_tweet` / `"full_text"` before using it.
 
+**Never pick the body by length.** The archived `note_tweet.text` is often a few
+characters *shorter* than the syndication `text` while carrying strictly more
+content, because it has no trailing `https://t.co/…` URL. A "prefer the longer
+string" guard therefore keeps the truncated body and silently drops the last
+COG axis — on 2026-10-11 that cost the left/right line on YORUICHI SHIHOIN,
+KISUKE URAHARA, 千燈ゆうひ and both ダンシングポチタ. Always prefer the archive
+body when it starts with `＃重心情報`, and sanity-check the axis count: these
+posts almost always carry three `🟨` lines, so two is a red flag.
+
 **Completeness check:** `https://publish.twitter.com/oembed?url=<tweet url>`
-renders the post and marks truncation with a trailing `…`. A body with no `…`
-is complete. Use this to verify anything you couldn't pull from the archive.
+marks truncation with a trailing `…` — but oembed also caps its *own* render at
+roughly 200 characters of body, so a trailing `…` on a long post proves nothing.
+Compare where it cuts off against your body instead of trusting the `…`.
+Likewise `"note_tweet" in response` is not a truncation signal: it is usually
+just `{"entities":{...}}`. The reliable tell that syndication truncated is a `…`
+inside the `text` field itself.
 
 If a post is still truncated and has no snapshot yet (i.e. posted in the last
 day or two), **skip it** — the next run will pick it up. Dedupe is by
