@@ -58,7 +58,14 @@ The response has no charset header, so HTTP clients that guess Latin-1 (e.g.
 PowerShell's `Invoke-WebRequest.Content`) will mojibake it. Read the raw bytes
 and decode as UTF-8.
 
-Wayback rate-limits under load; back off and retry rather than hammering it.
+Wayback rate-limits under load; back off and retry rather than hammering it. It
+also goes fully offline for stretches, answering **503** with an
+"Internet Archive services are temporarily offline" HTML page — including for
+CDX. Retry with backoff; it came back after ~1 minute on 2026-10-11.
+
+Don't accept a snapshot on size or status alone. Even with `id_`, a flaky
+archive can hand back the Wayback toolbar HTML with a 200, so check the body
+actually contains `note_tweet` / `"full_text"` before using it.
 
 **Completeness check:** `https://publish.twitter.com/oembed?url=<tweet url>`
 renders the post and marks truncation with a trailing `…`. A body with no `…`
@@ -108,6 +115,7 @@ catalogue site. Verified working routes:
 | Furyu | `https://furyuprize.com/search?keyword=<kw>` (server-rendered) | results embed `<img src=".../prz/pi-main-<id>.webp" alt="<name>">` directly |
 | Sega | `https://segaplaza.jp/search/?q=<kw>&type=prize` (needs a browser — JS-rendered) | `og:image` on `/prize/<CODE>/`, readable by curl (path is `images-v3`) |
 | Taito | `https://www.taito.co.jp/api/Prize/?date=&isDesc=true&keyword=&limit=100&offset=<n>&sortName=TaitoPrizeRank` — JSON, curl-friendly; page with `offset` (≈257 items total). `keyword` is accepted but **always returns `[]`**, so pull the whole list and filter locally | `ImagePath` + `ImageName01` → `https://www.taito.co.jp/Content/images/zone/prize/<ImageName01>` |
+| GENDA GiGO Entertainment | `https://www.gigo.co.jp/search?q=<kw>` (server-rendered, curl-friendly; `/prizes/?s=` is **ignored**) | no usable `og:image` — the product shot is `https://assets.gigo.co.jp/img/prizes/<slug>.jpg`, found in the `/prizes/<slug>` HTML |
 
 **Trap:** `taito.co.jp/prize/<id>` pages list prizes *available in Taito
 arcades*, including other makers' products. They do not establish the
@@ -115,15 +123,24 @@ manufacturer. にゃーるずこれくしょん appears there but is Banpresto. 
 `/api/Prize/` records above carry a `MakerName` field, which *does* settle it
 (`（株）タイトー` for Taito's own).
 
+**Trap 2:** `Fluffy Puffy` looks like a Furyu plush line but is **Banpresto** —
+furyuprize.com returns 0 results for ポチタ / チェンソーマン, bsp-prize.jp has the
+item. Furyu's search only indexes current items, so a 0-result Furyu search is
+not evidence either way; confirm on the other makers' sites before concluding.
+
 Brand → maker, confirmed so far:
 
 - **Furyu** — ぬーどるストッパー, BiCute, Exc∞d, Trio-Try-iT, サマードレス, ムチュート
 - **Banpresto** — Grandista, MAXIMATIC, MAXIMATICPLUS, MATCH MAKERS,
   History Box, Mometria, GLITTER&GLAMOURS, ESPRESTO, SOFVIMATES,
   Eternal Romance, フィギュア-sweets flavor-, 英雄勇像, おすわりフィギュア,
-  にゃーるずこれくしょん
+  にゃーるずこれくしょん, Fluffy Puffy, THE AMAZING HEROES, VIBRATION STARS,
+  HUNTING ARCHIVES, フィグライフ, BANPRESTO EVOLVE, -Relax time-
 - **Sega** — Luminasta, XStellar, Yumemirize, FIGURIZMα
 - **Taito** — Aqua Float Girls, Desktop Cute, Coreful, AMP+, T-most
+- **System Service** — Vivit
+- **GENDA GiGO Entertainment** — anything marked GiGO限定 / ～GiGOグループのお店限定～
+  (ぶいすぽっ！スケールフィギュア, ハイグレードフィギュア)
 
 Set `imageUrl` to the official product image and `imageCredit` to
 `Photo via <Maker> (<domain>)`. Verify it returns HTTP 200 with an `image/*`
