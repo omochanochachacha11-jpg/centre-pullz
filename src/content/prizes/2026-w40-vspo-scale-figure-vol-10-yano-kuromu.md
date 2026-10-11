@@ -1,6 +1,6 @@
 ---
 titleJa: "ぶいすぽっ！スケールフィギュアvol．10 夜乃くろむ～GiGO限定～"
-titleEn: "VSpo! Scale Figure vol.10 — Yono Kuromu (GiGO Exclusive)"
+titleEn: "VSpo! Scale Figure vol.10 — Yano Kuromu (GiGO Exclusive)"
 titleZh: "VSpo! 比例手办 vol.10 — 夜乃库洛姆（GiGO限定）"
 series: "VSpo!"
 manufacturer: "GENDA GiGO Entertainment"
