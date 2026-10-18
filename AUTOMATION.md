@@ -114,6 +114,23 @@ work — never re-add an existing tweet URL.
 - `【Box size】縦H×横W×奥行Dcm` → `H × W × Dcm (H×W×D)`
 - COG lines `🟨裏/上/右/左/中/表…` (㍉ = mm, ㎝ = cm). Ranges like
   `上2.5㍉〜7.5㍉重心(5㍉幅動)` keep both ends and the play figure.
+
+  **These values are offsets from the box's CENTRE, not distances from a wall.**
+  The `幅動` figure proves it: `下2.75cm〜上2.5㍉重心(3cm幅動)` only sums to 3cm
+  measured from the centre (2.75 + 0.25); from the walls of a 20cm box it would
+  be 17cm. Same for `左2.5㍉〜右7.5㍉側重(1cm幅動)`. When both ends are on the
+  same side of centre, `幅動` is their difference instead. It also matches
+  Merry☆An's own `※裏表は中重心に近い裏` notes — a 2.5㍉ reading is described as
+  *close to centre*, which it is not if measured from a wall.
+
+  So `上5㍉重心` = 5mm above centre (≈ H/2 + 5mm off the floor), **not** 5mm below
+  the lid. Write `5mm above centre` / `重心偏上5mm`, and for ranges
+  `2.75cm below to 2.5mm above centre (≈3cm play)`.
+
+  Entries written before 2026-10-18 (the first 129) use the older wall-relative
+  wording, which inverts the physics in some of their `tipEn`/`tipZh` — e.g. a
+  `下1.5cm` box described as sitting 1.5cm off the floor when it is really only
+  1.5cm below mid-height. Those need a pass; do not copy their phrasing.
 - Notes: `箱はいれ方で個体差あり` (individual differences by packing),
   `箱中はほぼ動かない` / `ブリスターで…動く` (internal movement)
 
