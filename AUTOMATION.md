@@ -144,7 +144,7 @@ catalogue site. Verified working routes:
 | Banpresto | `https://bsp-prize.jp/search/?kw=<kw>` (server-rendered; the param is **`kw`** — `keyword` is silently ignored) | `og:image` on `/item/<id>/`, via curl |
 | Furyu | `https://furyuprize.com/search?keyword=<kw>` (server-rendered) | results embed `<img src=".../prz/pi-main-<id>.webp" alt="<name>">` directly |
 | Sega | `https://segaplaza.jp/search/?q=<kw>&type=prize` (needs a browser — JS-rendered) | `og:image` on `/prize/<CODE>/`, readable by curl (path is `images-v3`) |
-| Taito | `https://www.taito.co.jp/api/Prize/?date=&isDesc=true&keyword=&limit=100&offset=<n>&sortName=TaitoPrizeRank` — JSON, curl-friendly; page with `offset` (≈257 items total). `keyword` is accepted but **always returns `[]`**, so pull the whole list and filter locally | `ImagePath` + `ImageName01` → `https://www.taito.co.jp/Content/images/zone/prize/<ImageName01>` |
+| Taito | `https://www.taito.co.jp/api/Prize/?date=&isDesc=true&keyword=&limit=100&offset=<n>&sortName=TaitoPrizeRank` — JSON, curl-friendly; page with `offset`. **Only ~178 records: current stock only**, useless for backfill. `keyword` and `date` are accepted but both ignored. For anything older use `/api/PrizeProduct/?aspMemberID=0000000002&isDesc=true&limit=100&offset=<n>&sortName=TaitoPrizeRank` — the **full catalogue, ~6,600 records back to 2007**; filter locally on `ProductName` | `/api/Prize/`: `BaseShoppingProductData.ImageName01` → `https://www.taito.co.jp/Content/images/zone/prize/<name>`. `/api/PrizeProduct/`: use `ImageFullPathName01` as-is (different path, `/zone/2/item/201407/<uuid>_p_01_ja.jpg`) |
 | GENDA GiGO Entertainment | `https://www.gigo.co.jp/search?q=<kw>` (server-rendered, curl-friendly; `/prizes/?s=` is **ignored**) | no usable `og:image` — the product shot is `https://assets.gigo.co.jp/img/prizes/<slug>.jpg`, found in the `/prizes/<slug>` HTML |
 
 **Trap:** `taito.co.jp/prize/<id>` pages list prizes *available in Taito
@@ -166,11 +166,24 @@ Brand → maker, confirmed so far:
   Eternal Romance, フィギュア-sweets flavor-, 英雄勇像, おすわりフィギュア,
   にゃーるずこれくしょん, Fluffy Puffy, THE AMAZING HEROES, VIBRATION STARS,
   HUNTING ARCHIVES, フィグライフ, BANPRESTO EVOLVE, -Relax time-
-- **Sega** — Luminasta, XStellar, Yumemirize, FIGURIZMα
+- **Sega** — Luminasta, XStellar, Yumemirize, FIGURIZMα, XrossLink, XrossLinkMAX,
+  ハイプレミアムフィギュア, ちょこのせ
 - **Taito** — Aqua Float Girls, Desktop Cute, Coreful, AMP+, T-most
 - **System Service** — Vivit
 - **GENDA GiGO Entertainment** — anything marked GiGO限定 / ～GiGOグループのお店限定～
   (ぶいすぽっ！スケールフィギュア, ハイグレードフィギュア)
+
+**Trap 3:** `gigo.co.jp/prizes/<slug>` is GiGO's *store* listing and carries
+other makers' products too — same trap as taito.co.jp/prize/. It only
+establishes the maker for items marked GiGO限定 / ～GiGOグループのお店限定～.
+名探偵コナン XrossLink has a GiGO page but is Sega.
+
+Makers outside the table do appear. `METAL GEAR SOLID Δ: SNAKE EATER
+フィギュアコレクション` (2026-07) is by （株）コナミアーケードゲームス, which has no
+public prize catalogue — only aggregator sites list it, so the maker cannot be
+confirmed per the rule above. Those two posts
+(`2082763222126612702`, `2082762208300462270`) are **deliberately unharvested**;
+don't write them until a Konami route exists.
 
 Set `imageUrl` to the official product image and `imageCredit` to
 `Photo via <Maker> (<domain>)`. Verify it returns HTTP 200 with an `image/*`
