@@ -88,6 +88,21 @@ If a post is still truncated and has no snapshot yet (i.e. posted in the last
 day or two), **skip it** — the next run will pick it up. Dedupe is by
 `sourceUrl`, so a thin entry written now is never corrected later.
 
+**Some older captures replay as 404** even with `id_`, so the body can never be
+recovered for those IDs. CDX lists them like any other capture (the default
+`fl` doesn't include `statuscode`), and the 404 body is Wayback's own HTML, not
+JSON — so the `note_tweet` check above catches it. A long post whose only
+capture 404s is permanently unharvestable; skip it. Seen on
+`2083107288311836966`, `2084579076745101602`, `2085285259218964907`.
+
+**Skip retweets.** Merry☆An re-posts their own measurement tweets, and
+syndication silently resolves a retweet to the original: ask for the RT's id
+and you get the *original's* `text`, which starts with `＃重心情報` and passes
+the filter. The tell is `id_str !== <the id you asked for>`; `created_at` is
+the original's too. Writing one would duplicate an entry under a second
+`sourceUrl`. The archived snapshot of an RT starts `RT @6eS8Jm4YNJpPA2D:` and
+is truncated, so it is useless anyway.
+
 ## 3. Filter
 
 Keep only posts whose text **starts with** `＃重心情報`. That is the structured
@@ -148,6 +163,16 @@ catalogue site. Verified working routes:
 | Sega | `https://segaplaza.jp/search/?q=<kw>&type=prize` (needs a browser — JS-rendered) | `og:image` on `/prize/<CODE>/`, readable by curl (path is `images-v3`) |
 | Taito | `https://www.taito.co.jp/api/Prize/?date=&isDesc=true&keyword=&limit=100&offset=<n>&sortName=TaitoPrizeRank` — JSON, curl-friendly; page with `offset`. **Only ~178 records: current stock only**, useless for backfill. `keyword` and `date` are accepted but both ignored. For anything older use `/api/PrizeProduct/?aspMemberID=0000000002&isDesc=true&limit=100&offset=<n>&sortName=TaitoPrizeRank` — the **full catalogue, ~6,600 records back to 2007**; filter locally on `ProductName` | `/api/Prize/`: `BaseShoppingProductData.ImageName01` → `https://www.taito.co.jp/Content/images/zone/prize/<name>`. `/api/PrizeProduct/`: use `ImageFullPathName01` as-is (different path, `/zone/2/item/201407/<uuid>_p_01_ja.jpg`) |
 | GENDA GiGO Entertainment | `https://www.gigo.co.jp/search?q=<kw>` (server-rendered, curl-friendly; `/prizes/?s=` is **ignored**) | no usable `og:image` — the product shot is `https://assets.gigo.co.jp/img/prizes/<slug>.jpg`, found in the `/prizes/<slug>` HTML |
+| System Service | **`https://fans.co.jp/`** is their own site. No catalogue or search — only a paged news feed at `/topics/` and `/topics/?p=2..5` (server-rendered, curl-friendly), roughly one page per two months. Grep the listing HTML for the character or brand name | the article thumbnail `https://fans.co.jp/data/photo/topics/t/<n>.jpg` on `/topics/detail.php?id=<id>` **is** the product shot. (`/topics/img/SS<n>_1` is the same shot at full size, extensionless but served as `image/jpeg`.) Older items also appear on `taito.co.jp/Content/images/zone/prize/…` while in stock |
+
+Banpresto's own item page is authoritative over the filename: `/item/2853195/`
+is 御影玲王 but its `og:image` is `2853194_a.jpg`. The search listing carries
+the same (crossed) pairing, so either source is fine — just never guess the
+image filename from the item id.
+
+Banpresto thumbnails come out of the search listing at `250w_250h`; swap that
+segment for `500w_500h`. The path gained a `/bae/` or `/bnpm/` directory for
+2026.10 items, so take the `src` verbatim and change only the size.
 
 **Trap:** `taito.co.jp/prize/<id>` pages list prizes *available in Taito
 arcades*, including other makers' products. They do not establish the
@@ -167,11 +192,12 @@ Brand → maker, confirmed so far:
   History Box, Mometria, GLITTER&GLAMOURS, ESPRESTO, SOFVIMATES,
   Eternal Romance, フィギュア-sweets flavor-, 英雄勇像, おすわりフィギュア,
   にゃーるずこれくしょん, Fluffy Puffy, THE AMAZING HEROES, VIBRATION STARS,
-  HUNTING ARCHIVES, フィグライフ, BANPRESTO EVOLVE, -Relax time-
+  HUNTING ARCHIVES, フィグライフ, BANPRESTO EVOLVE, -Relax time-, Glasscape,
+  Holiday Memories
 - **Sega** — Luminasta, XStellar, Yumemirize, FIGURIZMα, XrossLink, XrossLinkMAX,
-  ハイプレミアムフィギュア, ちょこのせ
-- **Taito** — Aqua Float Girls, Desktop Cute, Coreful, AMP+, T-most
-- **System Service** — Vivit
+  ハイプレミアムフィギュア, ちょこのせ, テルマエ・湯～とぴあ
+- **Taito** — Aqua Float Girls, Desktop Cute, Coreful, AMP+, T-most, Ravitier
+- **System Service** — Vivit, One-Seventh Carat, BRILLIANT
 - **GENDA GiGO Entertainment** — anything marked GiGO限定 / ～GiGOグループのお店限定～
   (ぶいすぽっ！スケールフィギュア, ハイグレードフィギュア)
 
@@ -183,8 +209,9 @@ establishes the maker for items marked GiGO限定 / ～GiGOグループのお店
 Makers outside the table do appear. `METAL GEAR SOLID Δ: SNAKE EATER
 フィギュアコレクション` (2026-07) is by （株）コナミアーケードゲームス, which has no
 public prize catalogue — only aggregator sites list it, so the maker cannot be
-confirmed per the rule above. Those two posts
-(`2082763222126612702`, `2082762208300462270`) are **deliberately unharvested**;
+confirmed per the rule above. Those posts (`2082763222126612702`,
+`2082762208300462270`, and the ザ・ボス / ネイキッド・スネーク pair
+`2080326319758516530`, `2080325891637547273`) are **deliberately unharvested**;
 don't write them until a Konami route exists.
 
 Set `imageUrl` to the official product image and `imageCredit` to
