@@ -13,27 +13,28 @@ boxWeight: "405g"
 boxSize: "23 × 14 × 12.5cm (H×W×D)"
 
 cog:
-  - en: "1cm in from the back wall"
-    zh: "距后壁1cm"
-  - en: "1.25cm down from the top"
-    zh: "距顶部1.25cm"
-  - en: "5mm to the right of center"
-    zh: "偏中心右侧5mm"
+  - en: "1cm back of centre"
+    zh: "重心偏后1cm"
+  - en: "1.25cm above centre"
+    zh: "重心偏上1.25cm"
+  - en: "right 5mm side lean"
+    zh: "偏右5mm"
 
 noteEn: "405g, on the heavier side. Individual differences depending on how it's packed in the box. The figure barely moves inside the box."
 noteZh: "405g，略重。因装箱方式不同存在个体差异。手办在箱内基本不晃动。"
 
 tipEn: >
-  The weight rides high — 1.25cm from the top — and the box barely shifts
-  internally, so the prize tips the moment you catch the top edge. Aim the
-  first grab at the upper part of the box, slightly right of center and
-  toward the back, then push down and forward to rock it over the bridge.
-  Because it barely moves inside, the tilt is predictable once you have the
-  top corner.
+  A strong one for tipping: the weight sits 1.25cm above mid-height and 1cm
+  behind centre, so the upper back area is where a push does real work and the
+  box should roll over backwards. Push there, away from you. The 5mm right
+  lean means it may turn slightly as it goes, so keep the claw a touch left of
+  centre. At 405g it's on the heavier side, so commit to a firm push. The
+  figure barely moves inside, so a push that nearly worked will work again.
 tipZh: >
-  重心偏高（距顶部1.25cm）且箱内几乎不动，因此只要咬住上缘，奖品就会顺势翻倒。
-  第一爪对准箱体偏上、略偏右且靠后的位置，再向下向前推，使其在桥上翻落。
-  由于箱内晃动极小，抓住上角后倾倒方向相当可预测。
+  这款很适合推翻：重量位于半高上方1.25cm、距中心偏后1cm，所以后上部位
+  是真正能起作用的着力处，箱子应该会向后翻倒。朝远离自己的方向推那里。偏右5m
+  m意味着它倒下时可能略微转向，所以爪子稍微偏左一点。405g偏重，请果断地用
+  力推。手办在箱内几乎不动，差一点成功的推法再试一次就能成。
 
 imageUrl: "https://www.taito.co.jp/Content/images/zone/2/item/201407/e268aa63-a1db-4db1-b898-ae12731ec7f8_p_01_ja.jpg"
 imageCredit: "Photo via Taito (taito.co.jp)"

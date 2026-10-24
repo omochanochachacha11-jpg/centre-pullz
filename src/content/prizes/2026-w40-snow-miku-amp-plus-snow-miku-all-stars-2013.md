@@ -13,30 +13,28 @@ boxWeight: "664g"
 boxSize: "25.5 × 16 × 12cm (H×W×D)"
 
 cog:
-  - en: "center to front 2.5mm (≈2.5mm play)"
-    zh: "中央至前壁2.5mm（约2.5mm浮动）"
-  - en: "bottom 2cm to 1.75cm (≈2.5mm play)"
-    zh: "底部2cm至1.75cm（约2.5mm浮动）"
-  - en: "left 5mm to 2.5mm side lean (≈2.5mm play)"
-    zh: "左侧5mm至2.5mm侧重（约2.5mm浮动）"
+  - en: "centred to 2.5mm forward of centre (≈2.5mm play)"
+    zh: "居中至偏前2.5mm（约2.5mm浮动）"
+  - en: "2cm to 1.75cm below centre (≈2.5mm play)"
+    zh: "重心偏下2cm至1.75cm（约2.5mm浮动）"
+  - en: "left 5mm to left 2.5mm side lean (≈2.5mm play)"
+    zh: "左侧5mm至左侧2.5mm（约2.5mm浮动）"
 
 noteEn: "664g, heavy box — 2.5cm deeper than the 2012 ver. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box, and the box surface is a slippery material, so take care."
 noteZh: "664g，箱子偏重——比2012版深2.5cm。因装箱方式不同存在个体差异。手办在箱内会向各方向移动，且箱子表面材质较滑，需留意。"
 
 tipEn: >
-  At 664g this is by far the heaviest box in the batch, and the weight sits
-  low — about 2cm up from the floor. Heavy plus low is the slowest
-  combination there is: it will not tip, it will only shuffle, and you need
-  most of the base out over the edge before gravity finishes the job. Don't
-  try to lift or flick it; just keep nudging the same spot. Front to back and
-  side to side it is near enough centred, so push straight on. The box
-  surface is slippery, which with this much weight means it can slide further
-  than you expect, so take small bites.
+  Unlike the 2012 version, this one is clearly bottom-heavy: the weight sits
+  1.75 to 2cm below mid-height, so it will stay upright whatever you do — push
+  low and slide it. The 2.5 to 5mm left lean is the only side cue. At 664g
+  it's heavy and 2.5cm deeper than the 2012 box, so the base is stable and
+  travel per push will be short. Note the slippery box surface: aim for a flat
+  face so the claw doesn't slide off an edge.
 tipZh: >
-  664g是这一批里最重的箱子，而且重心偏低——距底部约2cm。又重又低是最慢的组合：
-  它不会翻倒，只会一点点挪，必须把底部大半送出边缘，重力才会接手。不要想着抬它或
-  弹它，持续推同一个点就好。前后和左右都基本居中，所以正着推即可。箱子表面很滑，
-  配上这个重量，它可能比你预期滑得更远，所以每次只推一点点。
+  与2012版不同，这一款明显底部偏重：重量位于半高下方1.75到2cm，所以
+  不管你怎么做它都会立着——请从低处施力、用滑动。偏左2.5到5mm是唯一的侧
+  面线索。664g偏重，而且比2012那一箱深2.5cm，底座更稳，每次推送位
+  移也会更短。注意箱子表面很滑：请瞄准平整的面，免得爪子从边缘打滑。
 
 imageUrl: "https://www.taito.co.jp/Content/images/zone/prize/480162500.jpg"
 imageCredit: "Photo via Taito (taito.co.jp)"

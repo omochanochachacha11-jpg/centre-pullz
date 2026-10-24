@@ -127,10 +127,12 @@ work — never re-add an existing tweet URL.
   the lid. Write `5mm above centre` / `重心偏上5mm`, and for ranges
   `2.75cm below to 2.5mm above centre (≈3cm play)`.
 
-  Entries written before 2026-10-18 (the first 129) use the older wall-relative
-  wording, which inverts the physics in some of their `tipEn`/`tipZh` — e.g. a
-  `下1.5cm` box described as sitting 1.5cm off the floor when it is really only
-  1.5cm below mid-height. Those need a pass; do not copy their phrasing.
+  The whole database was converted to this reading on 2026-10-24: all 161
+  entries' `cog` blocks were regenerated from their source posts and every
+  `tipEn`/`tipZh` rewritten. That pass also restored 26 entries that had been
+  written with only one or two of the three measured axes, because the archive
+  body was truncated when they were first harvested — so if an entry looks
+  thin, re-fetch the post before assuming the post itself is thin.
 - Notes: `箱はいれ方で個体差あり` (individual differences by packing),
   `箱中はほぼ動かない` / `ブリスターで…動く` (internal movement)
 

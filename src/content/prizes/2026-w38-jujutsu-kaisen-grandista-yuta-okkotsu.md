@@ -13,28 +13,29 @@ boxWeight: "568g"
 boxSize: "25 × 15 × 14cm (H×W×D)"
 
 cog:
-  - en: "back 1.5cm to 1cm (≈5mm play)"
-    zh: "后壁1.5cm至1cm（约5mm浮动）"
-  - en: "bottom 1.75cm to top 7.5mm (≈2.5cm play)"
-    zh: "底部1.75cm至顶部7.5mm（约2.5cm浮动）"
+  - en: "1.5cm to 1cm back of centre (≈5mm play)"
+    zh: "重心偏后1.5cm至1cm（约5mm浮动）"
+  - en: "1.75cm below to 7.5mm above centre (≈2.5cm play)"
+    zh: "重心偏下1.75cm至偏上7.5mm（约2.5cm浮动）"
   - en: "left 5mm to right 1cm side lean (≈1.5cm play)"
-    zh: "左侧5mm至右侧1cm侧重（约1.5cm浮动）"
+    zh: "左侧5mm至右侧1cm（约1.5cm浮动）"
 
 noteEn: "568g, heavy box. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box."
 noteZh: "568g，箱子偏重。因装箱方式不同存在个体差异。手办在箱内会向各方向移动。"
 
 tipEn: >
-  Only the back-wall distance is reliable here (1–1.5cm in); both the vertical
-  and lateral readings roam widely because the figure travels freely. That
-  makes it a probing target rather than a planned one — open with a cheap
-  attempt to see where it actually wants to tip, then commit. Work the rear
-  face, since that is the one axis the measurement pins down. At 568g in a tall
-  25cm box it will go over readily once the load happens to settle high.
+  The weight swings 2.5cm vertically — from 1.75cm below mid-height to 7.5mm
+  above it — so this box changes character between attempts. Nudge, wait,
+  look: settled high you can push the upper part and tip it, settled low you
+  slide it. The 1 to 1.5cm back bias holds throughout, so the back face is
+  always a reasonable target. The lean crosses the middle, so don't trust a
+  side. At 568g it's heavy, so pushes must be firm and travel will be short.
 tipZh: >
-  此款只有距后壁的数值可靠（距后壁1–1.5cm）；由于手办可自由移动，上下与左右读数
-  都大幅游移。因此它属于"试探型"而非"方案型"目标——先用一次低成本尝试看清它实际
-  想往哪边翻，再投入。主攻后侧面，那是测量唯一锁定的轴向。568g配上25cm的高箱，
-  一旦负载恰好落在高位，就会很容易翻过去。
+  重量上下摆动2.5cm——从半高下方1.75cm到上方7.5mm——所以这个
+  箱子在不同尝试之间性格会变。轻碰、等待、观察：停在高处就推上半部把它推翻，停
+  在低处就用滑动。距中心偏后1到1.5cm这一点始终不变，所以后面始终是合理的
+  目标。侧重会越过中间，所以不要相信某一侧。568g偏重，推送必须坚决，位移也
+  会很短。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.09/2789980_a1.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

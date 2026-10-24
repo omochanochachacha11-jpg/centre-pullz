@@ -13,29 +13,30 @@ boxWeight: "366g"
 boxSize: "25 × 14 × 14cm (H×W×D)"
 
 cog:
-  - en: "back 1.5cm to 1.25cm (≈2.5mm play)"
-    zh: "后壁1.5cm至1.25cm（约2.5mm浮动）"
-  - en: "bottom 2.25cm to 7.5mm (≈1.5cm play)"
-    zh: "底部2.25cm至7.5mm（约1.5cm浮动）"
-  - en: "right 5mm to 7.5mm side lean (≈2.5mm play)"
-    zh: "右侧5mm至7.5mm侧重（约2.5mm浮动）"
+  - en: "1.5cm to 1.25cm back of centre (≈2.5mm play)"
+    zh: "重心偏后1.5cm至1.25cm（约2.5mm浮动）"
+  - en: "2.25cm to 7.5mm below centre (≈1.5cm play)"
+    zh: "重心偏下2.25cm至7.5mm（约1.5cm浮动）"
+  - en: "right 5mm to right 7.5mm side lean (≈2.5mm play)"
+    zh: "右侧5mm至右侧7.5mm（约2.5mm浮动）"
 
 noteEn: "366g, normal box weight. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box — a fair amount up and down, but only slightly front-to-back and side-to-side."
 noteZh: "366g，箱子重量普通。因装箱方式不同存在个体差异。手办在箱内会向各方向移动——上下幅度较大，但前后与左右仅轻微移动。"
 
 tipEn: >
-  The weight stays low in this 25cm box — somewhere between 0.75cm and 2.25cm
-  off the floor — so expect the box to slide along the bridge rather than
-  topple. The useful part is that it only drifts up and down; front-to-back
-  and side-to-side barely change, holding at 1.25 to 1.5cm from the back wall
-  and 5 to 7.5mm right. That gives you a reliable spot to work: push low on
-  the back-right and keep walking it the same way, since the box will respond
-  consistently in that direction.
+  The weight stays below mid-height throughout — from 7.5mm to 2.25cm under
+  the centre line — so this box is bottom-heavy and will stay on its feet no
+  matter where you push. Slide it: aim low and 1.25 to 1.5cm behind centre,
+  which is where the weight actually sits, and favour the right where the 5 to
+  7.5mm lean is. At 366g it's an ordinary weight. The figure moves a fair
+  amount up and down, so the exact height varies between attempts — let it
+  settle first.
 tipZh: >
-  在这个25cm高的箱子里，重量一直偏低——距底部约0.75cm至2.25cm之间——所以预期箱子会沿
-  桥面滑动而不是翻倒。有用的一点是它只在上下方向漂移；前后与左右几乎不变，稳定在距
-  后壁1.25至1.5cm、偏右5至7.5mm。这给了你一个可靠的着力点：在右后方低位施力，并持续
-  朝同一方向挪动，因为箱子在那个方向的反应是一致的。
+  重量始终低于半高——在中线下方7.5mm到2.25cm之间——所以这个箱子底
+  部偏重，不管你推哪里它都会站着。请用滑动：瞄准低处、距中心偏后1.25到1.
+  5cm，也就是重量真正所在之处，并优先攻有5到7.5mm侧重的右侧。366g
+  属于普通重量。手办上下移动幅度不小，所以每次尝试的实际高度都会变化——先让它
+  停稳。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.08/2831687_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

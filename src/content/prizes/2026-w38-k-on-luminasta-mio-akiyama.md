@@ -13,28 +13,28 @@ boxWeight: "489g"
 boxSize: "19 × 15 × 12cm (H×W×D)"
 
 cog:
-  - en: "7.5mm in from the back wall"
-    zh: "距后壁7.5mm"
-  - en: "7.5mm up from the bottom"
-    zh: "距底部7.5mm"
+  - en: "7.5mm back of centre"
+    zh: "重心偏后7.5mm"
+  - en: "7.5mm below centre"
+    zh: "重心偏下7.5mm"
   - en: "left 1cm side lean"
-    zh: "左侧1cm侧重"
+    zh: "偏左1cm"
 
 noteEn: "489g, heavy box. The figure stands on a teacup base. Individual differences depending on how it's packed in the box. Blister packaging keeps the figure almost immobile inside the box."
 noteZh: "489g，箱子偏重。手办采用茶杯造型底座。因装箱方式不同存在个体差异。内部为吸塑包装，手办在箱内几乎不动。"
 
 tipEn: >
-  The mirror of the Tsumugi box: same size and weight class, but the mass sits
-  toward the back (7.5mm in) instead of the front, still low at 7.5mm up, with
-  a clearer 1cm lean left. Work the rear-left corner at the base and push away
-  from you. Blister packing means the reading is fixed, so once you find the
-  stroke that moves it, repeat it exactly. Low COG means patience — it will
-  slide well before it rotates.
+  The weight is 7.5mm below mid-height and the figure stands on a teacup base,
+  which puts the mass low — so this box stays upright and sliding is the plan.
+  Three readings all point the same way though, back and left, so the lower
+  back left is where your push does real work, with a useful 1cm left lean. At
+  489g it's heavy, so expect only a few millimetres per push. The blister
+  holds the figure almost immobile, so the box behaves identically every time.
 tipZh: >
-  与琴吹款互为镜像：尺寸与重量级别相同，但重量偏后（距后壁7.5mm）而非偏前，同样
-  偏低（距底部7.5mm），左偏更明显，达1cm。主攻左后角靠近箱底处，向远离自己的方向
-  推送。吸塑包装意味着读数固定，一旦找到能推动它的力道，就精确重复。低重心意味着
-  需要耐心——它会先滑动很久才翻转。
+  重量位于半高下方7.5mm，而手办立在茶杯造型的底座上，质量偏低——所以这个
+  箱子会保持立着，只能用滑动。不过三个数据都指向同一方向，即后方与左侧，所以左
+  后下方是你施力真正有效的地方，偏左1cm很好用。489g偏重，预计每次推送只
+  有几毫米。吸塑让手办几乎完全不动，箱子每次表现都一样。
 
 imageUrl: "https://segaplaza.jp/images-v3/prize/D123385_248378/large/D123385_01.webp"
 imageCredit: "Photo via Sega (segaplaza.jp)"

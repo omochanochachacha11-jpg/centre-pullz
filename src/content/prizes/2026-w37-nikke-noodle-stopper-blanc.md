@@ -13,28 +13,29 @@ boxWeight: "180g"
 boxSize: "20 × 12.5 × 12.5cm (H×W×D)"
 
 cog:
-  - en: "back 7.5mm to 5mm (≈2.5mm play)"
-    zh: "后壁7.5mm至5mm（约2.5mm浮动）"
-  - en: "bottom 7.5mm to 5mm (≈2.5mm play)"
-    zh: "底部7.5mm至5mm（约2.5mm浮动）"
-  - en: "center to right 2.5mm side lean (≈2.5mm play)"
-    zh: "中央至右侧2.5mm侧重（约2.5mm浮动）"
+  - en: "7.5mm to 5mm back of centre (≈2.5mm play)"
+    zh: "重心偏后7.5mm至5mm（约2.5mm浮动）"
+  - en: "7.5mm to 5mm below centre (≈2.5mm play)"
+    zh: "重心偏下7.5mm至5mm（约2.5mm浮动）"
+  - en: "centred to right 2.5mm side lean (≈2.5mm play)"
+    zh: "居中至右侧2.5mm（约2.5mm浮动）"
 
 noteEn: "180g, light box. Individual differences depending on how it's packed in the box. Blister packaging keeps the figure almost immobile inside the box."
 noteZh: "180g，箱子偏轻。因装箱方式不同存在个体差异。内部为吸塑包装，手办在箱内几乎不动。"
 
 tipEn: >
-  Only 180g and blister-fixed, so it behaves the same every time — but that
-  lightness is the catch. The weight is crammed into the bottom-back corner
-  (5–7.5mm from each), which is the most tip-resistant position there is: the
-  box wants to sit down on its base rather than rotate. Push from behind, low,
-  and accept that this is a walking job rather than a flip. Light boxes also
-  bounce, so keep each push short and avoid hitting it hard enough to skate.
+  Everything on this box is within 7.5mm of centre, so the weight is
+  essentially balanced and it will not topple — slide it instead. The slight
+  back bias gives you a face to push, so work the back rather than the middle.
+  At just 180g this is one of the lightest boxes in the database, so it moves
+  much further than you expect: start with the smallest push you can and build
+  up. The blister holds the figure almost still, so the box repeats itself
+  exactly.
 tipZh: >
-  仅180g且吸塑固定，每次表现一致——但轻正是它的难点。重量集中在底后角
-  （距后壁、底部各5–7.5mm），这是最难翻落的位置：箱子倾向于坐稳在底面而非翻转。
-  从后方贴低推送，并接受这是一个"慢慢挪"而非"一次掀翻"的目标。轻箱还容易弹跳，
-  因此每次推送都要短促，避免力度大到让它打滑。
+  这个箱子每个方向都在中心7.5mm以内，重量基本平衡，不会翻倒——请改用滑动。
+  略微偏后给了你一个着力面，所以攻后面而不是正中间。只有180g，是本数据库
+  中最轻的箱子之一，移动距离会远超预期：请用最小的力道起步，再逐步加大。吸塑让
+  手办几乎不动，箱子会完全重复同样的反应。
 
 imageUrl: "https://furyuprize.com/files/images/prz/pi-main-21920.webp"
 imageCredit: "Photo via Furyu (furyuprize.com)"

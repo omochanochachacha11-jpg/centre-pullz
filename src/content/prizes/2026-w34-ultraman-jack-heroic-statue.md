@@ -13,27 +13,28 @@ boxWeight: "238g"
 boxSize: "20 × 15 × 10cm (H×W×D)"
 
 cog:
-  - en: "front 2.5mm to 1cm (≈7.5mm play)"
-    zh: "前壁2.5mm至1cm（约7.5mm浮动）"
-  - en: "bottom 5mm to top 5mm (≈1cm play)"
-    zh: "底部5mm至顶部5mm（约1cm浮动）"
+  - en: "2.5mm to 1cm forward of centre (≈7.5mm play)"
+    zh: "重心偏前2.5mm至1cm（约7.5mm浮动）"
+  - en: "5mm below to 5mm above centre (≈1cm play)"
+    zh: "重心偏下5mm至偏上5mm（约1cm浮动）"
+  - en: "left 1.5cm to left 7.5mm side lean (≈7.5mm play)"
+    zh: "左侧1.5cm至左侧7.5mm（约7.5mm浮动）"
 
 noteEn: "238g, light box. Individual differences depending on how it's packed in the box. The figure rocks vigorously in all directions inside the box."
 noteZh: "238g，箱子较轻。因装箱方式不同存在个体差异。手办在箱内会朝各方向大幅晃动。"
 
 tipEn: >
-  The vertical COG is genuinely all over the place — Merry☆An measured it from
-  5mm off the bottom all the way up to 5mm from the top — and the figure rocks
-  vigorously inside, so no single aim height will be reliable. Keep the claw
-  toward the front half (the horizontal COG sits 2.5mm to 1cm off the front
-  wall), settle the box first, and treat each attempt as a fresh read rather
-  than repeating a calibrated push. The light 238g weight tips easily once
-  moving, so favor a smooth shove over repeated taps.
+  The figure rocks hard inside this box, and the weight crosses mid-height —
+  5mm either side of it — so there is no single aim height that stays true.
+  Nudge it, let it stop moving, then decide: settled above centre, push the
+  upper part; settled below, slide it low. What does stay put is the lean, a
+  consistent 7.5mm to 1.5cm to the left, the strongest cue on the box. At 238g
+  it's light, so push gently and expect it to keep shifting.
 tipZh: >
-  垂直重心极不稳定——Merry☆An测得从距底部5mm一直到距顶部5mm——且手办在箱内剧烈
-  晃动，因此任何单一瞄准高度都不可靠。爪子保持在靠前半部（水平重心位于距前壁
-  2.5mm至1cm处），先让箱子稳定，再把每次尝试当作新的读数，而非重复同一种校准推送。
-  238g的轻量一旦开始移动就很容易翻落，宜用平稳推挤而非反复轻点。
+  手办在这个箱子里晃动剧烈，而重量会越过半高——上下各5mm——所以没有一个始
+  终有效的瞄准高度。先轻碰、等它停止晃动、再决定：停在中心上方就推上半部；停在
+  下方就从低处滑动。真正稳定的是侧重，一致地偏左7.5mm到1.5cm，这是箱
+  子上最强的线索。238g很轻，所以要轻推，并预期它会不断移位。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.08/2837345_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

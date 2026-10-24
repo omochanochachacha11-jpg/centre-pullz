@@ -13,24 +13,28 @@ boxWeight: "745g"
 boxSize: "25 × 14 × 14cm (H×W×D)"
 
 cog:
-  - en: "back 1cm to 7.5mm (≈2.5mm play)"
-    zh: "后壁1cm至7.5mm（约2.5mm浮动）"
+  - en: "1cm to 7.5mm back of centre (≈2.5mm play)"
+    zh: "重心偏后1cm至7.5mm（约2.5mm浮动）"
+  - en: "1.25cm below to 2.5mm above centre (≈1.5cm play)"
+    zh: "重心偏下1.25cm至偏上2.5mm（约1.5cm浮动）"
+  - en: "right 7.5mm to right 1cm side lean (≈2.5mm play)"
+    zh: "右侧7.5mm至右侧1cm（约2.5mm浮动）"
 
 noteEn: "745g, heavy box. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box — a fair amount up and down, but only slightly front-to-back and side-to-side."
 noteZh: "745g，箱子偏重。因装箱方式不同存在个体差异。手办在箱内会向各方向移动——上下幅度较大，但前后与左右仅轻微移动。"
 
 tipEn: >
-  A heavy, stable box: the COG sits 1cm to 7.5mm off the back wall with only
-  about 2.5mm of play, so once you know the drop it will repeat. The catch is
-  vertical — the figure shifts a fair amount up and down inside, so let the
-  box settle before each grab. With 745g behind it, commit to one strong,
-  steady push across the bridge; light taps will just bounce off. Grab slightly
-  toward the back half and expect a late, decisive tip.
+  At 745g this is a heavy box, and the weight shifts a good 1.5cm up and down
+  — from 1.25cm below mid-height to barely above it — so one attempt can feel
+  quite different from the next. Nudge it, wait, and look: it is almost always
+  at or below centre, which means sliding rather than tipping. The dependable
+  cue is sideways, a consistent 7.5mm to 1cm lean right, so favour the right
+  side. Heavy boxes move a short way per push, so expect to work at it.
 tipZh: >
-  偏重且稳定的箱体：重心位于距后壁1cm至7.5mm处，浮动仅约2.5mm，一旦掌握翻落点便
-  可复现。关键在于垂直方向——手办在箱内上下移动幅度较大，因此每次下爪前要让箱子
-  稳定下来。745g的重量需要一次强而平稳的推送；轻点只会弹开。抓取位置略靠后半部，
-  预期翻落较晚但干脆。
+  745g属于重箱，而重量上下移位足有1.5cm——从半高下方1.25cm到略
+  高于半高——所以这一次和下一次的手感可能相当不同。先轻碰、等待、观察：它几乎
+  总是在中心或中心以下，意味着要用滑动而不是推翻。可靠的线索在左右，稳定偏右7
+  .5mm到1cm，所以优先攻右侧。重箱每次推送只走一小段，请做好慢慢打的准备。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.08/2760529_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

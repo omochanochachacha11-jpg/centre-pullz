@@ -13,28 +13,28 @@ boxWeight: "570g"
 boxSize: "25 × 14 × 14cm (H×W×D)"
 
 cog:
-  - en: "back 1.5cm to 5mm (≈1cm play)"
-    zh: "后壁1.5cm至5mm（约1cm浮动）"
-  - en: "bottom 5mm to center (≈5mm play)"
-    zh: "底部5mm至中央（约5mm浮动）"
+  - en: "1.5cm to 5mm back of centre (≈1cm play)"
+    zh: "重心偏后1.5cm至5mm（约1cm浮动）"
+  - en: "5mm below centre to centred (≈5mm play)"
+    zh: "重心偏下5mm至居中（约5mm浮动）"
   - en: "left 1cm to right 5mm side lean (≈1.5cm play)"
-    zh: "左侧1cm至右侧5mm侧重（约1.5cm浮动）"
+    zh: "左侧1cm至右侧5mm（约1.5cm浮动）"
 
 noteEn: "570g, heavy box — lighter than the matching Deku release. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box."
 noteZh: "570g，箱子偏重——比同系列的出久款轻。因装箱方式不同存在个体差异。手办在箱内会向各方向移动。"
 
 tipEn: >
-  Back-set like its Deku counterpart, but this one sits low rather than high —
-  between the bottom and mid-box — which makes it the more stubborn of the two
-  despite being lighter. The side reading also wanders across 1.5cm, so left
-  and right are not dependable. Push the rear face near the base and drive it
-  backward; do not expect a clean early tip. Re-check which way it is leaning
-  after each attempt, since the lateral load genuinely changes.
+  Unlike the matching Deku box, this one gives you no height to work with: the
+  weight sits at or just below mid-height, so it will not tip and sliding is
+  the plan. The usable cue is depth, 5mm to 1.5cm behind centre, so push the
+  back face where the weight actually is. The lean crosses the middle, so
+  don't commit to a side. At 570g it's heavy — lighter than the Deku release
+  but still enough that travel per push is short.
 tipZh: >
-  与出久款同样偏后，但此款重心偏下而非偏上——位于箱底至中部之间——因此尽管更轻，
-  反而更难撼动。左右读数跨度达1.5cm，方向并不可靠。推送后侧面靠近箱底处，将其
-  向后驱动；不要指望早早干脆翻落。每次尝试后都要重新确认它倒向哪一侧，因为横向
-  负载确实会变化。
+  与配对的小久那一箱不同，这一款没有高度可以利用：重量位于半高处或略低，所以它
+  不会翻倒，只能用滑动。可用的线索是进深，距中心偏后5mm到1.5cm，所以推
+  后面、重量真正所在之处。侧重会越过中间，所以不要锁定某一侧。570g偏重——
+  比小久那一款轻，但仍足以让每次推送的位移很短。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.09/2831691_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

@@ -13,30 +13,28 @@ boxWeight: "466g"
 boxSize: "25 × 14 × 14cm (H×W×D)"
 
 cog:
-  - en: "front 7.5mm to 1.25cm (≈5mm play)"
-    zh: "前壁7.5mm至1.25cm（约5mm浮动）"
-  - en: "bottom 2cm to center (≈2cm play)"
-    zh: "底部2cm至中央（约2cm浮动）"
+  - en: "7.5mm to 1.25cm forward of centre (≈5mm play)"
+    zh: "重心偏前7.5mm至1.25cm（约5mm浮动）"
+  - en: "2cm below centre to centred (≈2cm play)"
+    zh: "重心偏下2cm至居中（约2cm浮动）"
   - en: "left 1cm to right 5mm side lean (≈1.5cm play)"
-    zh: "左侧1cm至右侧5mm侧重（约1.5cm浮动）"
+    zh: "左侧1cm至右侧5mm（约1.5cm浮动）"
 
 noteEn: "466g, slightly heavy box. Individual differences depending on how it's packed in the box. The figure moves slightly in all directions inside the box."
 noteZh: "466g，箱子略重。因装箱方式不同存在个体差异。手办在箱内各方向都有轻微移动。"
 
 tipEn: >
-  The one thing you can rely on here is that the weight is toward the front —
-  about 1cm in from the front face every time. Everything else drifts: the
-  height of the weight can be anywhere from 2cm off the floor up to the middle
-  of the box, and it can lean 1cm left or 5mm right. Because the weight is
-  forward, pushing the box away from you is the right direction. At 466g it is
-  on the heavy side, so plan on moving it steadily over several goes rather
-  than trying to knock it over, and re-read how it is sitting each time —
-  it genuinely will not behave identically twice.
+  The weight ranges from 2cm below mid-height up to mid-height, never above
+  it, so this box stays upright and sliding is the plan. The usable cue is the
+  7.5mm to 1.25cm forward bias, so push the front face where the mass actually
+  is. The lean swings 1.5cm across the middle, so don't commit to a side —
+  keep the claw centred to limit any twist. At 466g it's slightly heavy, so
+  each push buys a few millimetres; let it settle between attempts.
 tipZh: >
-  这款唯一可靠的一点是重量偏前——每次都在距前面约1cm处。其余都在漂移：重心高度
-  可能在距底部2cm到箱子中央之间任意位置，左右则可能偏左1cm或偏右5mm。由于重量
-  靠前，朝远离自己的方向推是正确的方向。466g偏重，所以要做好分几次稳稳挪动的打算，
-  而不是想一下把它撞倒；每次都重新观察它的姿态——它确实不会两次表现完全相同。
+  重量范围从半高下方2cm到半高，从不高于半高，所以这个箱子会保持立着，只能用
+  滑动。可用的线索是比中心靠前7.5mm到1.25cm，所以推前面、质量真正所
+  在之处。侧重在中间两侧摆动1.5cm，所以不要锁定某一侧——让爪子保持居中以
+  减少扭转。466g略重，每次推送只换来几毫米；两次尝试之间让它先停稳。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.09/2831934_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

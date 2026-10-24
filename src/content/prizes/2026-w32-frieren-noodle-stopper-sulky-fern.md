@@ -13,24 +13,30 @@ boxWeight: "211g"
 boxSize: "20 × 12.5 × 12.5cm (H×W×D)"
 
 cog:
-  - en: "back 1.75cm to 1.25cm (≈5mm play)"
-    zh: "后壁1.75cm至1.25cm（约5mm浮动）"
+  - en: "1.75cm to 1.25cm back of centre (≈5mm play)"
+    zh: "重心偏后1.75cm至1.25cm（约5mm浮动）"
+  - en: "2cm below to 5mm above centre (≈2.5cm play)"
+    zh: "重心偏下2cm至偏上5mm（约2.5cm浮动）"
+  - en: "left 7.5mm to right 5mm side lean (≈1.25cm play)"
+    zh: "左侧7.5mm至右侧5mm（约1.25cm浮动）"
 
 noteEn: "211g, light box. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box."
 noteZh: "211g，箱子较轻。因装箱方式不同存在个体差异。手办在箱内会向各方向移动。"
 
 tipEn: >
-  The small figure sits deep in a tall 20cm box with the COG 1.25–1.75cm off
-  the back wall, so the box is distinctly back-heavy. Aim at the back half and
-  give a gentle, short push — at 211g it tips very easily and over-pushing
-  will send it tumbling past the bridge instead of cleanly over it. Because
-  the figure shifts freely inside, the drop can vary a little; settle the box
-  first and treat the first attempt as a probe.
+  The figure is loose and the weight wanders 2.5cm vertically, from 2cm below
+  the middle to just 5mm above it, so one attempt can behave quite differently
+  from the next — nudge it, let it settle, then look. Most of that range sits
+  below centre, which means sliding is usually the plan, and only when it has
+  ridden up can you hope to tip it. The 1.25 to 1.75cm back bias is the steady
+  feature, so work the back face. At 211g it's light, and the side lean
+  crosses the middle, so it may go either way.
 tipZh: >
-  小手办深置于20cm的高箱内，重心距后壁1.25–1.75cm，箱子明显偏后重。瞄准后半部并
-  给予轻柔短促的推送——211g极容易翻落，用力过猛会使它越过桥面翻滚而下，而非干净
-  地翻落。由于手办在箱内可自由移动，翻落点会略有变化；先让箱子稳定，并把第一次
-  尝试当作试探。
+  手办是松动的，重量上下游走2.5cm，从比中心低2cm到高出5mm，所以这一
+  次和下一次的表现可能相当不同——先轻碰，让它稳定，再观察。这个范围大部分位于
+  中心以下，意味着通常只能用滑动，只有当它升上去时才有机会推翻。距中心偏后1.
+  25到1.75cm是稳定的特征，所以攻后面。211g很轻，而侧重会越过中间，
+  所以它可能往任一边倒。
 
 imageUrl: "https://furyuprize.com/files/images/prz/pi-main-22166.webp"
 imageCredit: "Photo via Furyu (furyuprize.com)"

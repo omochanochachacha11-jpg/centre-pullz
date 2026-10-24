@@ -13,23 +13,28 @@ boxWeight: "277g"
 boxSize: "25 × 14 × 14cm (H×W×D)"
 
 cog:
-  - en: "front 1cm to 7.5mm (≈2.5mm play)"
-    zh: "前壁1cm至7.5mm（约2.5mm浮动）"
+  - en: "1cm to 7.5mm forward of centre (≈2.5mm play)"
+    zh: "重心偏前1cm至7.5mm（约2.5mm浮动）"
+  - en: "centred to 1cm above centre (≈1cm play)"
+    zh: "居中至偏上1cm（约1cm浮动）"
+  - en: "right 2.5mm to right 7.5mm side lean (≈5mm play)"
+    zh: "右侧2.5mm至右侧7.5mm（约5mm浮动）"
 
 noteEn: "277g, slightly light box. Individual differences depending on how it's packed in the box. The figure moves up–down and left–right inside the box when shaken."
 noteZh: "277g，箱子略轻。因装箱方式不同存在个体差异。摇晃时手办在箱内上下左右会移动。"
 
 tipEn: >
-  The COG is shallow and front-biased — 1cm to 7.5mm from the front wall with
-  just 2.5mm of play — but the figure shifts up-down and left-right when the
-  box is shaken, so keep the approach gentle. A front-heavy, mid-weight box
-  falls forward once the front edge passes the bridge; a steady push on the
-  front half should do it. The shallow COG keeps the tipping point fairly
-  tight despite the internal movement.
+  The weight sits at mid-height or up to 1cm above it, and 7.5mm to 1cm
+  forward of centre — high and forward is the combination that lets a box fall
+  rather than slide, so work the upper front and push away from you. At 277g
+  it's slightly light, so a measured push is plenty and a hard one will just
+  send it skating. The figure moves up-down and side-to-side when the box is
+  shaken, so keep the approach gentle and look again after each touch.
 tipZh: >
-  重心浅且偏前——距前壁1cm至7.5mm，浮动仅2.5mm——但摇晃时手办会在箱内上下左右
-  移动，接近动作务必轻柔。前偏的箱体在前缘越过桥面后向前翻落；对准前半部平稳推送
-  即可。重心浅，尽管内部有移动，翻落点仍相当集中。
+  重量位于半高处或高出最多1cm，并且比中心靠前7.5mm到1cm——高而偏前
+  正是让箱子倒下而非滑动的组合，所以攻前上方，朝远离自己的方向推。277g略轻，
+  有节制的一推就够了，猛推只会让它滑飞。箱子被摇动时手办会上下和左右移动，所
+  以动作要轻，每次接触后都重新观察。
 imageUrl: "https://furyuprize.com/files/images/prz/pi-main-21780.webp"
 imageCredit: "Photo via Furyu (furyuprize.com)"
 diagramUrl: "https://pbs.twimg.com/media/HQPJM0pbYAA8QUt.jpg"

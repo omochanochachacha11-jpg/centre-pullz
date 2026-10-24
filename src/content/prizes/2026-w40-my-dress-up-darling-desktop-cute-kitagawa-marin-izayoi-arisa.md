@@ -13,30 +13,29 @@ boxWeight: "288g"
 boxSize: "20 × 11 × 8.5cm (H×W×D)"
 
 cog:
-  - en: "center to front 2.5mm (≈2.5mm play)"
-    zh: "中央至前壁2.5mm（约2.5mm浮动）"
-  - en: "7.5mm up from the bottom"
-    zh: "距底部7.5mm"
+  - en: "centred to 2.5mm forward of centre (≈2.5mm play)"
+    zh: "居中至偏前2.5mm（约2.5mm浮动）"
+  - en: "7.5mm below centre"
+    zh: "重心偏下7.5mm"
   - en: "left 5mm side lean"
-    zh: "偏左5mm侧重"
+    zh: "偏左5mm"
 
 noteEn: "288g, slightly light box. Individual differences depending on how it's packed in the box — every one obtained measured the same, but reversed packing is reported, so check. Blister packaging keeps the figure almost immobile inside the box. Front-to-back the balance is close to centred, just barely toward the front."
 noteZh: "288g，箱子略轻。因装箱方式不同存在个体差异——获得的个体重心都一致，但据说也有反向装箱，需留意。吸塑包装让手办在箱内几乎不动。前后方向接近居中，仅略偏前壁。"
 
 tipEn: >
-  The heavy part sits very low — about 7.5mm up from the bottom of a box that
-  is 20cm tall. That makes it stubborn. It will slide rather than topple, and
-  it only falls once most of the base is already hanging off the edge, so work
-  it across in small steps instead of trying to flip it early. Front to back
-  the weight is nearly dead centre with the tiniest lean forward, and there is
-  a 5mm lean to the left, so expect it to drift a little left as it goes. The
-  figure is locked in a plastic tray, so whatever the box does on your first
-  try, it will do again.
+  The weight sits 7.5mm below mid-height with front-back almost dead centre,
+  so it's a stable box that won't topple — slide it. The 5mm left lean is the
+  one cue worth favouring. Worth checking first, though: Merry☆An measured
+  every unit the same but notes that reversed packing has been reported, so
+  confirm which way yours sits. At 288g it's slightly light, and the blister
+  keeps the figure almost immobile, so the box behaves identically every
+  attempt.
 tipZh: >
-  较重的部分位置很低——距箱底约7.5mm，而箱高有20cm。这让它很"顽固"：它会滑动而
-  不是翻倒，只有底边大部分悬空后才会掉下来，所以要一小步一小步地把它挪过去，不要
-  指望提前翻落。前后方向重量几乎正居中，只是极轻微偏前；左侧有5mm的偏重，所以移动
-  时它会略向左漂。手办被吸塑托固定住，第一次试出来的反应，下一次照样会重现。
+  重量位于半高下方7.5mm，前后几乎正居中，所以这是个稳定的箱子，不会翻倒——
+  请用滑动。偏左5mm是唯一值得优先的线索。不过先确认一下：Merry☆An
+  测到的每个个体都一样，但他提到有反向装箱的情况，所以请确认你这一箱的朝向。2
+  88g略轻，吸塑让手办几乎完全不动，所以箱子每次表现都一样。
 
 imageUrl: "https://www.taito.co.jp/Content/images/zone/prize/480162400.jpg"
 imageCredit: "Photo via Taito (taito.co.jp)"

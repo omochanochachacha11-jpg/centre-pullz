@@ -13,29 +13,28 @@ boxWeight: "167g"
 boxSize: "17 × 13 × 10cm (H×W×D)"
 
 cog:
-  - en: "5mm in from the back wall"
-    zh: "距后壁5mm"
-  - en: "5mm up from the bottom"
-    zh: "距底部5mm"
-  - en: "left 2.5mm to center side lean (≈2.5mm play)"
-    zh: "左侧2.5mm至中央侧重（约2.5mm浮动）"
+  - en: "5mm back of centre"
+    zh: "重心偏后5mm"
+  - en: "5mm below centre"
+    zh: "重心偏下5mm"
+  - en: "left 2.5mm to centred side lean (≈2.5mm play)"
+    zh: "左侧2.5mm至居中（约2.5mm浮动）"
 
 noteEn: "167g, very light box. Individual differences depending on how it's packed in the box. Blister packaging keeps the figure almost immobile inside the box. Left to right the balance is close to centred, just barely toward the left."
 noteZh: "167g，箱子很轻。因装箱方式不同存在个体差异。吸塑包装让手办在箱内几乎不动。左右方向接近居中，仅略偏左侧。"
 
 tipEn: >
-  Small and very light at 167g, with the weight tucked into the bottom back
-  corner — 5mm up from the floor and 5mm in from the back wall. Low weight
-  means it won't tip for you; you have to shuffle it until most of the base is
-  over the edge. Push from behind so the heavy corner leads. Because it is so
-  light, it slides easily and can get knocked further than you meant, so use
-  the smallest pushes you can and resist the urge to hit it. It barely moves
-  inside the box, so each attempt should repeat the last one.
+  A small box where everything sits within 5mm of centre, so the weight is
+  close to balanced and slightly below mid-height — it won't tip, so plan on
+  sliding. The 5mm back bias is the one face worth pushing. At just 167g this
+  is one of the lightest boxes in the database and will move much further than
+  you expect, so start with the gentlest push you can manage. The blister
+  keeps the figure almost immobile, so the box repeats itself exactly.
 tipZh: >
-  小巧且非常轻（167g），重量藏在后下角——距底部5mm、距后壁5mm。重心低意味着它不会
-  自己翻倒，你得一点点挪，直到底部大半悬出边缘。从后方推，让重的那个角先出去。
-  由于它太轻，很容易滑动，可能被撞得比你想的更远，所以要用尽可能小的推送，忍住
-  撞它的冲动。箱内几乎不动，所以每次尝试都会重现上一次的结果。
+  这是个小箱子，所有数据都在中心5mm以内，重量接近平衡且略低于半高——它不会
+  翻倒，所以请打算用滑动。距中心偏后5mm是唯一值得推的面。只有167g，是本
+  数据库中最轻的箱子之一，移动距离会远超预期，所以请用你能做到的最轻力道起步。
+  吸塑让手办几乎完全不动，箱子会完全重复同样的反应。
 
 imageUrl: "https://www.taito.co.jp/Content/images/zone/prize/480161900.jpg"
 imageCredit: "Photo via Taito (taito.co.jp)"

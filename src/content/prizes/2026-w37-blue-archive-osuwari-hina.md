@@ -13,28 +13,28 @@ boxWeight: "558g"
 boxSize: "18 × 12 × 12cm (H×W×D)"
 
 cog:
-  - en: "back 5mm to front 5mm (≈1cm play)"
-    zh: "后壁5mm至前壁5mm（约1cm浮动）"
-  - en: "bottom 2cm to 1cm (≈1cm play)"
-    zh: "底部2cm至1cm（约1cm浮动）"
-  - en: "left 2.5mm to center side lean (≈2.5mm play)"
-    zh: "左侧2.5mm至中央侧重（约2.5mm浮动）"
+  - en: "5mm back to 5mm forward of centre (≈1cm play)"
+    zh: "重心偏后5mm至偏前5mm（约1cm浮动）"
+  - en: "2cm to 1cm below centre (≈1cm play)"
+    zh: "重心偏下2cm至1cm（约1cm浮动）"
+  - en: "left 2.5mm to centred side lean (≈2.5mm play)"
+    zh: "左侧2.5mm至居中（约2.5mm浮动）"
 
 noteEn: "558g, heavy box. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box."
 noteZh: "558g，箱子偏重。因装箱方式不同存在个体差异。手办在箱内会向各方向移动。"
 
 tipEn: >
-  558g packed into a small 18 × 12 × 12cm box makes this unusually dense for
-  its size, and the balance point sits near the middle front-to-back but
-  clearly low (1–2cm off the bottom). A low, heavy COG resists tipping, so
-  favour pushing the box along the bridge over trying to flip it early. Aim
-  low on the box face and keep the force horizontal; lifting a dense low-COG
-  box tends to drop it flat rather than over the edge.
+  Unlike the Chinatsu box in the same line, this one is firmly bottom-heavy:
+  the weight sits 1 to 2cm below mid-height, so it will stay upright no matter
+  where you push. Slide it — push low, where the weight is, and walk it toward
+  the edge. At 558g it's heavy, so expect only a few millimetres per push and
+  budget for several. Depth and lean both sit close to centre, so there's no
+  corner to work; keep the claw centred and push square.
 tipZh: >
-  558g装在18 × 12 × 12cm的小箱里，密度相当高；重心前后接近中央，但明显偏下
-  （距底部1–2cm）。低而重的重心不易翻倒，因此应优先沿桥面推移，而非过早尝试掀翻。
-  瞄准箱体正面偏低处，保持水平方向发力；对这种低重心重箱抬起，往往只会让它平落，
-  而不是越过边缘。
+  与同系列的千夏那一箱不同，这一款明显底部偏重：重量位于半高下方1到2cm，所
+  以不管你推哪里它都会保持立着。请用滑动——从低处、重量所在的位置施力，一步步
+  把它逼向边缘。558g偏重，预计每次推送只有几毫米，请做好推多次的准备。进深
+  和侧重都接近中心，没有可攻的角；让爪子居中、正对施力。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.09/2822574_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

@@ -13,29 +13,28 @@ boxWeight: "451g"
 boxSize: "25 × 14 × 14cm (H×W×D)"
 
 cog:
-  - en: "back 3cm to 2cm (≈1cm play)"
-    zh: "后壁3cm至2cm（约1cm浮动）"
-  - en: "bottom 5mm to center (≈5mm play)"
-    zh: "底部5mm至中央（约5mm浮动）"
-  - en: "center to right 7.5mm side lean (≈7.5mm play)"
-    zh: "中央至右侧7.5mm侧重（约7.5mm浮动）"
+  - en: "3cm to 2cm back of centre (≈1cm play)"
+    zh: "重心偏后3cm至2cm（约1cm浮动）"
+  - en: "5mm below centre to centred (≈5mm play)"
+    zh: "重心偏下5mm至居中（约5mm浮动）"
+  - en: "centred to right 7.5mm side lean (≈7.5mm play)"
+    zh: "居中至右侧7.5mm（约7.5mm浮动）"
 
 noteEn: "451g, slightly heavy box. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box."
 noteZh: "451g，箱子略重。因装箱方式不同存在个体差异。手办在箱内会向各方向移动。"
 
 tipEn: >
-  The weight is well back — 2 to 3cm in from the back wall — and low, never
-  above the middle of the box. Both of those make it a slow target: it won't
-  tip until a lot of the base is off the edge, and the heavy end is the one
-  furthest from you. Push from behind and keep going past the point where you
-  think it should fall. The figure moves freely inside, so the readings
-  genuinely shift between grabs; move the box gently so the weight doesn't get
-  flung to one side, and re-check it before committing.
+  The headline reading is depth: the weight sits 2 to 3cm behind the centre of
+  the box, one of the deepest biases around, so pushing the back face moves
+  the heavy part directly instead of just rocking the shell. Height is at or
+  just below mid-height, so it won't tip — this is sliding with the back as
+  your lever. Aim low on the back, slightly right where the lean is. At 451g
+  it's slightly heavy; the figure moves inside, so let it settle each time.
 tipZh: >
-  重量很靠后——距后壁2至3cm——而且偏低，从不高于箱子中央。这两点都让它成为慢工活：
-  底部要出去很多它才会翻，而重的一端是离你最远的那边。从后方推，并且要推过你以为
-  "该掉了"的那个点。手办在箱内可以自由移动，读数在不同次尝试间确实会变；移动箱子
-  时要轻，别把重量甩到一侧，出手前先重新确认。
+  最突出的数据是进深：重量位于箱子中心后方2到3cm，是偏后最明显的之一，所以
+  推后面可以直接带动偏重的部分，而不只是晃动外壳。高度在半高处或略低，所以它不
+  会翻倒——这是以后面为杠杆的滑动作业。瞄准后面低处，并略微偏向有侧重的右侧。
+  451g略重；手办会在箱内移位，所以每次都让它先停稳。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.09/2775406_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

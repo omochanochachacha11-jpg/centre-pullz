@@ -13,27 +13,28 @@ boxWeight: "210g"
 boxSize: "20 × 12.5 × 12.5cm (H×W×D)"
 
 cog:
-  - en: "back 1cm to front 7.5mm (≈2.5mm play)"
-    zh: "后壁1cm至前壁7.5mm（约2.5mm浮动）"
-  - en: "bottom 5mm to center (≈5mm play)"
-    zh: "底部5mm至中央（约5mm浮动）"
+  - en: "1cm back to 7.5mm forward of centre (≈2.5mm play)"
+    zh: "重心偏后1cm至偏前7.5mm（约2.5mm浮动）"
+  - en: "5mm below centre to centred (≈5mm play)"
+    zh: "重心偏下5mm至居中（约5mm浮动）"
   - en: "left 2.5mm to right 7.5mm side lean (≈1cm play)"
-    zh: "左侧2.5mm至右侧7.5mm侧重（约1cm浮动）"
+    zh: "左侧2.5mm至右侧7.5mm（约1cm浮动）"
 
 noteEn: "210g, light box. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box."
 noteZh: "210g，箱子偏轻。因装箱方式不同存在个体差异。手办在箱内会向各方向移动。"
 
 tipEn: >
-  A light 210g box whose balance point sits close to the middle front-to-back
-  and only slightly low, so there is no single heavy end to exploit. Because
-  the figure shifts in every direction inside, the tipping point changes
-  between attempts — treat each drop as a fresh reading rather than repeating
-  a fixed position. Push low and slow across the bridge and let the box walk;
-  a hard shove on a box this light will just skate it out of position.
+  Nothing here is dependable: the weight sits at or just below mid-height, and
+  both the depth and the lean cross the middle, so the box can rotate either
+  way and no single aim point holds. Nudge it, let it stop, and read it fresh
+  each attempt. Since the weight never gets above centre, treat it as a slider
+  rather than something you can tip. At 210g it's light and will skid further
+  than you intend, so keep every push small.
 tipZh: >
-  210g的轻箱，重心前后接近中央、仅略微偏下，没有明显的重端可以利用。由于手办在箱内
-  各方向都会移动，翻落点会随每次尝试变化——每一次都应重新判读，而不是套用固定位置。
-  贴低、缓慢地沿桥面推送，让箱子一点点挪动；对这么轻的箱子发力猛推，只会把它推偏。
+  这里没有什么是可靠的：重量位于半高处或略低，而进深和侧重都会越过中间，所以箱
+  子可能往任一边转，没有一个落点始终成立。先轻碰、等它停下，每次尝试都重新判断。
+  由于重量从不高于中心，请把它当作靠滑动的箱子，而不是能推翻的。210g很轻，
+  滑出的距离会超出本意，所以每次推送都要小。
 
 imageUrl: "https://furyuprize.com/files/images/prz/pi-main-21777.webp"
 imageCredit: "Photo via Furyu (furyuprize.com)"

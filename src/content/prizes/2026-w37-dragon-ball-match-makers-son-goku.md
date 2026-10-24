@@ -13,28 +13,28 @@ boxWeight: "321g"
 boxSize: "20 × 15 × 10cm (H×W×D)"
 
 cog:
-  - en: "front 7.5mm to 1cm (≈2.5mm play)"
-    zh: "前壁7.5mm至1cm（约2.5mm浮动）"
-  - en: "top 1cm to 1.5cm (≈5mm play)"
-    zh: "顶部1cm至1.5cm（约5mm浮动）"
-  - en: "left 2.5mm to center side lean (≈2.5mm play)"
-    zh: "左侧2.5mm至中央侧重（约2.5mm浮动）"
+  - en: "7.5mm to 1cm forward of centre (≈2.5mm play)"
+    zh: "重心偏前7.5mm至1cm（约2.5mm浮动）"
+  - en: "1cm to 1.5cm above centre (≈5mm play)"
+    zh: "重心偏上1cm至1.5cm（约5mm浮动）"
+  - en: "left 2.5mm to centred side lean (≈2.5mm play)"
+    zh: "左侧2.5mm至居中（约2.5mm浮动）"
 
 noteEn: "321g, average box weight. Individual differences depending on how it's packed in the box. The figure moves slightly in all directions inside the box."
 noteZh: "321g，箱重普通。因装箱方式不同存在个体差异。手办在箱内各方向都会略微移动。"
 
 tipEn: >
-  A friendly one: moderate 321g, weight close to the front wall and high in
-  the box (1–1.5cm from the top), with almost no side bias. Front-heavy plus
-  top-heavy is the easiest profile to tip — catch the upper front edge and
-  push forward and the box will go over without much persuasion. The shallow
-  10cm depth helps too, since there is little base to resist rotation. Keep
-  the force low-speed so it rotates rather than slides.
+  Unlike the Grandpa Gohan box released alongside it, this one is
+  tip-friendly: the weight sits 1 to 1.5cm above mid-height and 7.5mm to 1cm
+  forward of centre, so the upper front is your target and the box should fall
+  forward. Push there, away from you. At 321g it's an average weight, so a
+  steady push is enough. The figure shifts slightly inside, so if an attempt
+  behaves differently, let it settle and look before the next one.
 tipZh: >
-  这是个好打的：321g重量适中，重心靠近前壁且位置偏高（距顶部1–1.5cm），几乎没有
-  左右偏向。前重加上重心高是最容易翻落的组合——抓住前上缘向前推，箱子无需太多力
-  即会翻过去。10cm的浅深度也有帮助，底面小、抗翻转能力弱。发力保持低速，让它翻转
-  而非滑动。
+  与同时登场的孙悟饭爷爷那一箱不同，这一款容易推翻：重量位于半高上方1到1.5
+  cm，并比中心靠前7.5mm到1cm，所以前上方就是你的目标，箱子应该会向前
+  倒。朝远离自己的方向推那里。321g属于中等重量，稳稳施力就够了。手办在箱内
+  会轻微移位，如果某一次反应不同，就让它停稳、观察后再推下一次。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.09/2785230_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

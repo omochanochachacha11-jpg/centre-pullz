@@ -13,28 +13,29 @@ boxWeight: "406g"
 boxSize: "24 × 15 × 14cm (H×W×D)"
 
 cog:
-  - en: "2cm in from the back wall"
-    zh: "距后壁2cm"
-  - en: "top 5mm to 7.5mm (≈2.5mm play)"
-    zh: "顶部5mm至7.5mm（约2.5mm浮动）"
-  - en: "left 2.5mm to center side lean (≈2.5mm play)"
-    zh: "左侧2.5mm至中央侧重（约2.5mm浮动）"
+  - en: "2cm back of centre"
+    zh: "重心偏后2cm"
+  - en: "5mm to 7.5mm above centre (≈2.5mm play)"
+    zh: "重心偏上5mm至7.5mm（约2.5mm浮动）"
+  - en: "left 2.5mm to centred side lean (≈2.5mm play)"
+    zh: "左侧2.5mm至居中（约2.5mm浮动）"
 
 noteEn: "406g, slightly heavy box. Individual differences depending on how it's packed in the box. The figure barely moves inside the box."
 noteZh: "406g，箱子略重。因装箱方式不同存在个体差异。手办在箱内基本不动。"
 
 tipEn: >
-  Same profile as the Mika release in this line and just as workable: the
-  weight rides very high — 5–7.5mm down from the top — and sits 2cm in from
-  the back wall, with almost no lateral bias. A high, back-set COG in a stable
-  box is the ideal tipping setup. Catch the top rear edge and push it away
-  from you rather than lifting; once the top clears the gap the box will
-  rotate over on its own. Nothing moves inside, so the first read holds.
+  The strongest reading here is depth: the weight sits a full 2cm behind the
+  centre of the box, so pushing the back face moves the heavy part directly
+  instead of just rocking the shell. Height is only 5 to 7.5mm above
+  mid-height, which helps a little but won't give you a clean flip on its own
+  — combine the two and push the back, slightly above the middle. At 406g it's
+  slightly heavy. The figure barely moves inside, so repeat whatever shifts
+  it.
 tipZh: >
-  与本系列的弥香款轮廓相同，同样好打：重量位置很高——距顶部5–7.5mm——且距后壁2cm，
-  几乎没有左右偏向。稳定箱体加上高位且靠后的重心，是最理想的翻落条件。抓住后上缘
-  向远离自己的方向推，而非抬起；顶缘一过缺口，箱子就会自行翻过去。箱内毫无位移，
-  首次判读即可沿用。
+  这里最强的数据是进深：重量位于箱子中心后方整整2cm，所以推后面可以直接带动
+  偏重的部分，而不只是晃动外壳。高度只比半高高出5到7.5mm，有一点帮助但单
+  靠它无法干脆翻倒——把两者结合起来，推后面略高于中间的位置。406g略重。手
+  办在箱内几乎不动，能推动它的力道请重复。
 
 imageUrl: "https://segaplaza.jp/images-v3/prize/D123345_cbf05d/large/D123345_01.webp"
 imageCredit: "Photo via Sega (segaplaza.jp)"

@@ -12,22 +12,29 @@ figureSize: "19cm"
 boxSize: "19.5 × 12 × 9cm (H×W×D)"
 
 cog:
-  - en: "back 7.5mm to 5mm (≈2.5mm play)"
-    zh: "后壁7.5mm至5mm（约2.5mm浮动）"
+  - en: "7.5mm to 5mm back of centre (≈2.5mm play)"
+    zh: "重心偏后7.5mm至5mm（约2.5mm浮动）"
+  - en: "1.75cm to 2cm above centre (≈2.5mm play)"
+    zh: "重心偏上1.75cm至2cm（约2.5mm浮动）"
+  - en: "centred to right 2.5mm side lean (≈2.5mm play)"
+    zh: "居中至右侧2.5mm（约2.5mm浮动）"
 
 noteEn: "Slightly light box (weight not stated). Color-change renewal (brown base → green base) from the August 2025 release. Individual differences depending on how it's packed in the box. The figure barely moves inside the box."
 noteZh: "箱子略轻（未标注重量）。为2025年8月发售款的换色再版（茶色底座→绿色底座）。因装箱方式不同存在个体差异。手办在箱内基本不晃动。"
 
 tipEn: >
-  The COG is very shallow — just 5–7.5mm in from the back wall with only
-  2.5mm of play — so the box behaves predictably, tipping once the back half
-  hangs over the bridge. The box is on the light side, so a gentle, smooth
-  push is enough; a jerky claw can bounce it. The figure barely moves in the
-  box, so the first touch should match the measurement closely.
+  This is one of the more tip-friendly boxes: the weight sits a clear 1.75 to
+  2cm above mid-height, and weight that high makes a box roll over rather than
+  slide along. Push the upper part, slightly behind centre where the small 5
+  to 7.5mm back bias is, and it should go over. Left-right is almost dead
+  centre, so push straight. Merry☆An only noted the box as slightly light, so
+  start gentle; the figure barely moves inside, so a working push repeats
+  reliably.
 tipZh: >
-  重心很浅——距后壁仅5–7.5mm，浮动只有2.5mm——箱子行为可预测，后半部悬空即翻落。
-  箱子偏轻，轻而平滑的推送即可；爪子抖动容易使其弹跳。箱内几乎不动，首次接触应与
-  测量高度一致。
+  这是比较容易推翻的箱子之一：重量明显位于半高上方1.75到2cm，这么高的重
+  心会让箱子翻倒而不是滑行。推上半部、略偏后、也就是距中心偏后5到7.5mm的
+  位置，它应该就会翻过去。左右几乎正居中，所以直接正推。Merry☆An只注明
+  箱子略轻，所以先轻轻来；手办在箱内几乎不动，有效的推法可以稳定重复。
 imageUrl: "https://www.taito.co.jp/Content/images/zone/prize/479996910.jpg"
 imageCredit: "Photo via System Service (taito.co.jp)"
 diagramUrl: "https://pbs.twimg.com/media/HQUZdVmbMAAR_F4.jpg"

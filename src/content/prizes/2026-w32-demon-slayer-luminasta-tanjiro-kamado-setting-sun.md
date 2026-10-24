@@ -13,10 +13,10 @@ boxWeight: "463g"
 boxSize: "25 × 15 × 10cm (H×W×D)"
 
 cog:
-  - en: "5mm in from the back wall"
-    zh: "距后壁5mm"
-  - en: "bottom 1cm to 5mm (≈5mm play)"
-    zh: "底部1cm至5mm（约5mm浮动）"
+  - en: "5mm back of centre"
+    zh: "重心偏后5mm"
+  - en: "1cm to 5mm below centre (≈5mm play)"
+    zh: "重心偏下1cm至5mm（约5mm浮动）"
   - en: "right 2.5mm side lean"
     zh: "偏右2.5mm"
 
@@ -24,18 +24,18 @@ noteEn: "463g, slightly heavy box. Individual differences depending on how it's 
 noteZh: "463g，箱子略重。因装箱方式不同存在个体差异。用力摇晃时手办在箱内上下会有轻微移动。"
 
 tipEn: >
-  The weight is almost on the floor of a 25cm-tall box — 5mm to 1cm up — which
-  is about as bottom-heavy as prizes get, so forget tipping it over and plan
-  on sliding it off the edge instead. It does sit only 5mm from the back wall,
-  so pushing low at the back is the efficient line: the heavy rear edge leaves
-  the bridge first. Side lean is a negligible 2.5mm right, so stay near the
-  middle. The figure barely moves inside, so repeat whatever push gains you
-  ground.
+  The weight sits just below the middle of the box — about 11.5 to 12cm up a
+  25cm box — so it is mildly bottom-heavy and will settle back upright rather
+  than topple. Treat it as a sliding job: push a little behind centre, where
+  the 5mm back bias is, and walk it toward the edge. At 463g it's slightly
+  heavy, so each push buys you only a few millimetres. The figure only shifts
+  up and down if the box is shaken hard, so a gentle approach keeps it
+  predictable.
 tipZh: >
-  在25cm高的箱子里，重量几乎贴着箱底——距底部5mm至1cm——这已经是景品中最典型的低重心，
-  所以别想着把它推翻，改为用滑动把它推出边缘。它距后壁只有5mm，所以在后方低位施力是
-  最有效的路线：较重的后缘会先离开桥面。侧向只偏右2.5mm，可忽略，所以靠中间即可。手
-  办在箱内几乎不动，所以只要某个推法有进展，照着重复就行。
+  重量略低于箱子中间——25cm高的箱子里大约在11.5到12cm处——所以它
+  轻微底部偏重，会自己立回去而不是翻倒。把它当作滑动作业：在略偏后、也就是距中
+  心偏后5mm的位置施力，一步步把它逼向边缘。463g略重，每次推送只能换来几
+  毫米。只有大力摇晃时手办才会上下移位，所以动作轻一些就能保持可预测。
 
 imageUrl: "https://segaplaza.jp/images-v3/prize/D123325_0fc81f/large/D123325_01.webp"
 imageCredit: "Photo via Sega (segaplaza.jp)"

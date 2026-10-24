@@ -13,24 +13,29 @@ boxWeight: "173g"
 boxSize: "20 × 12.5 × 12.5cm (H×W×D)"
 
 cog:
-  - en: "back 2cm to 1.5cm (≈5mm play)"
-    zh: "后壁2cm至1.5cm（约5mm浮动）"
+  - en: "2cm to 1.5cm back of centre (≈5mm play)"
+    zh: "重心偏后2cm至1.5cm（约5mm浮动）"
+  - en: "2cm below centre to centred (≈2cm play)"
+    zh: "重心偏下2cm至居中（约2cm浮动）"
+  - en: "left 2.5mm to right 5mm side lean (≈7.5mm play)"
+    zh: "左侧2.5mm至右侧5mm（约7.5mm浮动）"
 
 noteEn: "173g, very light box. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box."
 noteZh: "173g，箱子非常轻。因装箱方式不同存在个体差异。手办在箱内会向各方向移动。"
 
 tipEn: >
-  At 173g this is an extremely light box with the COG well toward the back
-  (1.5–2cm off the back wall). The danger is over-rotation: even a moderate
-  push can make the whole box bounce or flip past the drop point. Work the
-  back half with short, low-speed nudges and let the box tip on its own
-  weight. The free internal movement adds variance, so confirm the actual
-  balance point with a soft first attempt before committing.
+  The useful number here is the depth: the weight sits a full 1.5 to 2cm
+  behind the centre of the box, so pushing the back face moves the heavy part
+  directly instead of just rocking the shell. Height never rises above the
+  middle — it ranges from 2cm below centre up to centre — so don't try to flip
+  it, slide it. At 173g this is an extremely light box and will skid much
+  further than you intend, so use the smallest pushes you can. The figure is
+  loose inside, so nudge and look before each attempt.
 tipZh: >
-  173g是极轻的箱体，重心明显偏后（距后壁1.5–2cm）。风险在于过度翻转：即使是中等
-  力度的推送也可能让整箱弹跳或越过翻落点。在后半部用短促低速的轻推，让箱子靠自身
-  重量翻落。箱内自由移动会带来浮动，先以轻柔的第一次尝试确认实际平衡点，再决定
-  是否发力。
+  这里有用的数字是进深：重量位于箱子中心后方整整1.5到2cm，所以推后面可以
+  直接带动偏重的部分，而不只是晃动外壳。高度从不高于中间——范围是比中心低2c
+  m到中心——所以别想推翻它，用滑动。173g属于极轻的箱子，滑出的距离会远超
+  你的本意，请用最小的力道。手办在箱内松动，每次尝试前都先轻碰并观察。
 
 imageUrl: "https://furyuprize.com/files/images/prz/pi-main-22167.webp"
 imageCredit: "Photo via Furyu (furyuprize.com)"

@@ -13,31 +13,28 @@ boxWeight: "247g"
 boxSize: "21.5 × 12 × 10.5cm (H×W×D)"
 
 cog:
-  - en: "1.25cm in from the front wall"
-    zh: "距前壁1.25cm"
-  - en: "1.5cm down from the top"
-    zh: "距顶部1.5cm"
+  - en: "1.25cm forward of centre"
+    zh: "重心偏前1.25cm"
+  - en: "1.5cm above centre"
+    zh: "重心偏上1.5cm"
   - en: "right 2.5mm side lean"
-    zh: "偏右2.5mm侧重"
+    zh: "偏右2.5mm"
 
 noteEn: "247g, slightly light box. Individual differences depending on how it's packed in the box. Blister packaging keeps the figure almost immobile inside the box. Left-to-right the balance is close to centred, just barely toward the right."
 noteZh: "247g，箱子略轻。因装箱方式不同存在个体差异。吸塑包装让手办在箱内几乎不动。左右方向接近居中，仅略偏右侧。"
 
 tipEn: >
-  This is an easy one to learn on. The weight sits high — only 1.5cm below the
-  top of the box — and forward, 1.25cm in from the front face. High and
-  forward means the box wants to fall over on its own as soon as the front
-  edge clears the gap, rather than having to be shoved all the way across.
-  Aim near the top front corner and push away from yourself. At 247g it is
-  light, so a gentle nudge goes a long way; pushing hard just sends it
-  skidding past where you wanted it. The figure cannot shift inside the box,
-  so the same push should give you the same result every time.
+  A genuinely good one: the weight sits 1.5cm above mid-height and 1.25cm
+  forward of centre, so the upper front is clearly where the mass is and the
+  box should fall forward rather than slide. Catch it high on the front and
+  push away from you. At 247g it's slightly light, so a measured push is
+  plenty — don't overdo it. The blister holds the figure almost immobile, so a
+  push that nearly worked will work with a little more of the same.
 tipZh: >
-  这款很适合新手练手。重量集中在高处——距箱顶仅1.5cm——并且偏前，距前面1.25cm。
-  重心又高又靠前，意味着前缘一越过缺口，箱子就会自己翻倒，而不必一路推到底。
-  对准前上角，朝远离自己的方向推。箱子只有247g，很轻，轻轻一推就够了；用力过猛
-  只会让它滑过你想要的位置。手办在箱内无法移动，所以同样的推法每次都会给出同样
-  的结果。
+  这是真正好打的一款：重量位于半高上方1.5cm、比中心靠前1.25cm，所以
+  前上方显然是质量所在，箱子应该会向前倒而不是滑动。在前面高处抓住它，朝远离自
+  己的方向推。247g略轻，有节制的一推就够了——不要用力过猛。吸塑让手办几乎
+  完全不动，差一点成功的推法再加一点同样的力就能成。
 
 imageUrl: "https://www.taito.co.jp/Content/images/zone/prize/480162200.jpg"
 imageCredit: "Photo via Taito (taito.co.jp)"

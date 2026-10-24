@@ -13,23 +13,28 @@ boxWeight: "357g"
 boxSize: "18 × 15 × 9cm (H×W×D)"
 
 cog:
-  - en: "back 2.5mm to center (≈2.5mm play)"
-    zh: "后壁2.5mm至中央（约2.5mm浮动）"
+  - en: "2.5mm back of centre to centred (≈2.5mm play)"
+    zh: "重心偏后2.5mm至居中（约2.5mm浮动）"
+  - en: "2.5mm below centre"
+    zh: "重心偏下2.5mm"
+  - en: "left 1.25cm to left 7.5mm side lean (≈5mm play)"
+    zh: "左侧1.25cm至左侧7.5mm（约5mm浮动）"
 
 noteEn: "357g, normal box weight. Individual differences depending on how it's packed in the box. The figure moves slightly inside the box if shaken hard."
 noteZh: "357g，箱子重量普通。因装箱方式不同存在个体差异。用力摇晃时手办在箱内会有轻微移动。"
 
 tipEn: >
-  The COG sits shallow and near the back-center of the box with very little
-  play, so the tipping behavior should be steady. Push from the front so the
-  rear-heavy box rotates over the bridge once the back half clears the gap.
-  Note that the figure shifts slightly if the box is shaken hard — avoid sudden
-  claw movements that rock it, and keep the approach smooth. A mid-weight box
-  (357g) at this size needs a firm but controlled push, not a yank.
+  Front-back and up-down are both within 2.5mm of centre, so the weight is
+  essentially in the middle of the box and it will not topple for you. The one
+  thing worth using is the lean: a consistent 7.5mm to 1.25cm to the left,
+  which is a real bias and makes the left side the one to push. At 357g it's a
+  normal weight. The figure only shifts if the box is shaken hard, so keep
+  your pushes controlled and the behaviour stays predictable.
 tipZh: >
-  重心浅且靠近后壁中央，浮动很小，翻落行为应相当稳定。从前侧推送，让偏后的箱体在后
-  半部越过桥面时转动翻落。注意：用力摇晃时手办会在箱内轻微移动——避免突然的爪动使
-  其晃动，接近动作保持平稳。357g的中等重量配合此尺寸，需要有力但受控的推送，而非猛拽。
+  前后和上下都在中心2.5mm以内，所以重量基本就在箱子中间，它不会替你翻倒。
+  唯一值得利用的是侧重：稳定地偏左7.5mm到1.25cm，这是真实的偏向，让
+  左侧成为该推的一侧。357g属于普通重量。只有大力摇晃时手办才会移位，所以保
+  持推送可控，它的表现就会稳定可预测。
 
 
 imageUrl: "https://segaplaza.jp/images-v2/prize/D123006_622fdd/large/D123006_01.webp"

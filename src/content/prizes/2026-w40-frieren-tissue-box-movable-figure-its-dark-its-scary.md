@@ -13,30 +13,28 @@ boxWeight: "332g"
 boxSize: "20 × 15 × 10cm (H×W×D)"
 
 cog:
-  - en: "back 2.5mm to center (≈2.5mm play)"
-    zh: "后壁2.5mm至中央（约2.5mm浮动）"
-  - en: "bottom 2cm to 1.75cm (≈2.5mm play)"
-    zh: "底部2cm至1.75cm（约2.5mm浮动）"
-  - en: "right 2.5mm to 5mm side lean (≈2.5mm play)"
-    zh: "右侧2.5mm至5mm侧重（约2.5mm浮动）"
+  - en: "2.5mm back of centre to centred (≈2.5mm play)"
+    zh: "重心偏后2.5mm至居中（约2.5mm浮动）"
+  - en: "2cm to 1.75cm below centre (≈2.5mm play)"
+    zh: "重心偏下2cm至1.75cm（约2.5mm浮动）"
+  - en: "right 2.5mm to right 5mm side lean (≈2.5mm play)"
+    zh: "右侧2.5mm至右侧5mm（约2.5mm浮动）"
 
 noteEn: "332g, average box weight. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box, and the box surface is a slippery material, so take care."
 noteZh: "332g，箱重普通。因装箱方式不同存在个体差异。手办在箱内会向各方向移动，且箱子表面材质较滑，需留意。"
 
 tipEn: >
-  Front to back and side to side this box is almost perfectly balanced — every
-  reading is within 5mm of the middle. The only real feature is that the
-  weight sits low, about 2cm up from the floor of a 20cm box, so it will slide
-  along rather than tip and needs most of its base past the edge before it
-  falls. The thing that will actually cost you attempts is the surface: the
-  box is slippery, so the claw and the bridge both lose grip on it easily.
-  Use small, square pushes rather than angled ones, and expect it to skate a
-  little further than you intended.
+  The weight sits a clear 1.75 to 2cm below mid-height, properly bottom-heavy,
+  so this box will stay upright no matter where you push — slide it low and
+  don't waste attempts on a flip. The 2.5 to 5mm right lean is the only
+  directional cue, so favour that side slightly. Be aware the box surface is a
+  slippery material, so the claw may slip off an edge; aim for a flat face. At
+  332g it's an average weight.
 tipZh: >
-  前后和左右方向，这个箱子几乎完全平衡——所有读数都在距中心5mm以内。唯一的特点是
-  重心偏低，距这个20cm高箱子的底部约2cm，所以它会滑行而不是翻倒，底部要越过边缘
-  大半才会掉。真正会多花你几手的是表面：箱子很滑，爪子和桥面都容易打滑。用小幅度
-  的正推，不要斜着推，并且要预期它会比你想的多滑一点。
+  重量明显位于半高下方1.75到2cm，属于典型的底部偏重，所以不管你推哪里这
+  个箱子都会立着——请从低处滑动，不要把次数浪费在推翻上。偏右2.5到5mm是
+  唯一的方向线索，所以稍微优先那一侧。注意箱子表面材质很滑，爪子可能从边缘打滑；
+  请瞄准平整的面。332g属于中等重量。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.09/2834810_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

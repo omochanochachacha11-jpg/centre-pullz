@@ -13,28 +13,29 @@ boxWeight: "563g"
 boxSize: "25 × 15 × 15cm (H×W×D)"
 
 cog:
-  - en: "back 2.75cm to 2.5cm (≈2.5mm play)"
-    zh: "后壁2.75cm至2.5cm（约2.5mm浮动）"
-  - en: "bottom 1cm to 5mm (≈5mm play)"
-    zh: "底部1cm至5mm（约5mm浮动）"
-  - en: "center to right 5mm side lean (≈5mm play)"
-    zh: "中央至右侧5mm侧重（约5mm浮动）"
+  - en: "2.75cm back of centre"
+    zh: "重心偏后2.75cm"
+  - en: "1cm to 5mm below centre (≈5mm play)"
+    zh: "重心偏下1cm至5mm（约5mm浮动）"
+  - en: "centred to right 5mm side lean (≈5mm play)"
+    zh: "居中至右侧5mm（约5mm浮动）"
 
 noteEn: "563g, heavy box. Width and depth are the same on this box. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box."
 noteZh: "563g，箱子偏重。此箱宽度与深度相同。因装箱方式不同存在个体差异。手办在箱内会向各方向移动。"
 
 tipEn: >
-  The COG sits a long way in from the back wall — 2.5–2.75cm — and low, only
-  5mm–1cm off the bottom, so the heavy mass is buried deep and near the floor
-  of the box. That combination is stubborn: it will not tip from a light tap
-  on the upper back. Push at the base from behind and drive the box forward
-  along the bridge instead. The square 15 × 15cm footprint means it sits the
-  same either way round, so check which face is toward you before committing.
+  The standout reading is depth: the weight sits a full 2.75cm behind the
+  centre of the box, one of the deepest biases in the database, so pushing the
+  back face moves the heavy part directly rather than just rocking the shell.
+  Height is 5mm to 1cm below mid-height, so it won't tip — this is sliding,
+  with the back as your lever. At 563g it's heavy, so expect short travel.
+  Width and depth are equal here, so the base is square and stable; keep the
+  claw centred.
 tipZh: >
-  重心距后壁很深——2.5–2.75cm——且偏下，仅距底部5mm–1cm，重量集中在箱体深处且接近
-  箱底。这种组合很难撼动：轻点后上方不会让它翻倒。应从后方贴近箱底推送，沿桥面把
-  整箱向前推移。15 × 15cm的正方形底面意味着正反两面摆放相同，动手前先确认朝向自己的
-  是哪一面。
+  最突出的数据是进深：重量位于箱子中心后方整整2.75cm，是本数据库中偏后最
+  明显的之一，所以推后面可以直接带动偏重的部分，而不只是晃动外壳。高度在半高下
+  方5mm到1cm，所以它不会翻——这是滑动作业，后面是你的杠杆。563g偏重，
+  预计位移较短。这个箱子宽度和进深相同，底座方正稳固；爪子保持居中。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.09/2802766_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

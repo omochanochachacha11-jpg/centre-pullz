@@ -13,30 +13,28 @@ boxWeight: "1146g"
 boxSize: "14 × 25 × 14cm (H×W×D)"
 
 cog:
-  - en: "back 2.5mm to center (≈2.5mm play)"
-    zh: "后壁2.5mm至中央（约2.5mm浮动）"
-  - en: "bottom 5mm to 2.5mm (≈2.5mm play)"
-    zh: "底部5mm至2.5mm（约2.5mm浮动）"
-  - en: "right 7.5mm to 1cm side lean (≈2.5mm play)"
-    zh: "右侧7.5mm至1cm侧重（约2.5mm浮动）"
+  - en: "2.5mm back of centre to centred (≈2.5mm play)"
+    zh: "重心偏后2.5mm至居中（约2.5mm浮动）"
+  - en: "5mm to 2.5mm below centre (≈2.5mm play)"
+    zh: "重心偏下5mm至2.5mm（约2.5mm浮动）"
+  - en: "right 7.5mm to right 1cm side lean (≈2.5mm play)"
+    zh: "右侧7.5mm至右侧1cm（约2.5mm浮动）"
 
 noteEn: "1146g, very heavy box. Front-back is on the back side but close to centre. Individual differences depending on how it's packed in the box. The figure does not move inside the box."
 noteZh: "1146g，箱子超重。前后方向偏后但接近中央。因装箱方式不同存在个体差异。手办在箱内不会移动。"
 
 tipEn: >
-  This is the hardest shape to deal with: 1146g in a box that lies on its
-  side, only 14cm tall but 25cm wide, with the weight sitting 2.5 to 5mm off
-  the floor and almost dead centre front-to-back. A wide, low, very heavy box
-  simply will not tip — the only thing that works is sliding it sideways until
-  the heavy end passes the edge. The one thing in your favour is the 7.5mm to
-  1cm lean to the right, and the fact that nothing shifts inside, so the box
-  responds identically every time. Push from the left, aim to move the right
-  end out, and budget for a lot of pushes.
+  This box lies on its side — 25cm wide but only 14cm tall — and at 1146g it
+  is enormously heavy with the weight sitting just below mid-height. A wide,
+  low, very heavy box is the most stubborn combination there is: it will not
+  tip, and sliding it takes real patience. Your only cue is the consistent
+  7.5mm to 1cm lean to the right, so push that side low. The figure does not
+  move inside at all, so at least every push gives the same result.
 tipZh: >
-  这是最难应对的形状：1146g，箱子横放，高只有14cm而宽达25cm，重量距底部仅2.5至5mm，
-  前后方向几乎正中。又宽、又低、又超重的箱子根本推不翻——唯一有效的办法是横向滑动，
-  直到较重的一端越过边缘。对你有利的一点是它向右偏7.5mm至1cm，而且箱内毫无位移，所
-  以每次反应都一样。从左侧推，目标是把右端挪出去，并做好要推很多次的准备。
+  这个箱子是横放的——宽25cm但只有14cm高——而1146g的重量极大，重
+  心略低于半高。又宽、又矮、又极重，是最难对付的组合：它不会翻倒，滑动它也需要
+  真正的耐心。你唯一的线索是稳定偏右7.5mm到1cm，所以从低处推那一侧。手
+  办在箱内完全不动，至少每次推送都会给出同样的结果。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.10/bae/2841459_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

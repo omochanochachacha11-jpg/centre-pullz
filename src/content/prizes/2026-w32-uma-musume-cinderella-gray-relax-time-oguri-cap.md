@@ -13,27 +13,29 @@ boxWeight: "405g"
 boxSize: "20 × 15 × 10cm (H×W×D)"
 
 cog:
-  - en: "back 1cm to 5mm (≈5mm play)"
-    zh: "后壁1cm至5mm（约5mm浮动）"
-  - en: "2.5cm to 5mm up from the bottom (≈2cm play)"
-    zh: "距底部2.5cm至5mm（约2cm浮动）"
+  - en: "1cm to 5mm back of centre (≈5mm play)"
+    zh: "重心偏后1cm至5mm（约5mm浮动）"
+  - en: "2.5cm to 5mm below centre (≈2cm play)"
+    zh: "重心偏下2.5cm至5mm（约2cm浮动）"
+  - en: "left 7.5mm to right 5mm side lean (≈1.25cm play)"
+    zh: "左侧7.5mm至右侧5mm（约1.25cm浮动）"
 
 noteEn: "405g, on the heavier side. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box."
 noteZh: "405g，略重。因装箱方式不同存在个体差异。手办在箱内会向各方向移动。"
 
 tipEn: >
-  The COG stays low — anywhere from 2.5cm down to just 5mm above the bottom —
-  and hugs the back wall, so the box is bottom-back heavy and will not tip
-  early. You have to push it well past the halfway point before it commits;
-  use a firm, continuous push rather than taps so the low center of gravity
-  carries it over. The ~2cm vertical play means the exact drop height shifts,
-  but a low COG box always falls late, so keep the claw on the back half and
-  be patient with the first attempt.
+  The weight stays clearly below mid-height — between 5mm and 2.5cm under the
+  centre line — which makes this a stable box that will not fall over however
+  you hit it. Slide it instead, pushing low and a little behind centre where
+  the 5mm to 1cm back bias sits. At 405g it's on the heavier side, so each
+  push moves it only a short way and you'll need a few. The side lean crosses
+  the middle, so don't rely on it; the figure is loose, so let it settle each
+  time.
 tipZh: >
-  重心很低——位于距底部2.5cm直至仅5mm之间——且紧贴后壁，因此箱子呈后下偏重，
-  不会提前翻落。必须把它推过明显超过中点之后才会翻倒；宜用持续有力的推送而非
-  轻点，让低重心把箱子带过去。约2cm的垂直浮动会使确切翻落高度变化，但低重心箱体
-  总是偏晚翻落，因此把爪子保持在后半部，第一次尝试要有耐心。
+  重量明显低于半高——在中线下方5mm到2.5cm之间——这让它成为一个稳定的
+  箱子，不管你怎么撞都不会翻倒。改用滑动，从低处、略偏后、也就是距中心偏后5m
+  m到1cm的位置施力。405g偏重，每次推送只走一小段，需要推几次。侧重会越
+  过中间，所以不要依赖它；手办是松动的，每次都让它先停稳。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.08/2822023_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

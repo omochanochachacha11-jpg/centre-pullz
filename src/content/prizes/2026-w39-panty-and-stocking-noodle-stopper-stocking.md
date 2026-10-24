@@ -13,29 +13,28 @@ boxWeight: "216g"
 boxSize: "20 × 12.5 × 12.5cm (H×W×D)"
 
 cog:
-  - en: "back 2.5mm to center (≈2.5mm play)"
-    zh: "后壁2.5mm至中央（约2.5mm浮动）"
-  - en: "bottom 1cm to 7.5mm (≈2.5mm play)"
-    zh: "底部1cm至7.5mm（约2.5mm浮动）"
-  - en: "right 2.5mm to 5mm side lean (≈2.5mm play)"
-    zh: "右侧2.5mm至5mm侧重（约2.5mm浮动）"
+  - en: "2.5mm back of centre to centred (≈2.5mm play)"
+    zh: "重心偏后2.5mm至居中（约2.5mm浮动）"
+  - en: "1cm to 7.5mm below centre (≈2.5mm play)"
+    zh: "重心偏下1cm至7.5mm（约2.5mm浮动）"
+  - en: "right 2.5mm to right 5mm side lean (≈2.5mm play)"
+    zh: "右侧2.5mm至右侧5mm（约2.5mm浮动）"
 
 noteEn: "216g, light box. Individual differences depending on how it's packed in the box. Blister packaging keeps the figure almost immobile inside the box."
 noteZh: "216g，箱子较轻。因装箱方式不同存在个体差异。吸塑包装让手办在箱内几乎不动。"
 
 tipEn: >
-  Front to back this box is effectively centred, and the only real feature is
-  that the weight sits low — about 1cm up from the floor of a 20cm box. Low
-  means no early tip: you will be pushing it along until the base is mostly
-  clear of the edge. There is a small 2.5–5mm lean to the right, enough that
-  it may drop slightly to that side. At 216g it is light and the figure is
-  locked in its tray, so the box is predictable — the same gentle push should
-  move it the same distance every time.
+  Everything on this box is within 1cm of centre, with the weight 7.5mm to 1cm
+  below mid-height, so it is close to balanced and slightly bottom-heavy — it
+  will not tip, so slide it. The small but consistent 2.5 to 5mm right lean is
+  the only directional cue worth using, so favour the right side. At 216g it's
+  light, so keep pushes small. The blister holds the figure almost immobile,
+  which makes the box very predictable attempt to attempt.
 tipZh: >
-  前后方向这个箱子基本居中，唯一的特点是重心偏低——距这个20cm高箱子的底部约1cm。
-  低意味着不会提前翻落：你得一路推到底部基本脱离边缘为止。右侧有2.5–5mm的小幅偏重，
-  足以让它略向那一侧掉。216g很轻，手办又被吸塑托固定住，所以箱子很好预测——同样
-  一下轻推，每次移动的距离都差不多。
+  这个箱子每个方向都在中心1cm以内，重量位于半高下方7.5mm到1cm，接近
+  平衡且略微底部偏重——它不会翻倒，所以用滑动。虽小但稳定的偏右2.5到5mm
+  是唯一值得利用的方向线索，所以优先右侧。216g很轻，推送幅度要小。吸塑让手
+  办几乎完全不动，这让箱子在每次尝试之间都非常可预测。
 
 imageUrl: "https://furyuprize.com/files/images/prz/pi-main-20451.webp"
 imageCredit: "Photo via Furyu (furyuprize.com)"

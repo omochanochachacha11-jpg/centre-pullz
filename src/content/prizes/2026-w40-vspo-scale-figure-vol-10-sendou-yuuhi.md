@@ -13,10 +13,10 @@ boxWeight: "323g"
 boxSize: "25 × 14 × 14cm (H×W×D)"
 
 cog:
-  - en: "2.5mm in from the front wall"
-    zh: "距前壁2.5mm"
-  - en: "5mm up from the bottom"
-    zh: "距底部5mm"
+  - en: "2.5mm forward of centre"
+    zh: "重心偏前2.5mm"
+  - en: "5mm below centre"
+    zh: "重心偏下5mm"
   - en: "right 2.5mm side lean"
     zh: "偏右2.5mm"
 
@@ -24,18 +24,18 @@ noteEn: "323g, normal box weight. Front-back is on the front side but close to c
 noteZh: "323g，箱子重量普通。前后方向偏前但接近中央，左右方向接近中央偏右。因装箱方式不同存在个体差异。手办在箱内不会移动。"
 
 tipEn: >
-  Almost everything here sits near the middle of the box, with the weight just
-  5mm up from the floor — so it is low and very balanced, which means it will
-  not fall over on its own. Don't waste pushes trying to flip it; slide it
-  steadily toward the gap instead. The tiny front and right bias gives you a
-  direction to favour, and because the figure is locked in place the box moves
-  the same distance for the same push, so once you find a working nudge you
-  can repeat it with confidence.
+  Almost everything here sits within 5mm of the middle of the box, with the
+  weight marginally below mid-height — so it is very balanced and will not
+  fall over on its own. Don't waste pushes trying to flip it; slide it
+  steadily toward the gap instead. The tiny front and right biases give you a
+  direction to favour, and because the figure does not move inside the box at
+  all, the same push produces the same distance every time — once you find a
+  working nudge you can repeat it with confidence.
 tipZh: >
-  这款几乎所有数据都集中在箱子中间，重量距底部仅5mm——又低又平衡，意味着它不会自己
-  倒下。不要浪费次数去推翻它，稳稳地把它朝缺口滑动就好。前侧与右侧那一点点偏向给了
-  你一个优先方向，而且手办被固定住，同样的力道推出同样的距离，所以找到有效的推法之
-  后就可以放心重复。
+  这款几乎所有数据都在箱子中间5mm以内，重量略低于半高——非常平衡，不会自己
+  倒下。不要浪费次数去推翻它，稳稳地把它朝缺口滑动就好。前侧与右侧那一点点偏向
+  给了你一个优先方向，而且手办在箱内完全不动，同样的力道每次推出同样的距离，所
+  以找到有效的推法之后就可以放心重复。
 
 imageUrl: "https://assets.gigo.co.jp/img/prizes/2026-09-vspo-02-01.jpg"
 imageCredit: "Photo via GENDA GiGO Entertainment (gigo.co.jp)"

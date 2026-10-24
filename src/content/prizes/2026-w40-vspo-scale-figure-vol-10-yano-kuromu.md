@@ -13,10 +13,10 @@ boxWeight: "355g"
 boxSize: "25 × 14 × 14cm (H×W×D)"
 
 cog:
-  - en: "2.5mm in from the front wall"
-    zh: "距前壁2.5mm"
-  - en: "5mm up from the bottom"
-    zh: "距底部5mm"
+  - en: "2.5mm forward of centre"
+    zh: "重心偏前2.5mm"
+  - en: "5mm below centre"
+    zh: "重心偏下5mm"
   - en: "right 5mm side lean"
     zh: "偏右5mm"
 
@@ -24,16 +24,17 @@ noteEn: "355g, normal box weight. Front-back is on the front side but close to c
 noteZh: "355g，箱子重量普通。前后方向偏前但接近中央。因装箱方式不同存在个体差异。手办在箱内不会移动。"
 
 tipEn: >
-  Same story as the Sendou Yuuhi release in this line: the weight sits just
-  5mm above the floor of the box and barely off centre, leaning 5mm to the
-  right. That low, centred load is the opposite of a tipper, so treat this as
-  a pure sliding job and work the box out over the edge right side first.
-  Nothing moves inside, so the box behaves identically on every push — find
-  the amount of force that shifts it a few millimetres and keep repeating it.
+  Nearly the same box as the Sendou Yuuhi release: the weight is 5mm below
+  mid-height and 2.5mm forward of centre, so it is balanced and stays upright
+  — sliding is the plan. The one slightly stronger cue is the 5mm lean to the
+  right, so favour that side. At 355g it's a normal weight needing a firm,
+  steady push. The figure does not move inside at all, which makes this an
+  easy one to read: every push behaves exactly the same.
 tipZh: >
-  与本系列的千灯夕阳款情况相同：重量距箱底仅5mm，几乎在正中，向右偏5mm。这种低而居
-  中的分布与"一推就倒"正好相反，所以把它当作纯粹的滑动作业，让右侧先越过边缘。箱内
-  毫无位移，每次推的反应都一样——找到能挪动几毫米的力道，持续重复即可。
+  这几乎和千灯夕阳那一箱相同：重量位于半高下方5mm、比中心靠前2.5mm，所
+  以它很平衡、会保持立着——只能用滑动。唯一稍强的线索是偏右5mm，所以优先那
+  一侧。355g属于普通重量，需要坚决而稳定的推送。手办在箱内完全不动，这让它
+  很好判断：每次推送的表现都完全一样。
 
 imageUrl: "https://assets.gigo.co.jp/img/prizes/2026-09-vspo-01.jpg"
 imageCredit: "Photo via GENDA GiGO Entertainment (gigo.co.jp)"

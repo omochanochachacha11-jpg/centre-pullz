@@ -13,28 +13,28 @@ boxWeight: "907g"
 boxSize: "27 × 18 × 14cm (H×W×D)"
 
 cog:
-  - en: "back 2.5mm to center (≈2.5mm play)"
-    zh: "后壁2.5mm至中央（约2.5mm浮动）"
-  - en: "2.5mm down from the top"
-    zh: "距顶部2.5mm"
+  - en: "2.5mm back of centre to centred (≈2.5mm play)"
+    zh: "重心偏后2.5mm至居中（约2.5mm浮动）"
+  - en: "2.5mm above centre"
+    zh: "重心偏上2.5mm"
   - en: "right 5mm side lean"
-    zh: "偏右5mm侧重"
+    zh: "偏右5mm"
 
 noteEn: "907g, very heavy box. Individual differences depending on how it's packed in the box. The figure barely moves inside the box."
 noteZh: "907g，箱子超重。因装箱方式不同存在个体差异。手办在箱内基本不晃动。"
 
 tipEn: >
-  This is a heavy box (907g) with the COG barely 2.5mm below the top and a 5mm
-  right-side lean — extremely top-heavy, so it tips the moment the top edge
-  clears the bridge. Don't try to lift it; a clean push across the top edge is
-  all it takes, and the weight does the rest. Grab slightly right of center to
-  counter the side lean. The figure barely moves in the box, so expect a
-  decisive, predictable fall — just make sure the claw can support the weight
-  on the way in.
+  At 907g this is one of the heaviest boxes in the database, and every reading
+  is within 5mm of centre — so there is no heavy side at all and it absolutely
+  will not tip. This is pure sliding, and slow: a 907g box in an 18 by 14cm
+  footprint moves a millimetre or two per push at best. Keep the claw centred,
+  push square, and be prepared to spend. The figure barely moves inside, so at
+  least the behaviour never changes on you.
 tipZh: >
-  这是超重箱体（907g），重心距顶部仅2.5mm且偏右5mm——重心极高，顶部边缘一过桥面
-  便会翻落。不要试图抬起，只需干净利落地推过顶缘，重量自会完成其余部分。抓取位置略
-  偏右以抵消侧偏。箱内几乎不动，翻落应果断且可预测——但请确认爪子能承受得住这个重量。
+  907g是本数据库中最重的箱子之一，而每个方向的数据都在中心5mm以内——所
+  以完全没有偏重的一侧，它绝对不会翻倒。这是纯滑动，而且很慢：18乘14cm底
+  面里的907g箱子，每次推送最多只走一两毫米。让爪子保持居中、正对施力，并做
+  好多花几次的准备。手办在箱内几乎不动，至少它的表现不会变。
 
 
 imageUrl: "https://segaplaza.jp/images-v2/prize/D123236_7ece3c/large/D123236_01.webp"

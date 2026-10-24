@@ -13,25 +13,27 @@ boxWeight: "240g"
 boxSize: "18.5 × 14.5 × 7.5cm (H×W×D)"
 
 cog:
-  - en: "center to front 2.5mm (≈2.5mm play)"
-    zh: "中央至前壁2.5mm（约2.5mm浮动）"
-  - en: "2.25cm up from the bottom"
-    zh: "距底部2.25cm"
+  - en: "centred to 2.5mm forward of centre (≈2.5mm play)"
+    zh: "居中至偏前2.5mm（约2.5mm浮动）"
+  - en: "2.25cm below centre"
+    zh: "重心偏下2.25cm"
 
 noteEn: "240g, slightly light box. Individual differences depending on how it's packed in the box. The figure barely moves inside the box (held by a blister)."
 noteZh: "240g，箱子略轻。因装箱方式不同存在个体差异。手办在箱内基本不晃动（吸塑固定）。"
 
 tipEn: >
-  The center of gravity sits low — only 2.25cm up from the bottom — with a very
-  slight bias toward the front, so this is a stable, predictable box. Push it
-  across the bridge from the front edge: once the front half hangs over the gap
-  the low COG should let it tip cleanly. The box is light (240g), so a gentle,
-  steady push is enough — don't overshoot or it may slide past the claw. It
-  barely moves in the box, so the first touch should behave as measured.
+  The weight sits a long way below mid-height — 2.25cm under the centre line
+  of an 18.5cm box — which makes this genuinely bottom-heavy and completely
+  unwilling to tip. Push low, where the weight actually is, and slide it off
+  the edge; pushing high just rocks it and wastes the credit. Front-back is
+  near dead centre so there's no corner to favour. At 240g it's slightly
+  light, and the blister keeps the figure still, so each push behaves the
+  same. Note the post gives no left-right reading.
 tipZh: >
-  重心很低，距底部仅2.25cm，且略偏前壁，属于稳定、可预测的箱体。从前缘沿桥面推送，
-  前半部悬空后低重心会让箱子干脆翻落。箱体很轻（240g），轻推即可，切勿用力过猛导致
-  越过爪子。箱内几乎不动，首次接触的走向应与测量一致。
+  重量远低于半高——18.5cm箱子的中线下方2.25cm——这让它真正底部偏
+  重，完全不愿翻倒。请从低处、重量真正所在的位置施力，用滑动把它推出边缘；推高
+  处只会让它摇晃、浪费一次。前后接近正中心，没有值得挑的角。240g略轻，吸塑
+  让手办保持静止，所以每次推送反应一致。注意原帖没有给出左右方向的数据。
 
 
 imageUrl: "https://www.taito.co.jp/Content/images/zone/prize/480006200.jpg"

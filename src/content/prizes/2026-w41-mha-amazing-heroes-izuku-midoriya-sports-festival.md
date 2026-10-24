@@ -13,30 +13,29 @@ boxWeight: "340g"
 boxSize: "20 × 15 × 10cm (H×W×D)"
 
 cog:
-  - en: "back 1.5cm to 1.25cm (≈2.5mm play)"
-    zh: "后壁1.5cm至1.25cm（约2.5mm浮动）"
-  - en: "bottom 5mm to center (≈5mm play)"
-    zh: "底部5mm至中央（约5mm浮动）"
-  - en: "left 1.5cm to 1cm side lean (≈5mm play)"
-    zh: "左侧1.5cm至1cm侧重（约5mm浮动）"
+  - en: "1.5cm to 1.25cm back of centre (≈2.5mm play)"
+    zh: "重心偏后1.5cm至1.25cm（约2.5mm浮动）"
+  - en: "5mm below centre to centred (≈5mm play)"
+    zh: "重心偏下5mm至居中（约5mm浮动）"
+  - en: "left 1.5cm to left 1cm side lean (≈5mm play)"
+    zh: "左侧1.5cm至左侧1cm（约5mm浮动）"
 
 noteEn: "340g, normal box weight. Recreates the scene with Todoroki from episode 23. Reverse-packed units exist: of two obtained, one may be packed the other way round — back, center-to-top 5mm heavy, right side lean — so check before committing. Individual differences depending on how it's packed in the box. The figure moves slightly in all directions inside the box."
 noteZh: "340g，箱子重量普通。再现第23话与轰的场景。存在反向装箱的个体：两个中有一个可能装反——后壁、中部至顶部5mm偏重、偏右侧重——下手前请先确认。因装箱方式不同存在个体差异。手办在箱内各方向都有轻微移动。"
 
 tipEn: >
-  The weight sits low — between the floor of the box and halfway up — and well
-  back, about 1.25 to 1.5cm from the rear wall, with a clear lean to the left.
-  Low weight is the harder case, because the box prefers to slide along the
-  bridge rather than topple, so work the back lower corner on the left and
-  nudge it off the edge rather than trying to flip it. One warning: some boxes
-  are packed the opposite way round, with the weight high and to the right, so
-  look at how this one actually behaves on your first push before spending
-  more.
+  Check this one before committing: Merry☆An found reverse-packed units, where
+  the box reads back, slightly top-heavy and right-leaning instead — the
+  opposite side from the measurements here. As measured, the weight is at or
+  just below mid-height with a 1.25 to 1.5cm back bias and a strong 1 to 1.5cm
+  lean left, so the lower back left is the face to push and sliding is the
+  plan. At 340g it's a normal weight. Nudge it first to see which version you
+  have.
 tipZh: >
-  重量偏下——在箱底与半高之间——而且靠后，距后壁约1.25至1.5cm，明显偏左。重量在下方
-  比较难打，因为箱子更容易沿着桥面滑动而不是翻倒，所以针对左侧的后下角，把它一点点
-  推出边缘，而不是硬要翻过来。一个提醒：部分箱子是反向装的，重量在上方且偏右，所以
-  第一次推之后先看它实际的反应，再决定要不要继续投币。
+  下手之前请先确认：Merry☆An发现过反向装箱的个体，那种箱子读数是偏后、
+  略微头重、偏右——与这里的测量结果相反。按测量结果，重量在半高处或略低，距中
+  心偏后1.25到1.5cm，并明显偏左1到1.5cm，所以左后下方是该推的面，
+  打法是滑动。340g属于普通重量。请先轻碰，看清你拿到的是哪一种。
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.10/bae/2831682_a.jpg/500w_500h.jpg"
 imageCredit: "Photo via Banpresto (bsp-prize.jp)"

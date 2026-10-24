@@ -13,27 +13,29 @@ boxWeight: "559g"
 boxSize: "25 × 14 × 14cm (H×W×D)"
 
 cog:
-  - en: "back 2.5mm to center (≈2.5mm play)"
-    zh: "后壁2.5mm至中央（约2.5mm浮动）"
-  - en: "1.75cm down from the top"
-    zh: "距顶部1.75cm"
-  - en: "left 2.5mm to center side lean (≈2.5mm play)"
-    zh: "左偏中2.5mm侧重（约2.5mm浮动）"
+  - en: "2.5mm back of centre to centred (≈2.5mm play)"
+    zh: "重心偏后2.5mm至居中（约2.5mm浮动）"
+  - en: "1.75cm above centre"
+    zh: "重心偏上1.75cm"
+  - en: "left 2.5mm to centred side lean (≈2.5mm play)"
+    zh: "左侧2.5mm至居中（约2.5mm浮动）"
 
 noteEn: "559g, heavy box. Individual differences depending on how it's packed in the box. The figure barely moves inside the box."
 noteZh: "559g，箱子偏重。因装箱方式不同存在个体差异。手办在箱内基本不晃动。"
 
 tipEn: >
-  A heavy box (559g) with a fairly high COG — 1.75cm down from the top — so it
-  tips cleanly once the top edge crosses the bridge. The front-to-back COG is
-  shallow (back 2.5mm to center), so the fall direction is predictable. The
-  left-side bias is tiny (2.5mm to center) and barely matters. A firm push on
-  the upper half is all it should take; the figure barely moves in the box, so
-  the tipping point should hold across attempts.
+  The best vertical reading in this group: the weight sits a full 1.75cm above
+  mid-height, which is high enough that the box genuinely wants to roll over.
+  Push the upper part away from you and it should go. Front-back and
+  left-right are both within 2.5mm of centre, so push straight rather than
+  hunting a corner. At 559g it's heavy, so commit — a half-hearted push on a
+  box this heavy just rocks it. The figure barely moves inside, so your pushes
+  stay predictable.
 tipZh: >
-  偏重箱体（559g），重心较高——距顶部1.75cm——顶缘一过桥面即会干脆翻落。前后向
-  重心较浅（后壁2.5mm至中央），翻落方向可预测。左偏很小（2.5mm至中央），几乎
-  无需在意。对上半个箱体施加一次有力的推送即可；箱内几乎不动，翻落点应可复现。
+  这是本组中竖直数据最好的一款：重量位于半高上方整整1.75cm，高到足以让箱
+  子真的想要翻倒。朝远离自己的方向推上半部，它应该就会倒。前后和左右都在中心2
+  .5mm以内，所以直接正推，不必去找偏重的角。559g偏重，请果断施力——对
+  这么重的箱子半推半就只会让它摇晃。手办在箱内几乎不动，推送结果很好预测。
 
 
 imageUrl: "https://bsp-prize.jp/files_thumbnail/%E5%85%B1%E6%9C%89%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80/item/2026.08/2831680_a.jpg/500w_500h.jpg"

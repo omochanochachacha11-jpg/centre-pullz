@@ -13,27 +13,28 @@ boxWeight: "461g"
 boxSize: "24 × 15 × 14cm (H×W×D)"
 
 cog:
-  - en: "2cm in from the back wall"
-    zh: "距后壁2cm"
-  - en: "5mm down from the top"
-    zh: "距顶部5mm"
-  - en: "center–right 2.5mm (≈2.5mm play)"
-    zh: "中偏右2.5mm（约2.5mm浮动）"
+  - en: "2cm back of centre"
+    zh: "重心偏后2cm"
+  - en: "5mm above centre"
+    zh: "重心偏上5mm"
+  - en: "centred to right 2.5mm side lean (≈2.5mm play)"
+    zh: "居中至右侧2.5mm（约2.5mm浮动）"
 
 noteEn: "461g, slightly heavy. Individual differences depending on how it's packed in the box. The figure barely moves inside the box."
 noteZh: "461g，略重。因装箱方式不同存在个体差异。手办在箱内基本不晃动。"
 
 tipEn: >
-  Very top-heavy — the weight is just 5mm down from the top — with a slight
-  lean right and toward the back. Start by catching the top-right corner of
-  the box and pushing it across the bridge rather than lifting: the high
-  center of gravity makes the box tip cleanly once the top edge clears the
-  gap. It barely moves in the box, so the first touch should behave
-  predictably.
+  The useful number here is the depth: the weight sits a full 2cm behind the
+  centre of the box, so pushing the back face moves the heavy part directly
+  instead of just rocking the shell. Height is only 5mm above mid-height, so
+  don't expect a clean flip — this is mostly a sliding job with the back as
+  your lever. At 461g it's slightly heavy, so each push buys a few
+  millimetres. The figure barely moves inside, so repeat whatever shifts it.
 tipZh: >
-  重心极靠上（距顶部仅5mm），并略偏右、偏后。起手抓箱体右上角，沿桥面推过去
-  而非抬起：由于重心高，顶缘一过缺口箱体即会干脆翻落。箱内几乎不动，首次接触
-  的走向应相当可预测。
+  这里有用的数字是进深：重量位于箱子中心后方整整2cm，所以推后面可以直接带动
+  偏重的部分，而不只是晃动外壳。高度只比半高高出5mm，所以不要期待干脆的翻倒——
+  这主要是滑动作业，后面是你的杠杆。461g略重，每次推送只换来几毫米。手
+  办在箱内几乎不动，能推动它的力道请重复。
 
 imageUrl: "https://segaplaza.jp/images-v2/prize/D123318_56c52f/large/D123318_01.webp"
 imageCredit: "Photo via Sega (segaplaza.jp)"

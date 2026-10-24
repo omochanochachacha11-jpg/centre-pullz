@@ -13,28 +13,28 @@ boxWeight: "536g"
 boxSize: "25 × 14 × 14cm (H×W×D)"
 
 cog:
-  - en: "back 2.5mm to front 7.5mm (≈1cm play)"
-    zh: "后壁2.5mm至前壁7.5mm（约1cm浮动）"
-  - en: "bottom 2cm to top 1.5cm (≈3.5cm play)"
-    zh: "底部2cm至顶部1.5cm（约3.5cm浮动）"
-  - en: "center–right 5mm side lean (≈5mm play)"
-    zh: "中偏右5mm侧重（约5mm浮动）"
+  - en: "2.5mm back to 7.5mm forward of centre (≈1cm play)"
+    zh: "重心偏后2.5mm至偏前7.5mm（约1cm浮动）"
+  - en: "2cm below to 1.5cm above centre (≈3.5cm play)"
+    zh: "重心偏下2cm至偏上1.5cm（约3.5cm浮动）"
+  - en: "centred to right 5mm side lean (≈5mm play)"
+    zh: "居中至右侧5mm（约5mm浮动）"
 
 noteEn: "536g, heavy box. Individual differences depending on how it's packed in the box. The figure barely moves inside the box."
 noteZh: "536g，箱子偏重。因装箱方式不同存在个体差异。手办在箱内基本不晃动。"
 
 tipEn: >
-  This box has a wide COG range — up to 3.5cm of vertical play — so the weight
-  can sit anywhere from the bottom to near the top, and it also drifts
-  front-to-back by 1cm with a slight right-side lean. Don't rely on a single
-  aim point: drag it slowly across the bridge and let the box settle, then push
-  from the heavier side if it tilts. The right lean means it may rotate as it
-  tips, so keep the claw centered rather than cornered. Expect some wobble, and
-  treat the first attempt as a probe.
+  The widest vertical range in this group: the weight travels 3.5cm, from 2cm
+  below mid-height to 1.5cm above it, so the same box can be a stubborn slider
+  or a willing tipper. Don't rely on a single aim point — nudge it, let it
+  settle, and look before you commit. Settled high, push the upper part;
+  settled low, slide it. The small right lean means it may rotate as it goes,
+  so keep the claw centred. At 536g it's heavy, so pushes need to be firm.
 tipZh: >
-  该箱体重心范围很大——上下浮动达3.5cm，前后也有1cm漂移，并略偏右。不要只瞄准单一
-  落点：沿桥面缓慢拖动让箱子稳定，若发生倾斜则从较重一侧推送。右侧偏重可能导致翻落时
-  旋转，爪子宜居中而非抓角。请预期会有晃动，把第一次尝试当作试探。
+  这是本组中竖直范围最大的一款：重量行程3.5cm，从半高下方2cm到上方1.
+  5cm，所以同一个箱子可能很难滑，也可能很愿意翻。不要依赖单一落点——先轻碰、
+  让它稳定、看清之后再下手。停在高处就推上半部，停在低处就用滑动。轻微偏右意
+  味着它移动时可能旋转，所以爪子保持居中。536g偏重，推送需要坚决。
 
 
 imageUrl: "https://furyuprize.com/files/images/prz/pi-main-21760.webp"

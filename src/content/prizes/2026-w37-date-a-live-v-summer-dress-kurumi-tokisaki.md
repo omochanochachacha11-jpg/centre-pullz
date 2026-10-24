@@ -13,27 +13,29 @@ boxWeight: "344g"
 boxSize: "25 × 14 × 14cm (H×W×D)"
 
 cog:
-  - en: "back 5mm to front 5mm (≈1cm play)"
-    zh: "后壁5mm至前壁5mm（约1cm浮动）"
-  - en: "bottom 5mm to top 2.5mm (≈7.5mm play)"
-    zh: "底部5mm至顶部2.5mm（约7.5mm浮动）"
-  - en: "left 5mm to center side lean (≈5mm play)"
-    zh: "左侧5mm至中央侧重（约5mm浮动）"
+  - en: "5mm back to 5mm forward of centre (≈1cm play)"
+    zh: "重心偏后5mm至偏前5mm（约1cm浮动）"
+  - en: "5mm below to 2.5mm above centre (≈7.5mm play)"
+    zh: "重心偏下5mm至偏上2.5mm（约7.5mm浮动）"
+  - en: "left 5mm to centred side lean (≈5mm play)"
+    zh: "左侧5mm至居中（约5mm浮动）"
 
 noteEn: "344g, average box weight. Individual differences depending on how it's packed in the box. The figure moves in all directions inside the box."
 noteZh: "344g，箱重普通。因装箱方式不同存在个体差异。手办在箱内会向各方向移动。"
 
 tipEn: >
-  Every axis reads close to centre — within 5mm of the middle front-to-back,
-  vertically, and laterally — which means there is no heavy end to lever
-  against. A centred COG in a moderate 344g box is a patience target: it will
-  not flip early, but it also will not resist a steady push. Walk it squarely
-  toward the gap with repeated even pushes on the centre of the face, and let
-  it go over only once the base is genuinely past the edge.
+  Every reading on this box sits within 1cm of centre, and the weight hovers
+  right at mid-height, so there is no heavy side to lever against and it will
+  not fall over. Slide it steadily toward the gap with the claw centred. Both
+  the depth and the lean cross the middle, so don't commit to a side — nudge
+  it, let it settle, and look again, because the figure moves in all
+  directions inside. At 344g it's an average weight that takes a normal,
+  steady push.
 tipZh: >
-  各轴读数都接近中央——前后、上下、左右均在距中点5mm以内——意味着没有可供借力的重端。
-  344g中等重量配上居中的重心属于"耐心型"目标：它不会提前翻落，但也不会抵抗稳定的推送。
-  在正面中央反复均匀推送，把它端正地挪向缺口，直到底边确实越过边缘再让它翻下去。
+  这个箱子每个数据都在中心1cm以内，重量就在半高附近，所以没有偏重的一侧可以
+  借力，它也不会倒下。让爪子居中，稳稳地把它朝缺口滑动。进深和侧重都会越过中间，
+  所以不要锁定某一侧——先轻碰、让它稳定、再重新观察，因为手办在箱内各方向都
+  会移动。344g属于中等重量，用正常稳定的力道即可。
 
 imageUrl: "https://furyuprize.com/files/images/prz/pi-main-21621.webp"
 imageCredit: "Photo via Furyu (furyuprize.com)"

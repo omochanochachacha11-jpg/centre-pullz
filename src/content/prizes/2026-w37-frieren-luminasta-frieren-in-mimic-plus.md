@@ -13,28 +13,29 @@ boxWeight: "413g"
 boxSize: "19 × 15 × 10cm (H×W×D)"
 
 cog:
-  - en: "front 2.5mm to 5mm (≈2.5mm play)"
-    zh: "前壁2.5mm至5mm（约2.5mm浮动）"
-  - en: "1.5cm up from the bottom"
-    zh: "距底部1.5cm"
-  - en: "center to right 2.5mm side lean (≈2.5mm play)"
-    zh: "中央至右侧2.5mm侧重（约2.5mm浮动）"
+  - en: "2.5mm to 5mm forward of centre (≈2.5mm play)"
+    zh: "重心偏前2.5mm至5mm（约2.5mm浮动）"
+  - en: "1.5cm below centre"
+    zh: "重心偏下1.5cm"
+  - en: "centred to right 2.5mm side lean (≈2.5mm play)"
+    zh: "居中至右侧2.5mm（约2.5mm浮动）"
 
 noteEn: "413g, slightly heavy box. Individual differences depending on how it's packed in the box. Blister packaging keeps the figure almost immobile inside the box."
 noteZh: "413g，箱子略重。因装箱方式不同存在个体差异。内部为吸塑包装，手办在箱内几乎不动。"
 
 tipEn: >
-  Blister-packed, so the readings hold from attempt to attempt — the main
-  reason this one is worth planning rather than probing. The mass is pressed
-  right up against the front wall (2.5–5mm) and sits low at 1.5cm, with only
-  a token lean right. Push the front face near the base and the box will
-  rotate forward over its own front edge. The shallow 10cm depth means there
-  is not much base holding it back once the weight passes the lip.
+  The weight sits 1.5cm below mid-height, low enough that the box stays firmly
+  upright, so don't try to flip it — push low and slide it off the edge. The
+  small forward bias of 2.5 to 5mm means the front face is marginally the
+  better place to work. At 413g it's slightly heavy, so each push buys a few
+  millimetres. The blister keeps the figure almost immobile, which makes this
+  a very readable box: whatever happens on your first push happens on all of
+  them.
 tipZh: >
-  吸塑固定，读数在多次尝试间保持稳定——这正是它值得制定方案而非反复试探的原因。
-  重量紧贴前壁（距前壁2.5–5mm）且位置偏低（距底部1.5cm），仅有轻微右偏。推送正面
-  靠近箱底处，箱子即会绕自身前缘向前翻转。10cm的浅深度意味着一旦重量越过边缘，
-  底面能提供的阻力有限。
+  重量位于半高下方1.5cm，低到足以让箱子稳稳立着，所以别想推翻它——从低处
+  施力，用滑动把它推出边缘。偏前2.5到5mm的轻微特征意味着前面稍微是更好的
+  着力处。413g略重，每次推送只换来几毫米。吸塑让手办几乎完全不动，这让箱子
+  非常好判断：第一次推送发生的事，之后每一次都会重演。
 
 imageUrl: "https://segaplaza.jp/images-v3/prize/D123386_4e41c7/large/D123386_01.webp"
 imageCredit: "Photo via Sega (segaplaza.jp)"
