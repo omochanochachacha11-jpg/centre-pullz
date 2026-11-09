@@ -76,13 +76,19 @@ KISUKE URAHARA, 千燈ゆうひ and both ダンシングポチタ. Always prefer
 body when it starts with `＃重心情報`, and sanity-check the axis count: these
 posts almost always carry three `🟨` lines, so two is a red flag.
 
-**Completeness check:** `https://publish.twitter.com/oembed?url=<tweet url>`
-marks truncation with a trailing `…` — but oembed also caps its *own* render at
-roughly 200 characters of body, so a trailing `…` on a long post proves nothing.
-Compare where it cuts off against your body instead of trusting the `…`.
-Likewise `"note_tweet" in response` is not a truncation signal: it is usually
-just `{"entities":{...}}`. The reliable tell that syndication truncated is a `…`
-inside the `text` field itself.
+**Fetch the archive body for every post — don't try to detect truncation.**
+Syndication usually truncates with **no marker at all**: it cuts mid-word and
+appends the trailing `https://t.co/…` link, so the body reads as if it ended
+normally. On 2026-11-09 a run that only fetched the archive when `text`
+contained `…` would have written 24 of 25 entries with one or two of the three
+axes missing (and 13 with the whole `【Box size】` line gone) — every one of
+them came back complete from the archive. A `…` inside `text` does prove
+truncation; its absence proves nothing.
+
+`https://publish.twitter.com/oembed?url=<tweet url>` also marks truncation with
+a trailing `…`, but it caps its *own* render at roughly 200 characters of body,
+so a trailing `…` there proves nothing either. Likewise `"note_tweet" in
+response` is not a truncation signal: it is usually just `{"entities":{...}}`.
 
 If a post is still truncated and has no snapshot yet (i.e. posted in the last
 day or two), **skip it** — the next run will pick it up. Dedupe is by
@@ -187,16 +193,19 @@ not evidence either way; confirm on the other makers' sites before concluding.
 
 Brand → maker, confirmed so far:
 
-- **Furyu** — ぬーどるストッパー, BiCute, Exc∞d, Trio-Try-iT, サマードレス, ムチュート
+- **Furyu** — ぬーどるストッパー, BiCute, Exc∞d, Trio-Try-iT, サマードレス, ムチュート,
+  melffy figure
 - **Banpresto** — Grandista, MAXIMATIC, MAXIMATICPLUS, MATCH MAKERS,
   History Box, Mometria, GLITTER&GLAMOURS, ESPRESTO, SOFVIMATES,
   Eternal Romance, フィギュア-sweets flavor-, 英雄勇像, おすわりフィギュア,
   にゃーるずこれくしょん, Fluffy Puffy, THE AMAZING HEROES, VIBRATION STARS,
   HUNTING ARCHIVES, フィグライフ, BANPRESTO EVOLVE, -Relax time-, Glasscape,
-  Holiday Memories
+  Holiday Memories, Memorable Saga, 忍界造形列伝, ソフビフィギュア,
+  俺たちのフィギュア, ～五影集結…!!～
 - **Sega** — Luminasta, XStellar, Yumemirize, FIGURIZMα, XrossLink, XrossLinkMAX,
   ハイプレミアムフィギュア, ちょこのせ, テルマエ・湯～とぴあ
-- **Taito** — Aqua Float Girls, Desktop Cute, Coreful, AMP+, T-most, Ravitier
+- **Taito** — Aqua Float Girls, Desktop Cute, Coreful, AMP+, T-most, Ravitier,
+  MOFLOCK
 - **System Service** — Vivit, One-Seventh Carat, BRILLIANT
 - **GENDA GiGO Entertainment** — anything marked GiGO限定 / ～GiGOグループのお店限定～
   (ぶいすぽっ！スケールフィギュア, ハイグレードフィギュア)
@@ -213,6 +222,20 @@ confirmed per the rule above. Those posts (`2082763222126612702`,
 `2082762208300462270`, and the ザ・ボス / ネイキッド・スネーク pair
 `2080326319758516530`, `2080325891637547273`) are **deliberately unharvested**;
 don't write them until a Konami route exists.
+
+**Trap 4:** Furyu's search only indexes items currently in rotation, so a prize
+from a few months back returns 0 results even though the brand is unmistakably
+Furyu (seen 2026-11-09 on STEINS;GATE 牧瀬紅莉栖 and NIKKE バイパー, both
+ぬーどるストッパー). There is no archive route; those two were written with the
+tweet photo credited to Merry☆An. The brand table above still settles the
+manufacturer — don't let a 0-result search talk you out of it.
+
+For System Service, `/topics/detail.php?id=<id>` lists each product with its own
+`SS<n>` code in text order; `https://fans.co.jp/topics/img/SS<n>_1` is that one
+product's shot, which beats the article thumbnail when a topic covers several
+prizes. Check the picture matches the character before using it — the order of
+the `SS` codes in the HTML follows the order the products are described, but
+nothing ties a code to a name explicitly.
 
 Set `imageUrl` to the official product image and `imageCredit` to
 `Photo via <Maker> (<domain>)`. Verify it returns HTTP 200 with an `image/*`
