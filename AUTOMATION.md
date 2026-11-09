@@ -132,6 +132,13 @@ work — never re-add an existing tweet URL.
 - Prize name (the lines after `＃重心情報`)
 - `【Figure size】` e.g. `21cm` or `16×12cm`
 - `【Box weight】` e.g. `405g` (qualifiers like 箱やや重め → note, not the value)
+
+  **Posts from early July 2026 and earlier use an older layout**: `▶️` as the
+  COG bullet instead of `🟨`, and Japanese field labels — `【重量】` for box
+  weight, `【箱サイズ】` for box size, `【フィギュアサイズ】` for figure size.
+  Same semantics, same parse. Match both sets of markers: on 2026-11-09 a
+  `🟨`-only axis counter reported zero axes for 11 genuine measurement posts
+  and they were nearly discarded as announcements.
 - `【Box size】縦H×横W×奥行Dcm` → `H × W × Dcm (H×W×D)`
 - COG lines `🟨裏/上/右/左/中/表…` (㍉ = mm, ㎝ = cm). Ranges like
   `上2.5㍉〜7.5㍉重心(5㍉幅動)` keep both ends and the play figure.
@@ -226,9 +233,24 @@ don't write them until a Konami route exists.
 **Trap 4:** Furyu's search only indexes items currently in rotation, so a prize
 from a few months back returns 0 results even though the brand is unmistakably
 Furyu (seen 2026-11-09 on STEINS;GATE 牧瀬紅莉栖 and NIKKE バイパー, both
-ぬーどるストッパー). There is no archive route; those two were written with the
-tweet photo credited to Merry☆An. The brand table above still settles the
-manufacturer — don't let a 0-result search talk you out of it.
+ぬーどるストッパー). The brand table above still settles the manufacturer —
+don't let a 0-result search talk you out of it. Two archive routes usually
+recover the image anyway:
+
+1. **Name → code.** Archived snapshots of `furyuprize.com/schedule` list
+   upcoming prizes with their item codes, so crawling those snapshots builds a
+   name→code map covering items long gone from the live search.
+2. **Code → real image URL.** Fetch the archived `furyuprize.com/item/<code>`
+   page and read the actual `/files/images/prz/...` `src` out of it. Do **not**
+   construct the filename: `pi-main-<code>` is `.webp` for some items and
+   `.jpg` for others (21108 and 21111 are both `.jpg`, and the `.webp` guesses
+   404'd). The live CDN still serves these files even when the item page itself
+   is a 404, so a recovered URL works.
+
+When neither route finds the item (seen on STEINS;GATE 牧瀬紅莉栖, NIKKE
+バイパー, ローゼンメイデン 真紅 and HUNTER×HUNTER ヒソカ), write the entry with
+the tweet photo credited to Merry☆An. `imageUrl` and `diagramUrl` then point at
+the same picture — acceptable, but flag it in the run report.
 
 For System Service, `/topics/detail.php?id=<id>` lists each product with its own
 `SS<n>` code in text order; `https://fans.co.jp/topics/img/SS<n>_1` is that one
