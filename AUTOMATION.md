@@ -188,6 +188,7 @@ catalogue site. Verified working routes:
 | Sega | `https://segaplaza.jp/search/?q=<kw>&type=prize` (needs a browser — JS-rendered) | `og:image` on `/prize/<CODE>/`, readable by curl (path is `images-v3`) |
 | Taito | `https://www.taito.co.jp/api/Prize/?date=&isDesc=true&keyword=&limit=100&offset=<n>&sortName=TaitoPrizeRank` — JSON, curl-friendly; page with `offset`. **Only ~178 records: current stock only**, useless for backfill. `keyword` and `date` are accepted but both ignored. For anything older use `/api/PrizeProduct/?aspMemberID=0000000002&isDesc=true&limit=100&offset=<n>&sortName=TaitoPrizeRank` — the **full catalogue, ~6,600 records back to 2007**; filter locally on `ProductName` | `/api/Prize/`: `BaseShoppingProductData.ImageName01` → `https://www.taito.co.jp/Content/images/zone/prize/<name>`. `/api/PrizeProduct/`: use `ImageFullPathName01` as-is (different path, `/zone/2/item/201407/<uuid>_p_01_ja.jpg`) |
 | GENDA GiGO Entertainment | `https://www.gigo.co.jp/search?q=<kw>` (server-rendered, curl-friendly; `/prizes/?s=` is **ignored**) | no usable `og:image` — the product shot is `https://assets.gigo.co.jp/img/prizes/<slug>.jpg`, found in the `/prizes/<slug>` HTML |
+| Konami Arcade Games | **`https://p.eagate.573.jp/game/prize/collection/top/index.html`** — コナミプライズコレクション, their own prize site. No search; it is a dated feed of every prize item, newest first, going back years. Needs a browser (the item cards are JS-rendered; curl gets only the nav). Match on the release date — it lines up with Merry☆An's post date — then open the item. Reached from `konami.com/arcadegames/products/search/?cat=am&platform=prize` → コナミプライズコレクション | `/game/prize/collection/prize/index.html?prize_sno=<n>` carries the product name and one `<img>` at `https://p.eagate.573.jp/game/prize/collection/img/prize/item/item_<YYYY>/<MM>/<n>_1.jpg`. Also JS-rendered — read it from the live DOM, not the HTML source |
 | System Service | **`https://fans.co.jp/`** is their own site. No catalogue or search — only a paged news feed at `/topics/` and `/topics/?p=2..5` (server-rendered, curl-friendly), roughly one page per two months. Grep the listing HTML for the character or brand name | the article thumbnail `https://fans.co.jp/data/photo/topics/t/<n>.jpg` on `/topics/detail.php?id=<id>` **is** the product shot. (`/topics/img/SS<n>_1` is the same shot at full size, extensionless but served as `image/jpeg`.) Older items also appear on `taito.co.jp/Content/images/zone/prize/…` while in stock |
 
 Banpresto's own item page is authoritative over the filename: `/item/2853195/`
@@ -229,19 +230,26 @@ Brand → maker, confirmed so far:
 - **System Service** — Vivit, One-Seventh Carat, BRILLIANT
 - **GENDA GiGO Entertainment** — anything marked GiGO限定 / ～GiGOグループのお店限定～
   (ぶいすぽっ！スケールフィギュア, ハイグレードフィギュア)
+- **Konami Arcade Games** — コナミプライズコレクション, and the series under it:
+  フィギュアコレクション, ふぃぐきゅーぶ, ですくぷっと, Masquerade, 武(もののふ),
+  Equal Arts, デスクトップアーケードコレクション
 
 **Trap 3:** `gigo.co.jp/prizes/<slug>` is GiGO's *store* listing and carries
 other makers' products too — same trap as taito.co.jp/prize/. It only
 establishes the maker for items marked GiGO限定 / ～GiGOグループのお店限定～.
 名探偵コナン XrossLink has a GiGO page but is Sega.
 
-Makers outside the table do appear. `METAL GEAR SOLID Δ: SNAKE EATER
-フィギュアコレクション` (2026-07) is by （株）コナミアーケードゲームス, which has no
-public prize catalogue — only aggregator sites list it, so the maker cannot be
-confirmed per the rule above. Those posts (`2082763222126612702`,
-`2082762208300462270`, and the ザ・ボス / ネイキッド・スネーク pair
-`2080326319758516530`, `2080325891637547273`) are **deliberately unharvested**;
-don't write them until a Konami route exists.
+**An unrecognised maker is never a reason to skip a post.** Every `＃重心情報`
+post with measurements gets an entry. If the brand isn't in the table, find the
+maker's own site and add a row — that is how the Konami row above came to
+exist. The four `METAL GEAR SOLID Δ: SNAKE EATER フィギュアコレクション` posts
+(`2080325891637547273`, `2080326319758516530`, `2082762208300462270`,
+`2082763222126612702`) sat unharvested from 2026-07 to 2026-11-15 on the
+mistaken belief that （株）コナミアーケードゲームス had no public prize catalogue.
+It does — see the Konami row. If a maker genuinely cannot be confirmed after
+looking, still write the entry: use the tweet's own photo credited to Merry☆An
+and leave `manufacturer` as the brand name, then flag it in the run report.
+Never silently drop the post.
 
 **Trap 4:** Furyu's search only indexes items currently in rotation, so a prize
 from a few months back returns 0 results even though the brand is unmistakably
