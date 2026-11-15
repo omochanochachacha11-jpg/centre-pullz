@@ -24,6 +24,14 @@ each, which step 2 needs.
 Tweet IDs are Snowflake IDs, so you can date-filter before fetching anything:
 `((id >> 22) + 1288834974657)` is the post time in epoch ms.
 
+**Where the backlog actually is.** As of 2026-11-15, sorting unseen IDs
+newest-first and walking them: candidates 0–1060 (2026-08-20 → present) yield
+almost nothing new — that window is harvested out, and the few `＃重心情報`
+posts left in it are recolour announcements with no measurements. The real
+backlog starts around candidate 1060 (2026-08-15 and older), which returned 98
+measurement posts in its next 1,200 candidates, nearly all in the older `▶️`
+layout. Start a backfill pass there rather than re-walking the recent window.
+
 For the last day or two — too recent to be archived — `curl https://x.com/6eS8Jm4YNJpPA2D`
 still embeds the ~5 most recent IDs.
 
@@ -94,12 +102,16 @@ If a post is still truncated and has no snapshot yet (i.e. posted in the last
 day or two), **skip it** — the next run will pick it up. Dedupe is by
 `sourceUrl`, so a thin entry written now is never corrected later.
 
-**Some older captures replay as 404** even with `id_`, so the body can never be
-recovered for those IDs. CDX lists them like any other capture (the default
-`fl` doesn't include `statuscode`), and the 404 body is Wayback's own HTML, not
-JSON — so the `note_tweet` check above catches it. A long post whose only
-capture 404s is permanently unharvestable; skip it. Seen on
-`2083107288311836966`, `2084579076745101602`, `2085285259218964907`.
+**Some older captures replay as 404** even with `id_`. CDX lists them like any
+other capture (the default `fl` doesn't include `statuscode`), and the 404 body
+is Wayback's own HTML, not JSON — so the `note_tweet` check above catches it.
+
+**Treat a 404 replay as transient, not permanent.** On 2026-10-11 the IDs
+`2083107288311836966`, `2084579076745101602` and `2085285259218964907` all
+404'd and were written off as unharvestable. On 2026-11-15 the first and third
+replayed complete bodies with three axes each and were harvested normally; only
+`2084579076745101602` still 404s. So skip a 404 for the current run and let a
+later run retry it, rather than recording the ID as dead.
 
 **Skip retweets.** Merry☆An re-posts their own measurement tweets, and
 syndication silently resolves a retweet to the original: ask for the RT's id
@@ -206,6 +218,7 @@ Brand → maker, confirmed so far:
   History Box, Mometria, GLITTER&GLAMOURS, ESPRESTO, SOFVIMATES,
   Eternal Romance, フィギュア-sweets flavor-, 英雄勇像, おすわりフィギュア,
   にゃーるずこれくしょん, Fluffy Puffy, THE AMAZING HEROES, VIBRATION STARS,
+  BoC'z, BLOOD OF SAIYANS, ダンガンロンパ１・２ Reload,
   HUNTING ARCHIVES, フィグライフ, BANPRESTO EVOLVE, -Relax time-, Glasscape,
   Holiday Memories, Memorable Saga, 忍界造形列伝, ソフビフィギュア,
   俺たちのフィギュア, ～五影集結…!!～
@@ -247,8 +260,17 @@ recover the image anyway:
    404'd). The live CDN still serves these files even when the item page itself
    is a 404, so a recovered URL works.
 
+Neither route is guaranteed. On 2026-11-15 ぬーどるストッパーフィギュアプラス
+－獅白ぼたん－ (2026-07) was missing from the live search, absent from every
+archived `schedule` snapshot in 2026-06…2026-10, and unreachable by code: the
+hololive batch around it (22374–22379) is contiguous and contains only the
+百鬼あやめ noodle stopper plus plushes, so 獅白ぼたん sits elsewhere. Note also
+that `furyuprize.com/item/<code>` is **JS-rendered** — the HTML carries the
+`/files/images/prz/...` URLs but no product name, so a code probe can confirm
+that an item exists and get its image, never that it is the item you want.
+
 When neither route finds the item (seen on STEINS;GATE 牧瀬紅莉栖, NIKKE
-バイパー, ローゼンメイデン 真紅 and HUNTER×HUNTER ヒソカ), write the entry with
+バイパー, ローゼンメイデン 真紅, HUNTER×HUNTER ヒソカ and 獅白ぼたん), write the entry with
 the tweet photo credited to Merry☆An. `imageUrl` and `diagramUrl` then point at
 the same picture — acceptable, but flag it in the run report.
 
